@@ -23,6 +23,14 @@ setMethod("reporting", "EDA", reportingDisabled)
 
 reportingSimple <- function(eda, currGen, fEvals, pop, popEval, selectedPop,
     selectedEval, sampledPop, sampledEval) {
-  cat("Generation: ", currGen, ", Best: ", min(popEval), 
-      ", Mean: ", mean(popEval), ", Deviation: ", sd(popEval), "\n", sep = "")
+  printRow <- function(parts, ...) {
+    formated <- format(parts, width = 12, ...)
+    cat(paste(formated, collapse = "    "), "\n")
+  }
+  if (currGen == 0) {
+    printRow(list("Generation", "Minimum", "Mean", "Deviation"), 
+        justify = "centre")
+  }
+  printRow(list(paste(currGen), min(popEval), mean(popEval), sd(popEval)),
+      justify = "right", scientific = TRUE)
 }
