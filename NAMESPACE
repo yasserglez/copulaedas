@@ -1,0 +1,40 @@
+# Imports.
+
+import(methods)
+import(stats)
+import(mvtnorm)
+
+
+# Classes and generics.
+
+exportClasses(EDA)
+exportClasses(EMNAg)
+exportClasses(EMNAa)
+exportClasses(EMNAi)
+
+exportMethods(seeding)
+exportMethods(selection)
+exportMethods(learning)
+exportMethods(sampling)
+exportMethods(repairing)
+exportMethods(replacement)
+exportMethods(optimization)
+exportMethods(termination)
+exportMethods(reporting)
+
+exportMethods(run)
+
+
+# Exported functions.
+
+exportPattern("^seeding")
+exportPattern("^selection")
+exportPattern("^learning")
+exportPattern("^sampling")
+exportPattern("^repairing")
+exportPattern("^replacement")
+exportPattern("^optimization")
+exportPattern("^termination")
+exportPattern("^reporting")
+
+exportPattern("^run")
