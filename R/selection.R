@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-selectionTruncation <- function(eda, currGen, pop, popEval) {
+selectionTruncation <- function (eda, currGen, pop, popEval) {
   truncFactor <- eda@selectionArgs$truncFactor
   if (is.null(truncFactor)) truncFactor <- 0.5
   popOrder <- order(popEval)

@@ -14,21 +14,21 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-samplingError <- function(eda, currGen, model, popSize, lower, upper) {
+samplingError <- function (eda, currGen, model, popSize, lower, upper) {
   stop("sampling method not specified")
 }
 
 setMethod("sampling", "EDA", samplingError)
 
 
-samplingEMNAg <- function(eda, currGen, model, popSize, lower, upper) {
+samplingEMNAg <- function (eda, currGen, model, popSize, lower, upper) {
   rmvnorm(popSize, model$mu, model$sigma)
 }
 
 setMethod("sampling", "EMNAg", samplingEMNAg)
 
 
-samplingEMNAai <- function(eda, currGen, model, popSize, lower, upper) {
+samplingEMNAai <- function (eda, currGen, model, popSize, lower, upper) {
   rmvnorm(1, model$mu, model$sigma)
 }
 

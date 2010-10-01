@@ -14,15 +14,16 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-repairingDisabled <- function(eda, currGen, pop, lower, upper) {
+repairingDisabled <- function (eda, currGen, pop, lower, upper) {
   pop
 }
 
+setMethod("repairing", "EDA", repairingDisabled)
 
-repairingBounds <- function(eda, currGen, pop, lower, upper) {
+
+repairingBounds <- function (eda, currGen, pop, lower, upper) {
   lowerMatrix <- matrix(lower, nrow = nrow(pop), ncol = ncol(pop), byrow = TRUE)
   upperMatrix <- matrix(upper, nrow = nrow(pop), ncol = ncol(pop), byrow = TRUE)
   ifelse(pop < lowerMatrix, lower, ifelse(pop > upperMatrix, upper, pop))
 }
 
-setMethod("repairing", "EDA", repairingBounds)

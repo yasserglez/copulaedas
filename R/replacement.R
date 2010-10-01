@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-replacementFull <- function(eda, currGen, pop, popEval, selectedPop,
+replacementFull <- function (eda, currGen, pop, popEval, selectedPop,
     selectedEval, sampledPop, sampledEval) {
   list(pop = sampledPop, popEval = sampledEval)
 }
@@ -22,7 +22,7 @@ replacementFull <- function(eda, currGen, pop, popEval, selectedPop,
 setMethod("replacement", "EDA", replacementFull)
 
 
-replacementEMNAa  <- function(eda, currGen, pop, popEval, selectedPop,
+replacementEMNAa  <- function (eda, currGen, pop, popEval, selectedPop,
     selectedEval, sampledPop, sampledEval) {
   if (any(sampledEval < popEval)) {
     i <- which.max(popEval)
@@ -35,7 +35,7 @@ replacementEMNAa  <- function(eda, currGen, pop, popEval, selectedPop,
 setMethod("replacement", "EMNAa", replacementEMNAa)
 
 
-replacementEMNAi <- function(eda, currGen, pop, popEval, selectedPop,
+replacementEMNAi <- function (eda, currGen, pop, popEval, selectedPop,
     selectedEval, sampledPop, sampledEval) {
   list(pop = rbind(pop, sampledPop), popEval = c(popEval, sampledEval))
 }

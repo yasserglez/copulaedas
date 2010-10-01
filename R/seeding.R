@@ -14,8 +14,8 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-seedingUniform <- function(eda, popSize, lower, upper) {
-  sapply(seq(along = lower), function(i) runif(popSize, lower[i], upper[i]))
+seedingUniform <- function (eda, popSize, lower, upper) {
+  sapply(seq(along = lower), function (i) runif(popSize, lower[i], upper[i]))
 }
 
 setMethod("seeding", "EDA", seedingUniform)

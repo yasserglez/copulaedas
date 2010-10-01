@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-terminationMaxGen <- function(eda, currGen, fEvals, pop, popEval) {
+terminationMaxGen <- function (eda, currGen, fEvals, pop, popEval) {
   maxGen <- eda@terminationArgs$maxGen
   if (is.null(maxGen)) maxGen <- 100
   currGen >= maxGen
@@ -23,14 +23,14 @@ terminationMaxGen <- function(eda, currGen, fEvals, pop, popEval) {
 setMethod("termination", "EDA", terminationMaxGen)
 
 
-terminationMaxEvals <- function(eda, currGen, fEvals, pop, popEval) {
+terminationMaxEvals <- function (eda, currGen, fEvals, pop, popEval) {
   maxEvals <- eda@terminationArgs$maxEvals
-  if (is.null(maxEvals)) maxEvals <- 10000
+  if (is.null(maxEvals)) maxEvals <- 1000
   fEvals >= maxEvals
 }
 
 
-terminationEval <- function(eda, currGen, fEvals, pop, popEval) {
+terminationEval <- function (eda, currGen, fEvals, pop, popEval) {
   fEval <- eda@terminationArgs$fEval
   fEvalTol <- eda@terminationArgs$fEvalTol
   if (is.null(fEval)) fEval <- 0 
@@ -39,11 +39,11 @@ terminationEval <- function(eda, currGen, fEvals, pop, popEval) {
 }
 
 
-terminationCombined <- function(..., requireAll = FALSE) {
-  function(eda, currGen, fEvals, pop, popEval) {
+terminationCombined <- function (..., requireAll = FALSE) {
+  function (eda, currGen, fEvals, pop, popEval) {
     methods <- list(...)
     args <- list(eda, currGen, fEvals, pop, popEval)
-    results <- sapply(methods, function(method) do.call(method, args))
+    results <- sapply(methods, function (m) do.call(m, args))
     if (requireAll) all(results) else any(results)
   }
 }

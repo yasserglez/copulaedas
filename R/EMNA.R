@@ -19,12 +19,10 @@ setClass("EMNAg",
     prototype = prototype(
         name = "Estimation of Multivariate Normal Algorithm global"))
 
-
 setClass("EMNAa",
     contains = "EDA",
     prototype = prototype(
         name = "Estimation of Multivariate Normal Algorithm adaptive"))
-
  
 setClass("EMNAi", 
     contains = "EDA",

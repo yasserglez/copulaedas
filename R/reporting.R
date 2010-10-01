@@ -14,23 +14,22 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-reportingDisabled <- function(eda, currGen, fEvals, pop, popEval, selectedPop,
-    selectedEval, sampledPop, sampledEval) {
+reportingDisabled <- function (eda, currGen, fEvals, pop, popEval, 
+    selectedPop, selectedEval, sampledPop, sampledEval) {
 }
 
 setMethod("reporting", "EDA", reportingDisabled)
 
 
-reportingSimple <- function(eda, currGen, fEvals, pop, popEval, selectedPop,
-    selectedEval, sampledPop, sampledEval) {
-  printRow <- function(parts, ...) {
-    formated <- format(parts, width = 12, ...)
-    cat(paste(formated, collapse = "    "), "\n")
+reportingSimple <- function (eda, currGen, fEvals, pop, popEval, 
+    selectedPop, selectedEval, sampledPop, sampledEval) {
+  width <- max(getOption("digits") + 5, 18)
+  if (currGen == 1) {
+    rest <- format(c("Minimum", "Mean", "Standard Deviation"),
+        justify = "centre", width = width)
+    cat("Generation", rest, "\n")
   }
-  if (currGen == 0) {
-    printRow(list("Generation", "Minimum", "Mean", "Deviation"), 
-        justify = "centre")
-  }
-  printRow(list(paste(currGen), min(popEval), mean(popEval), sd(popEval)),
-      justify = "right", scientific = TRUE)
+  values <- c(min(sampledEval), mean(sampledEval), sd(sampledEval))
+  cat(format(currGen, width = 10),
+      format(values, scientific = TRUE, width = width), "\n")
 }

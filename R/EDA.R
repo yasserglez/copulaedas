@@ -40,54 +40,59 @@ setClass("EDA",
         reportingArgs = list()))
 
 
+# Functions implementing the parts of the EDAs.
+
 setGeneric("seeding",
-    signature = "eda",
-    def = function(eda, popSize, lower, upper) 
-            standardGeneric("seeding"))
+    function (eda, popSize, lower, upper)
+      standardGeneric("seeding"),
+    signature = "eda")
 
 setGeneric("selection",
-    signature = "eda",
-    def = function(eda, currGen, pop, popEval)
-            standardGeneric("selection"))
+    function (eda, currGen, pop, popEval)
+      standardGeneric("selection"),
+    signature = "eda")
 
 setGeneric("learning",
-    signature = "eda",
-    def = function(eda, currGen, oldModel, selectedPop, selectedEval)
-            standardGeneric("learning"))
+    function (eda, currGen, oldModel, selectedPop, selectedEval)
+      standardGeneric("learning"),
+    signature = "eda")
 
 setGeneric("sampling",
-    signature = "eda",
-    def = function(eda, currGen, model, popSize, lower, upper)
-            standardGeneric("sampling"))
+    function (eda, currGen, model, popSize, lower, upper)
+      standardGeneric("sampling"),
+    signature = "eda")
 
 setGeneric("repairing",
-    signature = "eda",
-    def = function(eda, currGen, pop, lower, upper)
-            standardGeneric("repairing"))
+    function (eda, currGen, pop, lower, upper)
+      standardGeneric("repairing"),
+    signature = "eda")
 
 setGeneric("replacement",
-    signature = "eda",
-    def = function(eda, currGen, pop, popEval, selectedPop, 
-              selectedEval, sampledPop, sampledEval) 
-            standardGeneric("replacement"))
+    function (eda, currGen, pop, popEval, 
+        selectedPop, selectedEval, sampledPop, sampledEval)
+      standardGeneric("replacement"),
+    signature = "eda")
 
 setGeneric("optimization",
-    signature = "eda",
-    def = function(eda, currGen, pop, popEval, f, lower, upper) 
-            standardGeneric("optimization"))
+    function (eda, currGen, pop, popEval, f, lower, upper)
+      standardGeneric("optimization"),
+    signature = "eda")
 
 setGeneric("termination",
-    signature = "eda",
-    def = function(eda, currGen, fEvals, pop, popEval) 
-            standardGeneric("termination"))
+    function (eda, currGen, fEvals, pop, popEval)
+      standardGeneric("termination"),
+    signature = "eda")
 
 setGeneric("reporting",
-    signature = "eda",
-    def = function(eda, currGen, fEvals, pop, popEval, selectedPop,
-              selectedEval, sampledPop, sampledEval)
-            standardGeneric("reporting"))
+    function (eda, currGen, fEvals, pop, popEval, selectedPop,
+        selectedEval, sampledPop, sampledEval)
+      standardGeneric("reporting"),
+    signature = "eda")
+
+
+# General functions on EDAs.
 
 setGeneric("run",
-    signature = "eda",
-    def = function(eda, popSize, f, lower, upper, ...)
-            standardGeneric("run"))
+    function (eda, popSize, f, lower, upper, trace = FALSE)
+      standardGeneric("run"),
+    signature = "eda")
