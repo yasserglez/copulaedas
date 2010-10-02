@@ -14,17 +14,93 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-setClass("EMNAg", 
-    contains = "EDA",
+setClass("EMNA",
+    contains = c("EDA", "VIRTUAL"),
+    prototype = prototype(
+        name = "Estimation of Multivariate Normal Algorithm"))
+
+setClass("EMNAg",
+    contains = "EMNA",
     prototype = prototype(
         name = "Estimation of Multivariate Normal Algorithm global"))
 
 setClass("EMNAa",
-    contains = "EDA",
+    contains = "EMNA",
     prototype = prototype(
         name = "Estimation of Multivariate Normal Algorithm adaptive"))
  
-setClass("EMNAi", 
-    contains = "EDA",
+setClass("EMNAi",
+    contains = "EMNA",
     prototype = prototype(
         name = "Estimation of Multivariate Normal Algorithm incremental"))
+
+
+learningEMNA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
+  list(mean = colMeans(selectedPop), sigma = cov(selectedPop))
+}
+
+setMethod("learning", "EMNA", learningEMNA)
+
+
+samplingEMNAg <- function (eda, currGen, model, popSize, lower, upper) {
+  rmvnorm(popSize, model$mean, model$sigma)
+}
+
+setMethod("sampling", "EMNAg", samplingEMNAg)
+
+
+samplingEMNAai <- function (eda, currGen, model, popSize, lower, upper) {
+  rmvnorm(1, model$mean, model$sigma)
+}
+
+setMethod("sampling", "EMNAa", samplingEMNAai)
+
+setMethod("sampling", "EMNAi", samplingEMNAai)
+
+
+replacementEMNAa  <- function (eda, currGen, pop, popEval, selectedPop,
+    selectedEval, sampledPop, sampledEval) {
+  if (any(sampledEval < popEval)) {
+    i <- which.max(popEval)
+    pop[i, ] <- sampledPop[1, ]
+    popEval[i] <- sampledEval[1]    
+  }
+
+  list(pop = pop, popEval = popEval)
+}
+
+setMethod("replacement", "EMNAa", replacementEMNAa)
+
+
+replacementEMNAi <- function (eda, currGen, pop, popEval, selectedPop,
+    selectedEval, sampledPop, sampledEval) {
+  list(pop = rbind(pop, sampledPop), popEval = c(popEval, sampledEval))
+}
+
+setMethod("replacement", "EMNAi", replacementEMNAi)
+
+
+runEMNAai <- function (eda, popSize, f, lower, upper, trace) {
+  edaClass <- class(eda)
+  shouldReset <- existsMethod("selection", edaClass)
+  selectionReal <- selectMethod("selection", edaClass)
+  selectionWrap <- function (eda, currGen, pop, popEval) {
+    if (currGen == 1) {
+      selectionReal(eda, currGen, pop, popEval)
+    } else {
+      seq(along = popEval)
+    }
+  }
+  setMethod("selection", edaClass, selectionWrap)
+  result <- callNextMethod()
+  removeMethod("selection", edaClass)
+  if (shouldReset) {
+    setMethod("selection", edaClass, selectionReal)
+  }
+  
+  result
+}
+
+setMethod("run", "EMNAa", runEMNAai)
+
+setMethod("run", "EMNAi", runEMNAai)

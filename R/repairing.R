@@ -19,11 +19,3 @@ repairingDisabled <- function (eda, currGen, pop, lower, upper) {
 }
 
 setMethod("repairing", "EDA", repairingDisabled)
-
-
-repairingBounds <- function (eda, currGen, pop, lower, upper) {
-  lowerMatrix <- matrix(lower, nrow = nrow(pop), ncol = ncol(pop), byrow = TRUE)
-  upperMatrix <- matrix(upper, nrow = nrow(pop), ncol = ncol(pop), byrow = TRUE)
-  ifelse(pop < lowerMatrix, lower, ifelse(pop > upperMatrix, upper, pop))
-}
-

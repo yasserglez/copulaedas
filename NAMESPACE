@@ -2,14 +2,18 @@
 
 import(methods)
 import(mvtnorm)
+import(copula)
+import(vines)
 
 
-# Classes and generics.
+# Classes and generic functions.
 
 exportClasses(EDA)
-exportClasses(EMNAg)
-exportClasses(EMNAa)
-exportClasses(EMNAi)
+exportClasses(EMNA, EMNAg, EMNAa, EMNAi)
+exportClasses(CEDA)
+exportClasses(VEDA)
+
+exportClasses(EDARun, TracedEDARun)
 
 exportMethods(seeding)
 exportMethods(selection)
@@ -26,14 +30,17 @@ exportMethods(run)
 
 # Exported functions.
 
-exportPattern("^seeding")
-exportPattern("^selection")
-exportPattern("^learning")
-exportPattern("^sampling")
-exportPattern("^repairing")
-exportPattern("^replacement")
-exportPattern("^optimization")
-exportPattern("^termination")
-exportPattern("^reporting")
+exportPattern("^seeding[A-Z]")
+exportPattern("^selection[A-Z]")
+exportPattern("^learning[A-Z]")
+exportPattern("^sampling[A-Z]")
+exportPattern("^repairing[A-Z]")
+exportPattern("^replacement[A-Z]")
+exportPattern("^optimization[A-Z]")
+exportPattern("^termination[A-Z]")
+exportPattern("^reporting[A-Z]")
 
-exportPattern("^run")
+exportPattern("^run[A-Z]")
+
+exportPattern("^f[A-Z]")
+export(fnorm)

@@ -20,24 +20,3 @@ replacementFull <- function (eda, currGen, pop, popEval, selectedPop,
 }
 
 setMethod("replacement", "EDA", replacementFull)
-
-
-replacementEMNAa  <- function (eda, currGen, pop, popEval, selectedPop,
-    selectedEval, sampledPop, sampledEval) {
-  if (any(sampledEval < popEval)) {
-    i <- which.max(popEval)
-    pop[i, ] <- sampledPop[1, ]
-    popEval[i] <- sampledEval[1]    
-  }
-  list(pop = pop, popEval = popEval)
-}
-
-setMethod("replacement", "EMNAa", replacementEMNAa)
-
-
-replacementEMNAi <- function (eda, currGen, pop, popEval, selectedPop,
-    selectedEval, sampledPop, sampledEval) {
-  list(pop = rbind(pop, sampledPop), popEval = c(popEval, sampledEval))
-}
-
-setMethod("replacement", "EMNAi", replacementEMNAi)

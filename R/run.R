@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-setOldClass("difftime")
+setOldClass("proc_time")
 
 setClass("EDARun",
     representation = representation(
@@ -27,7 +27,7 @@ setClass("EDARun",
         fEvals = "numeric",
         bestEval = "numeric",
         bestIndiv = "numeric",
-        totalTime = "difftime"))
+        totalTime = "proc_time"))
 
 setClass("TracedEDARun",
     contains = "EDARun",
@@ -49,7 +49,7 @@ runEDA <- function (eda, popSize, f, lower, upper, trace) {
   # Initialize global statistics of the run.
   numGens <- 0
   fEvals <- 0; fWrap <- function (...) { fEvals <<- fEvals + 1; f(...) }
-  totalTime <- Sys.time()
+  startTime <- proc.time()
   bestEval <- Inf
   bestIndiv <- NULL
   if (trace) {
@@ -74,45 +74,45 @@ runEDA <- function (eda, popSize, f, lower, upper, trace) {
     if (numGens == 1) {
       pop <- popEval <- NULL
       selectedPop <- selectedEval <- NULL
-      if (trace) selectionTimes <- c(selectionTimes, list(as.difftime(0, units = "secs")))
+      if (trace) selectionTimes <- c(selectionTimes, list(proc.time() - proc.time()))
       model <- NULL
-      if (trace) learningTimes <- c(learningTimes, list(as.difftime(0, units = "secs")))
-      if (trace) t0 <- Sys.time()
+      if (trace) learningTimes <- c(learningTimes, list(proc.time() - proc.time()))
+      if (trace) t0 <- proc.time()
       sampledPop <- seeding(eda, popSize, lower, upper)
-      if (trace) samplingTimes <- c(samplingTimes, list(Sys.time() - t0))
+      if (trace) samplingTimes <- c(samplingTimes, list(proc.time() - t0))
     } else {
-      if (trace) t0 <- Sys.time()
+      if (trace) t0 <- proc.time()
       selectedInd <- selection(eda, numGens, pop, popEval)
       selectedPop <- pop[selectedInd, ]
       selectedEval <- popEval[selectedInd]
-      if (trace) selectionTimes <- c(selectionTimes, list(Sys.time() - t0))
-      if (trace) t0 <- Sys.time()
+      if (trace) selectionTimes <- c(selectionTimes, list(proc.time() - t0))
+      if (trace) t0 <- proc.time()
       model <- learning(eda, numGens, model, selectedPop, selectedEval)
-      if (trace) learningTimes <- c(learningTimes, list(Sys.time() - t0))
-      if (trace) t0 <- Sys.time()
+      if (trace) learningTimes <- c(learningTimes, list(proc.time() - t0))
+      if (trace) t0 <- proc.time()
       sampledPop <- sampling(eda, numGens, model, popSize, lower, upper)
-      if (trace) samplingTimes <- c(samplingTimes, list(Sys.time() - t0))
+      if (trace) samplingTimes <- c(samplingTimes, list(proc.time() - t0))
     }
     
     # Evaluate the generated population.
-    if (trace) t0 <- Sys.time()
+    if (trace) t0 <- proc.time()
     sampledPop <- repairing(eda, numGens, sampledPop, lower, upper)
-    if (trace) repairingTimes <- c(repairingTimes, list(Sys.time() - t0))
-    if (trace) t0 <- Sys.time()
+    if (trace) repairingTimes <- c(repairingTimes, list(proc.time() - t0))
+    if (trace) t0 <- proc.time()
     sampledEval <- sapply(seq(length = nrow(sampledPop)), 
         function (i) fWrap(sampledPop[i, ]))
-    if (trace) evaluationTimes <- c(evaluationTimes, list(Sys.time() - t0))
-    if (trace) t0 <- Sys.time()
+    if (trace) evaluationTimes <- c(evaluationTimes, list(proc.time() - t0))
+    if (trace) t0 <- proc.time()
     optimResult <- optimization(eda, numGens, sampledPop, 
         sampledEval, fWrap, lower, upper)	
     sampledPop <- optimResult$pop
     sampledEval <- optimResult$popEval
-    if (trace) optimizationTimes <- c(optimizationTimes, list(Sys.time() - t0))
-    
+    if (trace) optimizationTimes <- c(optimizationTimes, list(proc.time() - t0))
+
     # Execute the function to report progress. 
     reporting(eda, numGens, fEvals, pop, popEval, selectedPop,
         selectedEval, sampledPop, sampledEval)
-    
+
     # Update global statistics of the run.
     if (min(sampledEval) < bestEval) {
       i <- which.min(sampledEval)
@@ -127,31 +127,28 @@ runEDA <- function (eda, popSize, f, lower, upper, trace) {
     }
     
     # Execute the replacement method.
-    if (trace) t0 <- Sys.time()
+    if (trace) t0 <- proc.time()
     replaceResult <- replacement(eda, numGens, pop, popEval, selectedPop, 
         selectedEval, sampledPop, sampledEval)
     pop <- replaceResult$pop
     popEval <- replaceResult$popEval
-    if (trace) replacementTimes <- c(replacementTimes, list(Sys.time() - t0))
+    if (trace) replacementTimes <- c(replacementTimes, list(proc.time() - t0))
     
     # Evaluate the termination conditions.
     if (termination(eda, numGens, fEvals, pop, popEval)) break
   }
   
-  # Update global statistics of the run.
-  totalTime <- Sys.time() - totalTime
-  
   result <- new("EDARun",
       eda = eda,
       popSize = popSize, 
       f = f,
-      lower = lower, 
+      lower = lower,
       upper = upper, 
       numGens = numGens,
       fEvals = fEvals,
       bestEval = bestEval,
       bestIndiv = bestIndiv,
-      totalTime = totalTime)
+      totalTime = proc.time() - startTime)
   
   if (trace) {
     result <- new("TracedEDARun", result,
@@ -172,28 +169,3 @@ runEDA <- function (eda, popSize, f, lower, upper, trace) {
 }
 
 setMethod("run", "EDA", runEDA)
-
-
-runEMNAai <- function (eda, popSize, f, lower, upper, trace) {
-  edaClass <- class(eda)
-  shouldReset <- existsMethod("selection", edaClass)
-  selectionReal <- selectMethod("selection", edaClass)
-  selectionWrap <- function (eda, currGen, pop, popEval) {
-    if (currGen == 1) {
-      selectionReal(eda, currGen, pop, popEval)
-    } else {
-      seq(along = popEval)
-    }
-  }
-  setMethod("selection", edaClass, selectionWrap)
-  result <- callNextMethod()
-  removeMethod("selection", edaClass)
-  if (shouldReset) {
-    setMethod("selection", edaClass, selectionReal)
-  }
-
-  result
-}
-
-setMethod("run", "EMNAa", runEMNAai)
-setMethod("run", "EMNAi", runEMNAai)

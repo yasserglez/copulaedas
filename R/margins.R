@@ -14,17 +14,8 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-learningError <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
-  stop("learning method not specified")
+# Functions used to estimate the parameters of the marginal distributions. 
+
+fnorm <- function (x) {
+  list(mean = mean(x), sd = sd(x))
 }
-
-setMethod("learning", "EDA", learningError)
-
-
-learningEMNA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
-  list(mu = colMeans(selectedPop), sigma = cov(selectedPop))
-}
-
-setMethod("learning", "EMNAg", learningEMNA)
-setMethod("learning", "EMNAa", learningEMNA)
-setMethod("learning", "EMNAi", learningEMNA)
