@@ -42,14 +42,22 @@ learningEMNA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
 setMethod("learning", "EMNA", learningEMNA)
 
 
-samplingEMNAg <- function (eda, currGen, model, popSize, lower, upper) {
+samplingEMNAg <- function (eda, currGen, model, lower, upper) {
+  popSize <- eda@options$popSize
+  
+  if (is.null(popSize)) popSize <- 100
+  
   rmvnorm(popSize, model$mean, model$sigma)
 }
 
 setMethod("sampling", "EMNAg", samplingEMNAg)
 
 
-samplingEMNAai <- function (eda, currGen, model, popSize, lower, upper) {
+samplingEMNAai <- function (eda, currGen, model, lower, upper) {
+  popSize <- eda@options$popSize
+  
+  if (is.null(popSize)) popSize <- 100
+
   rmvnorm(1, model$mean, model$sigma)
 }
 
@@ -80,7 +88,7 @@ replacementEMNAi <- function (eda, currGen, pop, popEval, selectedPop,
 setMethod("replacement", "EMNAi", replacementEMNAi)
 
 
-runEMNAai <- function (eda, popSize, f, lower, upper, trace) {
+runEMNAai <- function (eda, f, lower, upper, trace) {
   edaClass <- class(eda)
   shouldReset <- existsMethod("selection", edaClass)
   selectionReal <- selectMethod("selection", edaClass)

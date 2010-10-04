@@ -21,7 +21,7 @@ setClass("UMDA",
 
 
 learningUMDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
-  fmargin <- eda@learningOpts$fmargin
+  fmargin <- eda@options$fmargin
 
   if (is.null(fmargin)) fmargin <- fnorm
   
@@ -34,9 +34,11 @@ learningUMDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
 setMethod("learning", "UMDA", learningUMDA)
 
 
-samplingUMDA <- function (eda, currGen, model, popSize, lower, upper) {
-  qmargin <- eda@learningOpts$qmargin
+samplingUMDA <- function (eda, currGen, model, lower, upper) {
+  popSize <- eda@options$popSize
+  qmargin <- eda@options$qmargin
   
+  if (is.null(popSize)) popSize <- 100
   if (is.null(qmargin)) qmargin <- qnorm
   
   n <- length(lower)

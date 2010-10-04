@@ -18,32 +18,16 @@ setClass("EDA",
     contains = "VIRTUAL",
     representation = representation(
         name = "character",
-        seedingOpts = "list",
-        selectionOpts = "list",
-        learningOpts = "list",
-        samplingOpts = "list",
-        repairingOpts = "list",
-        replacementOpts = "list",
-        optimizationOpts = "list",
-        terminationOpts = "list",
-        reportingOpts = "list"),
+        options = "list"),
     prototype = prototype(
         name = "Estimation of Distribution Algorithm",
-        seedingOpts = list(),
-        selectionOpts = list(),
-        learningOpts = list(),
-        samplingOpts = list(),
-        repairingOpts = list(),
-        replacementOpts = list(),
-        optimizationOpts = list(),
-        terminationOpts = list(),
-        reportingOpts = list()))
+        options = list()))
 
 
 # Functions implementing the parts of the EDAs.
 
 setGeneric("seeding",
-    function (eda, popSize, lower, upper) 
+    function (eda, lower, upper) 
       standardGeneric("seeding"),
     signature = "eda",
     useAsDefault = FALSE)
@@ -61,7 +45,7 @@ setGeneric("learning",
     useAsDefault = FALSE)
 
 setGeneric("sampling",
-    function (eda, currGen, model, popSize, lower, upper) 
+    function (eda, currGen, model, lower, upper) 
       standardGeneric("sampling"),
     signature = "eda",
     useAsDefault = FALSE)
@@ -102,7 +86,7 @@ setGeneric("reporting",
 # General functions on EDAs.
 
 setGeneric("run",
-    function (eda, popSize, f, lower, upper, trace = FALSE)
+    function (eda, f, lower, upper, trace = FALSE)
       standardGeneric("run"),
     signature = "eda",
     useAsDefault = FALSE)

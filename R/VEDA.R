@@ -21,19 +21,19 @@ setClass("VEDA",
 
 
 learningVEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
-  fmargin <- eda@learningOpts$fmargin
-  pmargin <- eda@learningOpts$pmargin
-  fitMethod <- eda@learningOpts$fitMethod
-  vine <- eda@learningOpts$vine
-  trees <- eda@learningOpts$trees
-  copulas <- eda@learningOpts$copulas
-  corTestMethod <- eda@learningOpts$corTestMethod
-  corTestSigLevel <- eda@learningOpts$corTestSigLevel
-  gofCopulaIters <- eda@learningOpts$gofCopulaIters 
-  gofCopulaMethod <- eda@learningOpts$gofCopulaMethod 
-  gofCopulaSimul <- eda@learningOpts$gofCopulaSimul
-  fitOptimMethod <- eda@learningOpts$fitOptimMethod
-  fitOptimControl <- eda@learningOpts$fitOptimControl  
+  fmargin <- eda@options$fmargin
+  pmargin <- eda@options$pmargin
+  fitMethod <- eda@options$fitMethod
+  vine <- eda@options$vine
+  trees <- eda@options$trees
+  copulas <- eda@options$copulas
+  corTestMethod <- eda@options$corTestMethod
+  corTestSigLevel <- eda@options$corTestSigLevel
+  gofCopulaIters <- eda@options$gofCopulaIters 
+  gofCopulaMethod <- eda@options$gofCopulaMethod 
+  gofCopulaSimul <- eda@options$gofCopulaSimul
+  fitOptimMethod <- eda@options$fitOptimMethod
+  fitOptimControl <- eda@options$fitOptimControl  
   
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
@@ -67,9 +67,11 @@ learningVEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
 setMethod("learning", "VEDA", learningVEDA)
 
 
-samplingVEDA <- function (eda, currGen, model, popSize, lower, upper) {
-  qmargin <- eda@learningOpts$qmargin
+samplingVEDA <- function (eda, currGen, model, lower, upper) {
+  popSize <- eda@options$popSize
+  qmargin <- eda@options$qmargin
   
+  if (is.null(popSize)) popSize <- 100
   if (is.null(qmargin)) qmargin <- qnorm
   
   U <- rvine(model$vine, popSize)

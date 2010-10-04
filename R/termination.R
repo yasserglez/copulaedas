@@ -15,7 +15,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 terminationMaxGen <- function (eda, currGen, fEvals, pop, popEval) {
-  maxGen <- eda@terminationOpts$maxGen
+  maxGen <- eda@options$maxGen
   
   if (is.null(maxGen)) maxGen <- 100
   
@@ -26,7 +26,7 @@ setMethod("termination", "EDA", terminationMaxGen)
 
 
 terminationMaxEvals <- function (eda, currGen, fEvals, pop, popEval) {
-  maxEvals <- eda@terminationOpts$maxEvals
+  maxEvals <- eda@options$maxEvals
   
   if (is.null(maxEvals)) maxEvals <- 1000
   
@@ -35,8 +35,8 @@ terminationMaxEvals <- function (eda, currGen, fEvals, pop, popEval) {
 
 
 terminationEval <- function (eda, currGen, fEvals, pop, popEval) {
-  fEval <- eda@terminationOpts$fEval
-  fEvalTol <- eda@terminationOpts$fEvalTol
+  fEval <- eda@options$fEval
+  fEvalTol <- eda@options$fEvalTol
   
   if (is.null(fEval)) fEval <- 0 
   if (is.null(fEvalTol)) fEvalTol <- 1e-08

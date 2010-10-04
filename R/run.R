@@ -19,7 +19,6 @@ setOldClass("proc_time")
 setClass("EDARun",
     representation = representation(
         eda = "EDA",
-        popSize = "numeric",
         f = "function",
         lower = "numeric",
         upper = "numeric",
@@ -45,7 +44,7 @@ setClass("TracedEDARun",
         replacementTimes = "list"))
 
 
-runEDA <- function (eda, popSize, f, lower, upper, trace) {
+runEDA <- function (eda, f, lower, upper, trace) {
   # Initialize global statistics of the run.
   numGens <- 0
   fEvals <- 0; fWrap <- function (...) { fEvals <<- fEvals + 1; f(...) }
@@ -78,7 +77,7 @@ runEDA <- function (eda, popSize, f, lower, upper, trace) {
       model <- NULL
       if (trace) learningTimes <- c(learningTimes, list(proc.time() - proc.time()))
       if (trace) t0 <- proc.time()
-      sampledPop <- seeding(eda, popSize, lower, upper)
+      sampledPop <- seeding(eda, lower, upper)
       if (trace) samplingTimes <- c(samplingTimes, list(proc.time() - t0))
     } else {
       if (trace) t0 <- proc.time()
@@ -90,7 +89,7 @@ runEDA <- function (eda, popSize, f, lower, upper, trace) {
       model <- learning(eda, numGens, model, selectedPop, selectedEval)
       if (trace) learningTimes <- c(learningTimes, list(proc.time() - t0))
       if (trace) t0 <- proc.time()
-      sampledPop <- sampling(eda, numGens, model, popSize, lower, upper)
+      sampledPop <- sampling(eda, numGens, model, lower, upper)
       if (trace) samplingTimes <- c(samplingTimes, list(proc.time() - t0))
     }
     
@@ -140,7 +139,6 @@ runEDA <- function (eda, popSize, f, lower, upper, trace) {
   
   result <- new("EDARun",
       eda = eda,
-      popSize = popSize, 
       f = f,
       lower = lower,
       upper = upper, 
