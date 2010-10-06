@@ -3,20 +3,20 @@ Encoding: UTF-8
 Package: edas
 Title: Estimation of Distribution Algorithms
 Version: 0.1.0
-Date: 2010-08-14
+Date: 2010-10-06
 Author: Yasser González Fernández <ygonzalezfernandez@gmail.com> and
     Marta Rosa Soto Ortiz <mrosa@icmf.inf.cu>
 Maintainer: Yasser González Fernández <ygonzalezfernandez@gmail.com>
 Description: This package contains S4 classes and methods for the
     development of Estimation of Distribution Algorithms (EDAs). New EDAs can 
-    be created specifying functions implementing its parts: seeding, selection, 
-    learning, sampling, repairing, replacement, local optimization, termination 
-    and reporting methods. The package also contains implementations of EDAs 
-    and functions for the analysis of the results of EDAs. The package was 
-    inspired by the MATEDA toolbox for MATLAB.
+    be created specifying methods for generic functions implementing its main 
+    parts: seeding, selection, learning, sampling, repairing, replacement, local 
+    optimization, termination and reporting methods. It also contains complete 
+    implementations of EDAs and functions for the analysis of the results of 
+    EDAs. The package was inspired by the MATEDA toolbox for MATLAB.
 License: GPL (>= 3)
 LazyLoad: yes
 Depends: methods, mvtnorm, copula, vines
 Collate: EDA.R seeding.R selection.R repairing.R optimization.R reporting.R
-    replacement.R termination.R run.R margins.R f.R UMDA.R EMNA.R CEDA.R
-    VEDA.R
+    replacement.R termination.R run.R margins.R f.R indepRuns.R UMDA.R EMNA.R 
+    CEDA.R VEDA.R

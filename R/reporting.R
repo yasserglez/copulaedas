@@ -23,13 +23,13 @@ setMethod("reporting", "EDA", reportingDisabled)
 
 reportingSimple <- function (eda, currGen, fEvals, pop, popEval, 
     selectedPop, selectedEval, sampledPop, sampledEval) {
-  width <- max(getOption("digits") + 5, 18)
+  w <- max(getOption("digits") + 5, 18)
   if (currGen == 1) {
-    rest <- format(c("Minimum", "Mean", "Standard Deviation"),
-        justify = "centre", width = width)
-    cat("Generation", rest, "\n")
+    h <- c("Generation", "Minimum", "Mean", "Standard Deviation")
+    cat(format(h, justify = "right", width = w), "\n")
   }
-  values <- c(min(sampledEval), mean(sampledEval), sd(sampledEval))
-  cat(format(currGen, width = 10),
-      format(values, scientific = TRUE, width = width), "\n")
+  stats <- c(min(sampledEval), mean(sampledEval), sd(sampledEval))
+  cat(format(currGen, width = w),
+      format(stats, scientific = TRUE, width = w), 
+      "\n")
 }

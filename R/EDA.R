@@ -24,13 +24,12 @@ setClass("EDA",
         options = list()))
 
 
-# Functions implementing the parts of the EDAs.
-
 setGeneric("seeding",
     function (eda, lower, upper) 
       standardGeneric("seeding"),
     signature = "eda",
     useAsDefault = FALSE)
+
 
 setGeneric("selection",
     function (eda, currGen, pop, popEval) 
@@ -38,11 +37,13 @@ setGeneric("selection",
     signature = "eda",
     useAsDefault = FALSE)
 
+
 setGeneric("learning",
     function (eda, currGen, oldModel, selectedPop, selectedEval)
       standardGeneric("learning"),
     signature = "eda",
     useAsDefault = FALSE)
+
 
 setGeneric("sampling",
     function (eda, currGen, model, lower, upper) 
@@ -50,11 +51,13 @@ setGeneric("sampling",
     signature = "eda",
     useAsDefault = FALSE)
 
+
 setGeneric("repairing",
     function (eda, currGen, pop, lower, upper) 
       standardGeneric("repairing"),
     signature = "eda",
     useAsDefault = FALSE)
+
 
 setGeneric("replacement",
     function (eda, currGen, pop, popEval, 
@@ -63,17 +66,20 @@ setGeneric("replacement",
     signature = "eda",
     useAsDefault = FALSE)
 
+
 setGeneric("optimization",
     function (eda, currGen, pop, popEval, f, lower, upper) 
       standardGeneric("optimization"),
     signature = "eda", 
     useAsDefault = FALSE)
 
+
 setGeneric("termination",
     function (eda, currGen, fEvals, pop, popEval)
       standardGeneric("termination"),
     signature = "eda",
     useAsDefault = FALSE)
+
 
 setGeneric("reporting",
     function (eda, currGen, fEvals, pop, popEval, selectedPop,
@@ -82,8 +88,6 @@ setGeneric("reporting",
     signature = "eda",
     useAsDefault = FALSE)
 
-
-# General functions on EDAs.
 
 setGeneric("run",
     function (eda, f, lower, upper, trace = FALSE)
