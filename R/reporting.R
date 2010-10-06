@@ -26,7 +26,7 @@ reportingSimple <- function (eda, currGen, fEvals, pop, popEval,
   w <- max(getOption("digits") + 5, 18)
   if (currGen == 1) {
     h <- c("Generation", "Minimum", "Mean", "Standard Deviation")
-    cat(format(h, justify = "right", width = w), "\n")
+    cat("\n", format(h, justify = "right", width = w), "\n")
   }
   stats <- c(min(sampledEval), mean(sampledEval), sd(sampledEval))
   cat(format(currGen, width = w),
