@@ -14,7 +14,8 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-indepRuns <- function (eda, f, lower, upper, runs = 3, verbose = FALSE, file = NULL) {
+indepRuns <- function (eda, f, lower, upper, trace = FALSE, 
+    runs = 3, verbose = FALSE, file = NULL) {
   if (!is.null(file)) sink(file)
 
   results <- list()

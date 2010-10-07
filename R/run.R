@@ -44,7 +44,7 @@ setClass("TracedEDARun",
         replacementTimes = "list"))
 
 
-runEDA <- function (eda, f, lower, upper, trace) {
+runEDA <- function (eda, f, lower, upper, trace = FALSE) {
   # Initialize global statistics of the run.
   numGens <- 0
   fEvals <- 0; fWrap <- function (...) { fEvals <<- fEvals + 1; f(...) }

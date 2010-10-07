@@ -88,7 +88,7 @@ replacementEMNAi <- function (eda, currGen, pop, popEval, selectedPop,
 setMethod("replacement", "EMNAi", replacementEMNAi)
 
 
-runEMNAai <- function (eda, f, lower, upper, trace) {
+runEMNAai <- function (eda, f, lower, upper, trace = FALSE) {
   edaClass <- class(eda)
   shouldReset <- existsMethod("selection", edaClass)
   selectionReal <- selectMethod("selection", edaClass)
