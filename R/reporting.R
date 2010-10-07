@@ -14,14 +14,14 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-reportingDisabled <- function (eda, currGen, fEvals, pop, popEval, 
+reportingDisabled <- function (eda, currGen, fEvals, model, pop, popEval, 
     selectedPop, selectedEval, sampledPop, sampledEval) {
 }
 
 setMethod("reporting", "EDA", reportingDisabled)
 
 
-reportingSimple <- function (eda, currGen, fEvals, pop, popEval, 
+reportingSimple <- function (eda, currGen, fEvals, model, pop, popEval, 
     selectedPop, selectedEval, sampledPop, sampledEval) {
   w <- max(getOption("digits") + 5, 18)
   if (currGen == 1) {

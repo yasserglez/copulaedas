@@ -82,7 +82,7 @@ setGeneric("termination",
 
 
 setGeneric("reporting",
-    function (eda, currGen, fEvals, pop, popEval, selectedPop,
+    function (eda, currGen, fEvals, model, pop, popEval, selectedPop,
         selectedEval, sampledPop, sampledEval)
       standardGeneric("reporting"),
     signature = "eda",

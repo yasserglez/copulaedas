@@ -92,7 +92,7 @@ runEDA <- function (eda, f, lower, upper, trace) {
       sampledPop <- sampling(eda, numGens, model, lower, upper)
       if (trace) samplingTimes <- c(samplingTimes, list(proc.time() - t0))
     }
-    
+
     # Evaluate the generated population.
     if (trace) t0 <- proc.time()
     sampledPop <- repairing(eda, numGens, sampledPop, lower, upper)
@@ -109,7 +109,7 @@ runEDA <- function (eda, f, lower, upper, trace) {
     if (trace) optimizationTimes <- c(optimizationTimes, list(proc.time() - t0))
 
     # Execute the function to report progress. 
-    reporting(eda, numGens, fEvals, pop, popEval, selectedPop,
+    reporting(eda, numGens, fEvals, model, pop, popEval, selectedPop,
         selectedEval, sampledPop, sampledEval)
 
     # Update global statistics of the run.
