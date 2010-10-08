@@ -28,7 +28,7 @@ setClass("EDARun",
         bestIndiv = "numeric",
         totalTime = "proc_time"))
 
-setClass("TracedEDARun",
+setClass("EDATracedRun",
     contains = "EDARun",
     representation = representation(
         models = "list",
@@ -149,7 +149,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
       totalTime = proc.time() - startTime)
   
   if (trace) {
-    result <- new("TracedEDARun", result,
+    result <- new("EDATracedRun", result,
         models = models,
         pops = pops,
         selectedPops = selectedPops,
