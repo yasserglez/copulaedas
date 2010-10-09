@@ -13,7 +13,7 @@ exportClasses(EMNA, EMNAg, EMNAa, EMNAi)
 exportClasses(CEDA)
 exportClasses(VEDA)
 
-exportClasses(EDARun, TracedEDARun)
+exportClasses(EDARun, EDATracedRun)
 
 exportMethods(seeding)
 exportMethods(selection)
