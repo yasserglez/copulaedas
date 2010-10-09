@@ -21,13 +21,13 @@ setClass("VEDA",
 
 
 learningVEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
-  fmargin <- eda@options$fmargin
-  pmargin <- eda@options$pmargin
-  orderingMethod <- eda@options$orderingMethod
-  orderingArgs <- eda@options$orderingArgs
-  type <- eda@options$type
-  fitMethod <- eda@options$fitMethod
-  fitArgs <- eda@options$fitArgs
+  fmargin <- eda@parameters$fmargin
+  pmargin <- eda@parameters$pmargin
+  orderingMethod <- eda@parameters$orderingMethod
+  orderingArgs <- eda@parameters$orderingArgs
+  type <- eda@parameters$type
+  fitMethod <- eda@parameters$fitMethod
+  fitArgs <- eda@parameters$fitArgs
   
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
@@ -65,8 +65,8 @@ setMethod("learning", "VEDA", learningVEDA)
 
 
 samplingVEDA <- function (eda, currGen, model, lower, upper) {
-  popSize <- eda@options$popSize
-  qmargin <- eda@options$qmargin
+  popSize <- eda@parameters$popSize
+  qmargin <- eda@parameters$qmargin
   
   if (is.null(popSize)) popSize <- 100
   if (is.null(qmargin)) qmargin <- qnorm

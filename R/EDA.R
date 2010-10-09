@@ -18,10 +18,10 @@ setClass("EDA",
     contains = "VIRTUAL",
     representation = representation(
         name = "character",
-        options = "list"),
+        parameters = "list"),
     prototype = prototype(
         name = "Estimation of Distribution Algorithm",
-        options = list()))
+        parameters = list()))
 
 
 setGeneric("seeding",

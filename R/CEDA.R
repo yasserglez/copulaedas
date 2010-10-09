@@ -21,12 +21,12 @@ setClass("CEDA",
 
 
 learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
-  fmargin <- eda@options$fmargin
-  pmargin <- eda@options$pmargin
-  copula <- eda@options$copula
-  fitMethod <- eda@options$fitMethod
-  fitOptimMethod <- eda@options$fitOptimMethod
-  fitOptimControl <- eda@options$fitOptimControl
+  fmargin <- eda@parameters$fmargin
+  pmargin <- eda@parameters$pmargin
+  copula <- eda@parameters$copula
+  fitMethod <- eda@parameters$fitMethod
+  fitOptimMethod <- eda@parameters$fitOptimMethod
+  fitOptimControl <- eda@parameters$fitOptimControl
   
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
@@ -52,8 +52,8 @@ setMethod("learning", "CEDA", learningCEDA)
 
 
 samplingCEDA <- function (eda, currGen, model, lower, upper) {
-  popSize <- eda@options$popSize
-  qmargin <- eda@options$qmargin
+  popSize <- eda@parameters$popSize
+  qmargin <- eda@parameters$qmargin
   
   if (is.null(popSize)) popSize <- 100
   if (is.null(qmargin)) qmargin <- qnorm

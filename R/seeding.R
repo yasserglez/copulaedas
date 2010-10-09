@@ -15,7 +15,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 seedingUniform <- function (eda, lower, upper) {
-  popSize <- eda@options$popSize
+  popSize <- eda@parameters$popSize
   
   if (is.null(popSize)) popSize <- 100
   

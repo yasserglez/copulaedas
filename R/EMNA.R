@@ -43,7 +43,7 @@ setMethod("learning", "EMNA", learningEMNA)
 
 
 samplingEMNAg <- function (eda, currGen, model, lower, upper) {
-  popSize <- eda@options$popSize
+  popSize <- eda@parameters$popSize
   
   if (is.null(popSize)) popSize <- 100
   
@@ -54,7 +54,7 @@ setMethod("sampling", "EMNAg", samplingEMNAg)
 
 
 samplingEMNAai <- function (eda, currGen, model, lower, upper) {
-  popSize <- eda@options$popSize
+  popSize <- eda@parameters$popSize
   
   if (is.null(popSize)) popSize <- 100
 

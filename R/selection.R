@@ -15,7 +15,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 selectionTruncation <- function (eda, currGen, pop, popEval) {
-  truncFactor <- eda@options$truncFactor
+  truncFactor <- eda@parameters$truncFactor
   
   if (is.null(truncFactor)) truncFactor <- 0.5
   
