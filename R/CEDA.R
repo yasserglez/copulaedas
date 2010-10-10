@@ -25,15 +25,15 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   pmargin <- eda@parameters$pmargin
   copula <- eda@parameters$copula
   fitMethod <- eda@parameters$fitMethod
-  fitOptimMethod <- eda@parameters$fitOptimMethod
-  fitOptimControl <- eda@parameters$fitOptimControl
+  optimMethod <- eda@parameters$optimMethod
+  optimControl <- eda@parameters$optimControl
   
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
   if (is.null(copula)) copula <- normalCopula(0)
   if (is.null(fitMethod)) fitMethod <- "ml"
-  if (is.null(fitOptimMethod)) fitOptimMethod <- "BFGS"
-  if (is.null(fitOptimControl)) fitOptimControl <- list(NULL)
+  if (is.null(optimMethod)) optimMethod <- "Nelder-Mead"
+  if (is.null(optimControl)) optimControl <- list(NULL)
 
   n <- ncol(selectedPop)
   margins <- lapply(seq(length = n),
@@ -42,7 +42,7 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
       function (i) do.call(pmargin, c(list(selectedPop[ , i]), margins[[i]])))
   copula@dimension <- n
   copula <- fitCopula(copula, U, method = fitMethod, 
-      optim.method = fitOptimMethod, optim.control = fitOptimControl, 
+      optim.method = optimMethod, optim.control = optimControl, 
       estimate.variance = FALSE)@copula
   
   list(copula = copula, margins = margins)
