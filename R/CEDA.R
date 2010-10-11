@@ -40,9 +40,12 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
       function (i) fmargin(selectedPop[ , i]))
   U <- sapply(seq(length = n),
       function (i) do.call(pmargin, c(list(selectedPop[ , i]), margins[[i]])))
-  copula@dimension <- n
-  copula <- fitCopula(copula, U, method = fitMethod, 
-      optim.method = optimMethod, optim.control = optimControl, 
+  copula <- switch(class(copula),
+      normalCopula = normalCopula(rep(0, choose(n, 2)), n, dispstr = "un"),
+      tCopula = tCopula(rep(0, choose(n, 2)), n, dispstr = "un",
+          df = copula@df, df.fixed = copula@df.fixed))
+  copula <- fitCopula(copula, U, method = fitMethod, start = copula@parameters,
+      optim.method = optimMethod, optim.control = optimControl,
       estimate.variance = FALSE)@copula
   
   list(copula = copula, margins = margins)
