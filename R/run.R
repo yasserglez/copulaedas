@@ -16,7 +16,7 @@
 
 setOldClass("proc_time")
 
-setClass("EDARun",
+setClass("EDAResult",
     representation = representation(
         eda = "EDA",
         f = "function",
@@ -28,8 +28,8 @@ setClass("EDARun",
         bestIndiv = "numeric",
         totalTime = "proc_time"))
 
-setClass("EDATracedRun",
-    contains = "EDARun",
+setClass("EDATracedResult",
+    contains = "EDAResult",
     representation = representation(
         models = "list",
         pops = "list",
@@ -42,6 +42,30 @@ setClass("EDATracedRun",
         evaluationTimes = "list",
         optimizationTimes = "list",
         replacementTimes = "list"))
+
+
+showEDAResult <- function (object) {
+  names <- c(
+      "Best function evaluation", 
+      "Number of generations",
+      "Number of function evaluations", 
+      "Total runtime (CPU time)",
+      "Total runtime (Elapsed time)")
+  values <- c(
+      format(object@bestEval, scientific = TRUE),
+      format(object@numGens),
+      format(object@fEvals),
+      paste(format(sum(object@totalTime) - object@totalTime[3]), "seconds"),
+      paste(format(object@totalTime[3]), "seconds"))
+  
+  cat("Results for ", object@eda@name, ".\n\n", sep = "")
+  width <- max(nchar(names))
+  for (i in seq(along = names)) {
+    cat(format(names[i], width = width), values[i], "\n")
+  }
+}
+
+setMethod("show", "EDAResult", showEDAResult)
 
 
 runEDA <- function (eda, f, lower, upper, trace = FALSE) {
@@ -137,7 +161,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
     if (termination(eda, numGens, fEvals, pop, popEval)) break
   }
   
-  result <- new("EDARun",
+  result <- new("EDAResult",
       eda = eda,
       f = f,
       lower = lower,
@@ -149,7 +173,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
       totalTime = proc.time() - startTime)
   
   if (trace) {
-    result <- new("EDATracedRun", result,
+    result <- new("EDATracedResult", result,
         models = models,
         pops = pops,
         selectedPops = selectedPops,

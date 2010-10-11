@@ -14,14 +14,14 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-setClass("EDARuns", 
+setClass("EDAResults", 
     representation = representation(
         runs = "list"),
     prototype = prototype(
         runs = list()))
 
 
-summaryEDARuns <- function (object) {
+summaryEDAResults <- function (object) {
   numGens <- sapply(object@runs, function (r) r@numGens)
   fEvals <- sapply(object@runs, function (r) r@fEvals)
   bestEval <- sapply(object@runs, function (r) r@bestEval)
@@ -38,10 +38,10 @@ summaryEDARuns <- function (object) {
   data
 }
 
-setMethod("summary", "EDARuns", summaryEDARuns)
+setMethod("summary", "EDAResults", summaryEDAResults)
 
 
-showEDARuns <- function (object) {
+showEDAResults <- function (object) {
   numGens <- sapply(object@runs, function (r) r@numGens)
   fEvals <- sapply(object@runs, function (r) r@fEvals)
   bestEval <- sapply(object@runs, function (r) r@bestEval)
@@ -51,12 +51,12 @@ showEDARuns <- function (object) {
   data <- cbind(numGens, fEvals, bestEval, cpuTime, elapsedTime)
   colnames(data) <- c("Generations", "Evaluations", 
       "Best Evaluation", "CPU Time", "Elapsed Time")
-  rownames(data) <- paste("Run", as.character(seq(length = nrow(data))))
+  rownames(data) <- paste("Result", as.character(seq(length = nrow(data))))
   
   print(data)
 }
 
-setMethod("show", "EDARuns", showEDARuns)
+setMethod("show", "EDAResults", showEDAResults)
 
 
 indepRuns <- function (eda, f, lower, upper, trace = FALSE, 
@@ -65,7 +65,7 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE,
     sink(file)
   }
 
-  results <- new("EDARuns")
+  results <- new("EDAResults")
   for (run in seq(length = runs)) {
     result <- run(eda, f, lower, upper)
     results@runs <- c(results@runs, result)

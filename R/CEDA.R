@@ -32,7 +32,7 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   if (is.null(pmargin)) pmargin <- pnorm
   if (is.null(copula)) copula <- normalCopula(0)
   if (is.null(fitMethod)) fitMethod <- "ml"
-  if (is.null(optimMethod)) optimMethod <- "Nelder-Mead"
+  if (is.null(optimMethod)) optimMethod <- "BFGS"
   if (is.null(optimControl)) optimControl <- list(NULL)
 
   n <- ncol(selectedPop)
