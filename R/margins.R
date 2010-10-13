@@ -1,4 +1,4 @@
-# edas: GNU R package for Estimation of Distribution Algorithms
+# edas: R package for Estimation of Distribution Algorithms
 # Copyright (C) 2010 Yasser González Fernández <ygonzalezfernandez@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify it under

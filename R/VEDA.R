@@ -1,4 +1,4 @@
-# edas: GNU R package for Estimation of Distribution Algorithms
+# edas: R package for Estimation of Distribution Algorithms
 # Copyright (C) 2010 Yasser González Fernández <ygonzalezfernandez@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify it under
@@ -37,8 +37,7 @@ learningVEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   if (is.null(fitMethod)) fitMethod <- "ml"
   if (is.null(fitArgs)) fitArgs <- list(
         trees = ncol(selectedPop) - 1,
-        copulas = list(normalCopula(0), tCopula(0), 
-            claytonCopula(1), gumbelCopula(1)),
+        copulas = list(normalCopula(0), tCopula(0), claytonCopula(1), gumbelCopula(1)),
         corTestMethod = "kendall",
         corTestSigLevel = 0.1,
         gofCopulaIters = 1000,
