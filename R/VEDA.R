@@ -20,7 +20,7 @@ setClass("VEDA",
         name = "Vine Estimation of Distribution Algorithm"))
 
 
-learningVEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
+learningVEDA <- function (eda, currGen, oldModel, selectedPop, selectedEval) {
   fmargin <- eda@parameters$fmargin
   pmargin <- eda@parameters$pmargin
   orderingMethod <- eda@parameters$orderingMethod
