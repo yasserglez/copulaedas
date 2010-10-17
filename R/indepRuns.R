@@ -25,14 +25,15 @@ summaryEDAResults <- function (object) {
   numGens <- sapply(object@runs, function (r) r@numGens)
   fEvals <- sapply(object@runs, function (r) r@fEvals)
   bestEval <- sapply(object@runs, function (r) r@bestEval)
-  cpuTime <- sapply(object@runs, function (r) sum(r@totalTime) - r@totalTime[3])
+  cpuTime <- sapply(object@runs,
+      function (r) sum(r@totalTime, na.rm = TRUE) - r@totalTime[3])
   elapsedTime <- sapply(object@runs, function (r) r@totalTime[3])
 
   f <- function (x) c(min(x), median(x), max(x), mean(x), sd(x)) 
   data <- cbind(f(numGens), f(fEvals), f(bestEval), f(cpuTime), f(elapsedTime))
   
-  colnames(data) <- c("Generations", "Evaluations", 
-      "Best Evaluation", "CPU Time", "Elapsed Time")
+  colnames(data) <- c("Generations", "Evaluations", "Best Evaluation", 
+      "CPU Time", "Elapsed Time")
   rownames(data) <- c("Minimum", "Median", "Maximum", "Mean", "Std. Dev.")
 
   data
@@ -45,12 +46,13 @@ showEDAResults <- function (object) {
   numGens <- sapply(object@runs, function (r) r@numGens)
   fEvals <- sapply(object@runs, function (r) r@fEvals)
   bestEval <- sapply(object@runs, function (r) r@bestEval)
-  cpuTime <- sapply(object@runs, function (r) sum(r@totalTime) - r@totalTime[3])
+  cpuTime <- sapply(object@runs, 
+      function (r) sum(r@totalTime, na.rm = TRUE) - r@totalTime[3])
   elapsedTime <- sapply(object@runs, function (r) r@totalTime[3])
 
   data <- cbind(numGens, fEvals, bestEval, cpuTime, elapsedTime)
-  colnames(data) <- c("Generations", "Evaluations", 
-      "Best Evaluation", "CPU Time", "Elapsed Time")
+  colnames(data) <- c("Generations", "Evaluations", "Best Evaluation", 
+      "CPU Time", "Elapsed Time")
   rownames(data) <- paste("Result", as.character(seq(length = nrow(data))))
   
   print(data)
@@ -73,13 +75,13 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE,
     if (verbose) {
       if (run == 1) {
         w <- max(getOption("digits") + 5, 15)
-        h <- c("Run", "Generations", "Evaluations", 
-            "Best Evaluation", "CPU Time", "Elapsed Time")
+        h <- c("Run", "Generations", "Evaluations", "Best Evaluation", 
+            "CPU Time", "Elapsed Time")
         cat(format(h, justify = "right", width = w), "\n")
       }
       cat(format(c(run, result@numGens, result@fEvals), width = w),
           format(result@bestEval, scientific = TRUE, width = w),
-          format(c(sum(result@totalTime) - result@totalTime[3],
+          format(c(sum(result@totalTime, na.rm = TRUE) - result@totalTime[3],
                   result@totalTime[3]), width = w),
           "\n")
     }
@@ -89,7 +91,8 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE,
     numGens <- sapply(results@runs, function (r) r@numGens)
     fEvals <- sapply(results@runs, function (r) r@fEvals)
     bestEval <- sapply(results@runs, function (r) r@bestEval)
-    cpuTime <- sapply(results@runs, function (r) sum(r@totalTime) - r@totalTime[3])
+    cpuTime <- sapply(results@runs, 
+        function (r) sum(r@totalTime, na.rm = TRUE) - r@totalTime[3])
     elapsedTime <- sapply(results@runs, function (r) r@totalTime[3])
 
     cat("\n")

@@ -46,19 +46,19 @@ setClass("EDATracedResult",
 
 showEDAResult <- function (object) {
   names <- c(
-      "Best function evaluation", 
+      "Best function evaluation",
       "Number of generations",
-      "Number of function evaluations", 
+      "Number of function evaluations",
       "Total runtime (CPU time)",
       "Total runtime (Elapsed time)")
   values <- c(
       format(object@bestEval, scientific = TRUE),
       format(object@numGens),
       format(object@fEvals),
-      paste(format(sum(object@totalTime) - object@totalTime[3]), "seconds"),
+      paste(format(sum(object@totalTime, na.rm = TRUE) - object@totalTime[3]), "seconds"),
       paste(format(object@totalTime[3]), "seconds"))
   
-  cat("\nResults for ", object@eda@name, ".\n\n", sep = "")
+  cat("Results for ", object@eda@name, ".\n\n", sep = "")
   width <- max(nchar(names))
   for (i in seq(along = names)) {
     cat(format(names[i], width = width), values[i], "\n")
@@ -126,8 +126,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
         function (i) fWrap(sampledPop[i, ]))
     if (trace) evaluationTimes <- c(evaluationTimes, list(proc.time() - t0))
     if (trace) t0 <- proc.time()
-    optimResult <- optimization(eda, numGens, sampledPop, 
-        sampledEval, fWrap, lower, upper)	
+    optimResult <- optimization(eda, numGens, sampledPop, sampledEval, fWrap, lower, upper)	
     sampledPop <- optimResult$pop
     sampledEval <- optimResult$popEval
     if (trace) optimizationTimes <- c(optimizationTimes, list(proc.time() - t0))
@@ -186,7 +185,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
         optimizationTimes = optimizationTimes,
         replacementTimes = replacementTimes)
   }
-  
+
   result
 }
 

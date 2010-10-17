@@ -1,4 +1,4 @@
-# Imports.
+# Imports
 
 import(methods)
 import(mvtnorm)
@@ -6,7 +6,7 @@ import(copula)
 import(vines)
 
 
-# Classes and generic functions.
+# Classes and generic functions
 
 exportClasses(EDA)
 exportClasses(EMNA, EMNAg, EMNAa, EMNAi)
@@ -29,7 +29,7 @@ exportMethods(run)
 exportMethods(show, summary)
 
 
-# Exported functions.
+# Exported functions
 
 exportPattern("^seeding[A-Z]")
 exportPattern("^selection[A-Z]")
