@@ -23,39 +23,42 @@ setClass("VEDA",
 learningVEDA <- function (eda, currGen, oldModel, selectedPop, selectedEval) {
   fmargin <- eda@parameters$fmargin
   pmargin <- eda@parameters$pmargin
+  vineType <- eda@parameters$vineType
   orderingMethod <- eda@parameters$orderingMethod
-  orderingArgs <- eda@parameters$orderingArgs
-  type <- eda@parameters$type
+  orderingArgs <- as.list(eda@parameters$orderingArgs)
   fitMethod <- eda@parameters$fitMethod
-  fitArgs <- eda@parameters$fitArgs
-  
+  fitArgs <- as.list(eda@parameters$fitArgs)
+
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
+  if (is.null(vineType)) vineType <- "DVine"
   if (is.null(orderingMethod)) orderingMethod <- "greedy"
-  if (is.null(orderingArgs)) orderingArgs <- list(according = "kendall")
-  if (is.null(type)) type <- "DVine"
+  orderingArgs <- modifyList(
+      list(according = "kendall"),
+      orderingArgs)
   if (is.null(fitMethod)) fitMethod <- "ml"
-  if (is.null(fitArgs)) fitArgs <- list(
-        trees = ncol(selectedPop) - 1,
-        copulas = list(normalCopula(0), tCopula(0), claytonCopula(1), gumbelCopula(1)),
-        corTestMethod = "kendall",
-        corTestSigLevel = 0.1,
-        gofCopulaIters = 1000,
-        gofCopulaMethod = "itau",
-        gofCopulaSimul = "mult",
-        optimMethod = NULL,
-        optimControl = list())
-  
+  fitArgs <- modifyList(
+      list(trees = 4,
+          copulas = list(normalCopula(0), tCopula(0), claytonCopula(1), gumbelCopula(1)),
+          corTestMethod = "kendall",
+          corTestSigLevel = 0.1,
+          gofCopulaIters = 1000,
+          gofCopulaMethod = "itau",
+          gofCopulaSimul = "mult",
+          optimMethod = NULL,
+          optimControl = list()),
+    fitArgs)
+
   n <- ncol(selectedPop)
   margins <- lapply(seq(length = n), 
       function (i) fmargin(selectedPop[ , i]))
   uniformPop <- sapply(seq(length = n),
       function (i) do.call(pmargin, c(list(selectedPop[ , i]), margins[[i]])))
   ordering <- do.call(orderingVine,
-      c(list(type = type, data = uniformPop, method = orderingMethod), orderingArgs))
+      c(list(type = vineType, data = uniformPop, method = orderingMethod), orderingArgs))
   orderedPop <- uniformPop[ , ordering]
   vine <- do.call(fitVine,
-      c(list(type = type, data = orderedPop, method = fitMethod), fitArgs))@vine
+      c(list(type = vineType, data = orderedPop, method = fitMethod), fitArgs))@vine
 
   list(margins = margins, ordering = ordering, vine = vine)
 }

@@ -24,16 +24,17 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   fmargin <- eda@parameters$fmargin
   pmargin <- eda@parameters$pmargin
   copula <- eda@parameters$copula
-  fitMethod <- eda@parameters$fitMethod
-  fitArgs <- eda@parameters$fitArgs
+  fitArgs <- as.list(eda@parameters$fitArgs)
 
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
   if (is.null(copula)) copula <- normalCopula(0)
-  if (is.null(fitMethod)) fitMethod <- "ml"
-  if (is.null(fitArgs)) fitArgs <- list(
-        optimMethod = "BFGS",
-        optimControl = list(NULL))
+  fitArgs <- modifyList(
+      list(method = "ml",
+          optim.method = "BFGS",
+          optim.control = list(NULL),
+          estimate.variance = FALSE),
+      fitArgs)
 
   n <- ncol(selectedPop)
   margins <- lapply(seq(length = n),
@@ -45,9 +46,8 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
       tCopula = tCopula(rep(0, choose(n, 2)), n, dispstr = "un",
           df = copula@df, df.fixed = copula@df.fixed))
   start <- if (is(copula, "tCopula") && !copula@df.fixed) copula@parameters else NULL
-  copula <- do.call(fitCopula,
-      c(list(copula, U, method = fitMethod, start = start,
-              estimate.variance = FALSE), fitArgs))@copula
+  copula <- do.call(fitCopula, 
+      c(list(copula = copula, data = U, start = start), fitArgs))@copula
 
   list(copula = copula, margins = margins)
 }
