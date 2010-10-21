@@ -29,7 +29,7 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
   if (is.null(copula)) copula <- normalCopula(0)
-  fitArgs <- modifyList(
+  fitArgs <- updateList(
       list(method = "ml",
           optim.method = "BFGS",
           optim.control = list(NULL),

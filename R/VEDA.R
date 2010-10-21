@@ -28,16 +28,16 @@ learningVEDA <- function (eda, currGen, oldModel, selectedPop, selectedEval) {
   orderingArgs <- as.list(eda@parameters$orderingArgs)
   fitMethod <- eda@parameters$fitMethod
   fitArgs <- as.list(eda@parameters$fitArgs)
-
+  
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
   if (is.null(vineType)) vineType <- "DVine"
   if (is.null(orderingMethod)) orderingMethod <- "greedy"
-  orderingArgs <- modifyList(
+  orderingArgs <- updateList(
       list(according = "kendall"),
       orderingArgs)
   if (is.null(fitMethod)) fitMethod <- "ml"
-  fitArgs <- modifyList(
+  fitArgs <- updateList(
       list(trees = 4,
           copulas = list(normalCopula(0), tCopula(0), claytonCopula(1), gumbelCopula(1)),
           corTestMethod = "kendall",
@@ -45,7 +45,7 @@ learningVEDA <- function (eda, currGen, oldModel, selectedPop, selectedEval) {
           gofCopulaIters = 1000,
           gofCopulaMethod = "itau",
           gofCopulaSimul = "mult",
-          optimMethod = NULL,
+          optimMethod = "",
           optimControl = list()),
     fitArgs)
 

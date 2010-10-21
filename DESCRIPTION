@@ -18,5 +18,5 @@ License: GPL (>= 3)
 LazyLoad: yes
 Depends: methods, mvtnorm, copula, vines
 Collate: EDA.R seeding.R selection.R repairing.R optimization.R reporting.R
-    replacement.R termination.R run.R margins.R f.R indepRuns.R UMDA.R EMNA.R 
-    CEDA.R VEDA.R
+    replacement.R termination.R run.R margins.R f.R indepRuns.R misc.R
+    UMDA.R EMNA.R CEDA.R VEDA.R
