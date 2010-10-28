@@ -34,3 +34,14 @@ reportingSimple <- function (eda, currGen, fEvals, model, pop, popEval,
       format(stats, scientific = TRUE, width = w), 
       "\n")
 }
+
+
+reportingCombined <- function (...) {
+  function (eda, currGen, fEvals, model, pop, popEval,
+      selectedPop, selectedEval, sampledPop, sampledEval) {
+    methods <- list(...)
+    args <- list(eda, currGen, fEvals, model, pop, popEval,
+        selectedPop, selectedEval, sampledPop, sampledEval)
+    sapply(methods, function (m) do.call(m, args))
+  }
+}
