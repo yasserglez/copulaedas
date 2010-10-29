@@ -1,6 +1,5 @@
 # Imports
 
-import(methods)
 import(mvtnorm)
 import(copula)
 import(vines)
