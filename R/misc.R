@@ -16,6 +16,7 @@
 
 # Copy the named elements from the list reps to the list orig, replacing
 # the elements if they already exists and return the modified list.
+
 updateList <- function(orig, repl) {
   for (name in names(repl)) {
     orig[[name]] <- repl[[name]]

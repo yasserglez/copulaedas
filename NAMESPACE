@@ -10,7 +10,6 @@ import(vines)
 exportClasses(EDA)
 exportClasses(EMNA, EMNAg, EMNAa, EMNAi)
 exportClasses(CEDA)
-exportClasses(VEDA)
 
 exportClasses(EDAResult, EDATracedResult)
 
