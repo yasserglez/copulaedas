@@ -58,18 +58,19 @@ showEDAResult <- function (object) {
       paste(format(sum(object@totalTime, na.rm = TRUE) - object@totalTime[3]), "seconds"),
       paste(format(object@totalTime[3]), "seconds"))
   
-  cat("Results for ", object@eda@name, ".\n\n", sep = "")
+  cat("\nResults for the ", object@eda@name, ".\n\n", sep = "")
   width <- max(nchar(names))
   for (i in seq(along = names)) {
     cat(format(names[i], width = width), values[i], "\n")
   }
+  cat("\n")
 }
 
 setMethod("show", "EDAResult", showEDAResult)
 
 
 runEDA <- function (eda, f, lower, upper, trace = FALSE) {
-  # Initialize global statistics of the run.
+  # Initialize the statistics of the run.
   numGens <- 0
   fEvals <- 0; fWrap <- function (...) { fEvals <<- fEvals + 1; f(...) }
   startTime <- proc.time()

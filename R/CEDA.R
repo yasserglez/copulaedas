@@ -23,31 +23,35 @@ setClass("CEDA",
 learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   fmargin <- eda@parameters$fmargin
   pmargin <- eda@parameters$pmargin
-  copula <- eda@parameters$copula
-  fitArgs <- as.list(eda@parameters$fitArgs)
+  fitCopulaArgs <- as.list(eda@parameters$fitCopulaArgs)
 
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
-  if (is.null(copula)) copula <- normalCopula(0)
-  fitArgs <- updateList(
-      list(method = "ml",
-          optim.method = "BFGS",
-          optim.control = list(NULL),
-          estimate.variance = FALSE),
-      fitArgs)
-
+  fitCopulaArgs <- updateList(
+      list(copula = normalCopula(0),
+           method = "ml",
+           estimate.variance = FALSE),
+      fitCopulaArgs)
+  
   n <- ncol(selectedPop)
   margins <- lapply(seq(length = n),
       function (i) fmargin(selectedPop[ , i]))
   U <- sapply(seq(length = n),
       function (i) do.call(pmargin, c(list(selectedPop[ , i]), margins[[i]])))
-  copula <- switch(class(copula),
-      normalCopula = normalCopula(rep(0, choose(n, 2)), n, dispstr = "un"),
-      tCopula = tCopula(rep(0, choose(n, 2)), n, dispstr = "un",
-          df = copula@df, df.fixed = copula@df.fixed))
+  # Set the dimension of the copula to the dimension of the population.
+  copula <- fitCopulaArgs$copula
+  if (copula@dimension != n) {
+    copula <- switch(class(copula),
+        claytonCopula = claytonCopula(copula@parameters, n),
+        gumbelCopula = gumbelCopula(copula@parameters, n),
+        frankCopula = frankCopula(copula@parameters, n),
+        normalCopula = normalCopula(rep(0, choose(n, 2)), n, dispstr = "un"),
+        tCopula = tCopula(rep(0, choose(n, 2)), n, dispstr = "un", df = copula@df))
+  }
+  # Set the start argument for the t copula without df fixed.
   start <- if (is(copula, "tCopula") && !copula@df.fixed) copula@parameters else NULL
-  copula <- do.call(fitCopula, 
-      c(list(copula = copula, data = U, start = start), fitArgs))@copula
+  copula <- do.call(fitCopula,
+      updateList(fitCopulaArgs, list(copula = copula, data = U, start = start)))@copula
 
   list(copula = copula, margins = margins)
 }
