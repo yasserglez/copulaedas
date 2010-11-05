@@ -23,3 +23,12 @@ seedingUniform <- function (eda, lower, upper) {
 }
 
 setMethod("seeding", "EDA", seedingUniform)
+
+
+seedingInitialPop <- function (eda, lower, upper) {
+  initialPop <- eda@parameters$initialPop
+
+  if (is.null(initialPop)) initialPop <- seedingUniform(eda, lower, upper)
+
+  initialPop
+}
