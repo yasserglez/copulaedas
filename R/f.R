@@ -33,7 +33,7 @@ fGriewank <- function (x) {
 
  
 fRosenbrock <- function (x) {
-  e <- function (i) 100 * ((x[i+1] - x[i]^2)^2 + (1 - x[i])^2)
+  e <- function (i) 100 * (x[i+1] - x[i]^2)^2 + (1 - x[i])^2
   sum(sapply(seq_len(length(x) - 1), e))
 }
 
