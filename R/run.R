@@ -58,7 +58,7 @@ showEDAResult <- function (object) {
       paste(format(sum(object@totalTime, na.rm = TRUE) - object@totalTime[3]), "seconds"),
       paste(format(object@totalTime[3]), "seconds"))
   
-  cat("\nResults for the ", object@eda@name, ".\n\n", sep = "")
+  cat("\nResults for ", object@eda@name, ".\n\n", sep = "")
   width <- max(nchar(names))
   for (i in seq(along = names)) {
     cat(format(names[i], width = width), values[i], "\n")

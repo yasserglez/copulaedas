@@ -15,19 +15,16 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 setClass("EDAResults", 
-    representation = representation(
-        runs = "list"),
-    prototype = prototype(
-        runs = list()))
+    contains = "list")
 
 
 summaryEDAResults <- function (object) {
-  numGens <- sapply(object@runs, function (r) r@numGens)
-  fEvals <- sapply(object@runs, function (r) r@fEvals)
-  bestEval <- sapply(object@runs, function (r) r@bestEval)
-  cpuTime <- sapply(object@runs,
+  numGens <- sapply(object, function (r) r@numGens)
+  fEvals <- sapply(object, function (r) r@fEvals)
+  bestEval <- sapply(object, function (r) r@bestEval)
+  cpuTime <- sapply(object,
       function (r) sum(r@totalTime, na.rm = TRUE) - r@totalTime[3])
-  elapsedTime <- sapply(object@runs, function (r) r@totalTime[3])
+  elapsedTime <- sapply(object, function (r) r@totalTime[3])
 
   f <- function (x) c(min(x), median(x), max(x), mean(x), sd(x)) 
   data <- cbind(f(numGens), f(fEvals), f(bestEval), f(cpuTime), f(elapsedTime))
@@ -43,37 +40,37 @@ setMethod("summary", "EDAResults", summaryEDAResults)
 
 
 showEDAResults <- function (object) {
-  numGens <- sapply(object@runs, function (r) r@numGens)
-  fEvals <- sapply(object@runs, function (r) r@fEvals)
-  bestEval <- sapply(object@runs, function (r) r@bestEval)
-  cpuTime <- sapply(object@runs, 
+  numGens <- sapply(object, function (r) r@numGens)
+  fEvals <- sapply(object, function (r) r@fEvals)
+  bestEval <- sapply(object, function (r) r@bestEval)
+  cpuTime <- sapply(object, 
       function (r) sum(r@totalTime, na.rm = TRUE) - r@totalTime[3])
-  elapsedTime <- sapply(object@runs, function (r) r@totalTime[3])
+  elapsedTime <- sapply(object, function (r) r@totalTime[3])
 
   data <- cbind(numGens, fEvals, bestEval, cpuTime, elapsedTime)
   colnames(data) <- c("Generations", "Evaluations", "Best Evaluation", 
       "CPU Time", "Elapsed Time")
   rownames(data) <- paste("Run", as.character(seq(length = nrow(data))))
 
+  cat("\n")
   print(data)
+  cat("\n")
 }
 
 setMethod("show", "EDAResults", showEDAResults)
 
 
-indepRuns <- function (eda, f, lower, upper, trace = FALSE, 
-    runs = 3, verbose = FALSE, file = NULL) {
-  if (!is.null(file)) {
-    sink(file)
-  }
+indepRuns <- function (eda, f, lower, upper, trace = FALSE, runs = 3, verbose = FALSE) {
 
   results <- new("EDAResults")
+  
   for (run in seq(length = runs)) {
     result <- run(eda, f, lower, upper)
-    results@runs <- c(results@runs, result)
+    results <- as(c(results, result), "EDAResults")
 
     if (verbose) {
       if (run == 1) {
+        cat("\n")
         w <- max(getOption("digits") + 5, 15)
         h <- c("Run", "Generations", "Evaluations", "Best Evaluation", 
             "CPU Time", "Elapsed Time")
@@ -88,12 +85,12 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE,
   }
 
   if (verbose && runs > 1) {
-    numGens <- sapply(results@runs, function (r) r@numGens)
-    fEvals <- sapply(results@runs, function (r) r@fEvals)
-    bestEval <- sapply(results@runs, function (r) r@bestEval)
-    cpuTime <- sapply(results@runs, 
+    numGens <- sapply(results, function (r) r@numGens)
+    fEvals <- sapply(results, function (r) r@fEvals)
+    bestEval <- sapply(results, function (r) r@bestEval)
+    cpuTime <- sapply(results, 
         function (r) sum(r@totalTime, na.rm = TRUE) - r@totalTime[3])
-    elapsedTime <- sapply(results@runs, function (r) r@totalTime[3])
+    elapsedTime <- sapply(results, function (r) r@totalTime[3])
 
     cat("\n")
     h <- c("", "Generations", "Evaluations", "Best Evaluation", 
@@ -109,11 +106,10 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE,
           format(c(f(cpuTime), f(elapsedTime)), width = w),
           "\n")
     }
+    cat("\n")
   }
 
-  if (!is.null(file)) {
-    sink(NULL)
-  }
+  results <- as(results, "EDAResults")
   
   if (verbose) {
     invisible(results) 
