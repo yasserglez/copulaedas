@@ -8,6 +8,7 @@ import(vines)
 # Classes and generic functions
 
 exportClasses(EDA)
+exportClasses(UMDA)
 exportClasses(EMNA, EMNAg, EMNAa, EMNAi)
 exportClasses(CEDA)
 
@@ -29,6 +30,11 @@ exportMethods(show, summary)
 
 # Exported functions
 
+export(UMDA)
+export(EMNAg, EMNAa, EMNAi)
+export(CEDA)
+
+exportPattern("^run[A-Z]")
 exportPattern("^seeding[A-Z]")
 exportPattern("^selection[A-Z]")
 exportPattern("^learning[A-Z]")
@@ -39,9 +45,7 @@ exportPattern("^optimization[A-Z]")
 exportPattern("^termination[A-Z]")
 exportPattern("^reporting[A-Z]")
 
-exportPattern("^run[A-Z]")
-
-exportPattern("^f[A-Z]")
-export(fnorm)
+exportPattern("^f[A-Z]") # Objective functions.
 export(indepRuns)
 export(minPopSize)
+export(fnorm)

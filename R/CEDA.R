@@ -20,6 +20,11 @@ setClass("CEDA",
         name = "Copula Estimation of Distribution Algorithm"))
 
 
+CEDA <- function (parameters) {
+  new("CEDA", parameters = parameters)
+}
+
+
 learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   fmargin <- eda@parameters$fmargin
   pmargin <- eda@parameters$pmargin

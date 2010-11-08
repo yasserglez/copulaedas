@@ -35,6 +35,19 @@ setClass("EMNAi",
         name = "Estimation of Multivariate Normal Algorithm incremental"))
 
 
+EMNAg <- function (parameters) {
+  new("EMNAg", parameters = parameters)
+}
+
+EMNAa <- function (parameters) {
+  new("EMNAa", parameters = parameters)
+}
+
+EMNAi <- function (parameters) {
+  new("EMNAi", parameters = parameters)
+}
+
+
 learningEMNA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   list(mean = colMeans(selectedPop), sigma = cov(selectedPop))
 }

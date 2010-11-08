@@ -20,6 +20,11 @@ setClass("UMDA",
         name = "Univariate Marginal Distribution Algorithm"))
 
 
+UMDA <- function (parameters) {
+  new("UMDA", parameters = parameters)
+}
+
+
 learningUMDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   fmargin <- eda@parameters$fmargin
 
