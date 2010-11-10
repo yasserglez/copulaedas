@@ -48,8 +48,8 @@ showEDAResults <- function (object) {
   elapsedTime <- sapply(object, function (r) r@totalTime[3])
 
   data <- cbind(numGens, fEvals, bestEval, cpuTime, elapsedTime)
-  colnames(data) <- c("Generations", "Evaluations", "Best Evaluation", 
-      "CPU Time", "Elapsed Time")
+  colnames(data) <- c("Generations", "Evaluations", 
+      "Best Evaluation", "CPU Time", "Elapsed Time")
   rownames(data) <- paste("Run", as.character(seq(length = nrow(data))))
 
   cat("\n")

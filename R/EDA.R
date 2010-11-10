@@ -88,7 +88,8 @@ setGeneric("run",
 
 
 showEDA <- function (object) {
-  cat(object@name, "\n", sep = "")
-} 
+  cat("Estimation of Distribution Algorithm\n\n")
+  cat("Name:", object@name, "\n")
+}
 
 setMethod("show", "EDA", showEDA)
