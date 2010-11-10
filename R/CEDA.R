@@ -20,7 +20,7 @@ setClass("CEDA",
         name = "Copula Estimation of Distribution Algorithm"))
 
 
-CEDA <- function (parameters) {
+CEDA <- function (parameters = list()) {
   new("CEDA", parameters = parameters)
 }
 

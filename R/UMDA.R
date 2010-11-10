@@ -20,7 +20,7 @@ setClass("UMDA",
         name = "Univariate Marginal Distribution Algorithm"))
 
 
-UMDA <- function (parameters) {
+UMDA <- function (parameters = list()) {
   new("UMDA", parameters = parameters)
 }
 

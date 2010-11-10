@@ -35,15 +35,15 @@ setClass("EMNAi",
         name = "Estimation of Multivariate Normal Algorithm incremental"))
 
 
-EMNAg <- function (parameters) {
+EMNAg <- function (parameters = list()) {
   new("EMNAg", parameters = parameters)
 }
 
-EMNAa <- function (parameters) {
+EMNAa <- function (parameters = list()) {
   new("EMNAa", parameters = parameters)
 }
 
-EMNAi <- function (parameters) {
+EMNAi <- function (parameters = list()) {
   new("EMNAi", parameters = parameters)
 }
 
