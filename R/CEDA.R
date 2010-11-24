@@ -34,7 +34,7 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   if (is.null(pmargin)) pmargin <- pnorm
   fitCopulaArgs <- updateList(
       list(copula = normalCopula(0),
-           method = "ml",
+           method = "itau",
            estimate.variance = FALSE),
       fitCopulaArgs)
   
