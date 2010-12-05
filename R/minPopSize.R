@@ -89,6 +89,14 @@ minPopSize <- function (eda, f, lower, upper, fEval, fEvalTol,
       upperPop <- eda@parameters$popSize
     }
   }
+  
+  if (verbose) {
+    if (is.null(results)) {
+      cat("Could not find the minimum population size.\n\n", sep = "")
+    } else {
+      cat("The minimum population size is ", upperPop, ".\n\n", sep = "")
+    }
+  }
 
   results
 }

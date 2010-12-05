@@ -109,11 +109,5 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE, runs = 3, verbose = 
     cat("\n")
   }
 
-  results <- as(results, "EDAResults")
-  
-  if (verbose) {
-    invisible(results) 
-  } else {
-    results
-  }
+  as(results, "EDAResults")
 }
