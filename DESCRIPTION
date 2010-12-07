@@ -4,9 +4,9 @@ Package: edas
 Title: Estimation of Distribution Algorithms
 Version: 0.1.0
 Date: 2010-10-06
-Author: Yasser González Fernández <ygonzalezfernandez@gmail.com> and
-    Marta Rosa Soto Ortiz <mrosa@icmf.inf.cu>
-Maintainer: Yasser González Fernández <ygonzalezfernandez@gmail.com>
+Author: Yasser González-Fernández <ygonzalezfernandez@gmail.com> and
+    Marta Soto <mrosa@icmf.inf.cu>
+Maintainer: Yasser González-Fernández <ygonzalezfernandez@gmail.com>
 Description: This package contains S4 classes and methods for the
     development of Estimation of Distribution Algorithms (EDAs). New EDAs can 
     be created specifying methods for generic functions implementing its main 
