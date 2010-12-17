@@ -33,11 +33,11 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   if (is.null(fmargin)) fmargin <- fnorm
   if (is.null(pmargin)) pmargin <- pnorm
   fitCopulaArgs <- updateList(
-      list(copula = normalCopula(0),
+      list(copula = normalCopula(0, dim = 2, dispstr = "un"),
            method = "itau",
            estimate.variance = FALSE),
       fitCopulaArgs)
-  
+
   n <- ncol(selectedPop)
   margins <- lapply(seq(length = n),
       function (i) fmargin(selectedPop[ , i]))
@@ -47,11 +47,11 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
   copula <- fitCopulaArgs$copula
   if (copula@dimension != n) {
     copula <- switch(class(copula),
-        claytonCopula = claytonCopula(copula@parameters, n),
-        gumbelCopula = gumbelCopula(copula@parameters, n),
-        frankCopula = frankCopula(copula@parameters, n),
-        normalCopula = normalCopula(rep(0, choose(n, 2)), n, dispstr = "un"),
-        tCopula = tCopula(rep(0, choose(n, 2)), n, dispstr = "un", df = copula@df))
+        claytonCopula = claytonCopula(copula@parameters, dim = n),
+        gumbelCopula = gumbelCopula(copula@parameters, dim = n),
+        frankCopula = frankCopula(copula@parameters, dim = n),
+        normalCopula = normalCopula(rep(0, choose(n, 2)), dim = n, dispstr = "un"),
+        tCopula = tCopula(rep(0, choose(n, 2)), dim = n, dispstr = "un", df = copula@df))
   }
   # Set the start argument for the t copula without df fixed.
   start <- if (is(copula, "tCopula") && !copula@df.fixed) copula@parameters else NULL
