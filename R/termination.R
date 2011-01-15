@@ -44,6 +44,13 @@ terminationEval <- function (eda, currGen, fEvals, pop, popEval) {
   any(abs(popEval - fEval) <= fEvalTol)
 }
 
+terminationEvalStdDev <- function (eda, currGen, fEvals, pop, popEval) {
+  fEvalStdDev <- eda@parameters$fEvalStdDev
+  
+  if (is.null(fEvalStdDev)) fEvalStdDev <- 1e-08
+  
+  isTRUE(sd(popEval) <= fEvalStdDev)
+}
 
 terminationCombined <- function (..., requireAll = FALSE) {
   function (eda, currGen, fEvals, pop, popEval) {
