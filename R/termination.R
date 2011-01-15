@@ -1,5 +1,6 @@
 # edas: R package for Estimation of Distribution Algorithms
-# Copyright (C) 2010 Yasser González-Fernández <ygonzalezfernandez@gmail.com>
+# Copyright (C) 2010-2011 Yasser González-Fernández
+# Copyright (C) 2010-2011 Marta Soto
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software 
@@ -44,6 +45,7 @@ terminationEval <- function (eda, currGen, fEvals, pop, popEval) {
   any(abs(popEval - fEval) <= fEvalTol)
 }
 
+
 terminationEvalStdDev <- function (eda, currGen, fEvals, pop, popEval) {
   fEvalStdDev <- eda@parameters$fEvalStdDev
   
@@ -51,6 +53,7 @@ terminationEvalStdDev <- function (eda, currGen, fEvals, pop, popEval) {
   
   isTRUE(sd(popEval) <= fEvalStdDev)
 }
+
 
 terminationCombined <- function (..., requireAll = FALSE) {
   function (eda, currGen, fEvals, pop, popEval) {
