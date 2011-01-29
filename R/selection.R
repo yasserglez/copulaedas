@@ -16,12 +16,12 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 selectionTruncation <- function (eda, currGen, pop, popEval) {
-  truncFactor <- eda@parameters$truncFactor
-  
-  if (is.null(truncFactor)) truncFactor <- 0.5
-  
-  popOrder <- order(popEval)
-  popOrder[seq(ceiling(truncFactor * length(popOrder)))]
+    truncFactor <- eda@parameters$truncFactor
+    
+    if (is.null(truncFactor)) truncFactor <- 0.5
+    
+    popOrder <- order(popEval)
+    popOrder[seq(ceiling(truncFactor * length(popOrder)))]
 }
 
 setMethod("selection", "EDA", selectionTruncation)

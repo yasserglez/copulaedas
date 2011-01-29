@@ -16,20 +16,20 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 seedingUniform <- function (eda, lower, upper) {
-  popSize <- eda@parameters$popSize
-  
-  if (is.null(popSize)) popSize <- 100
-  
-  sapply(seq(along = lower), function (i) runif(popSize, lower[i], upper[i]))
+    popSize <- eda@parameters$popSize
+    
+    if (is.null(popSize)) popSize <- 100
+    
+    sapply(seq(along = lower), function (i) runif(popSize, lower[i], upper[i]))
 }
 
 setMethod("seeding", "EDA", seedingUniform)
 
 
 seedingInitialPop <- function (eda, lower, upper) {
-  initialPop <- eda@parameters$initialPop
-
-  if (is.null(initialPop)) initialPop <- seedingUniform(eda, lower, upper)
-
-  initialPop
+    initialPop <- eda@parameters$initialPop
+    
+    if (is.null(initialPop)) initialPop <- seedingUniform(eda, lower, upper)
+    
+    initialPop
 }

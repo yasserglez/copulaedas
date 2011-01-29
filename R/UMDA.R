@@ -16,43 +16,43 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 setClass("UMDA", 
-    contains = "EDA",
-    prototype = prototype(
-        name = "Univariate Marginal Distribution Algorithm"))
+        contains = "EDA",
+        prototype = prototype(
+                name = "Univariate Marginal Distribution Algorithm"))
 
 
 UMDA <- function (parameters = list()) {
-  new("UMDA", parameters = parameters)
+    new("UMDA", parameters = parameters)
 }
 
 
 learningUMDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
-  fmargin <- eda@parameters$fmargin
-
-  if (is.null(fmargin)) fmargin <- fnorm
-  
-  margins <- lapply(seq(length = ncol(selectedPop)),
-      function (i) fmargin(selectedPop[ , i]))
-
-  list(margins = margins)
+    fmargin <- eda@parameters$fmargin
+    
+    if (is.null(fmargin)) fmargin <- fnorm
+    
+    margins <- lapply(seq(length = ncol(selectedPop)),
+            function (i) fmargin(selectedPop[ , i]))
+    
+    list(margins = margins)
 }
 
 setMethod("learning", "UMDA", learningUMDA)
 
 
 samplingUMDA <- function (eda, currGen, model, lower, upper) {
-  popSize <- eda@parameters$popSize
-  qmargin <- eda@parameters$qmargin
-  
-  if (is.null(popSize)) popSize <- 100
-  if (is.null(qmargin)) qmargin <- qnorm
-  
-  n <- length(lower)
-  U <- matrix(runif(popSize * n), popSize, n)
-  pop <- sapply(seq(length = n),
-      function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
-
-  pop
+    popSize <- eda@parameters$popSize
+    qmargin <- eda@parameters$qmargin
+    
+    if (is.null(popSize)) popSize <- 100
+    if (is.null(qmargin)) qmargin <- qnorm
+    
+    n <- length(lower)
+    U <- matrix(runif(popSize * n), popSize, n)
+    pop <- sapply(seq(length = n),
+            function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
+    
+    pop
 }
 
 setMethod("sampling", "UMDA", samplingUMDA)

@@ -16,7 +16,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 optimizationDisabled <- function (eda, currGen, pop, popEval, f, lower, upper) {
-  list(pop = pop, popEval = popEval)
+    list(pop = pop, popEval = popEval)
 }
 
 setMethod("optimization", "EDA", optimizationDisabled)

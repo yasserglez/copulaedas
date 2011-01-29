@@ -16,8 +16,8 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 replacementFull <- function (eda, currGen, pop, popEval, selectedPop,
-    selectedEval, sampledPop, sampledEval) {
-  list(pop = sampledPop, popEval = sampledEval)
+        selectedEval, sampledPop, sampledEval) {
+    list(pop = sampledPop, popEval = sampledEval)
 }
 
 setMethod("replacement", "EDA", replacementFull)

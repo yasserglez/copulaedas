@@ -16,32 +16,32 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 fSummationCancellation <- function (x) {
-  s <- function (i) abs(sum(x[seq_len(i)]))
-  -1 / (10^-5 + sum(sapply(seq_len(length(x)), s)))
+    s <- function (i) abs(sum(x[seq_len(i)]))
+    -1 / (10^-5 + sum(sapply(seq_len(length(x)), s)))
 }
 
 
 fSphere <- function (x) {
-  sum(x^2)
+    sum(x^2)
 }
 
 
 fGriewank <- function (x) {
-  s <- sum(x^2) / 4000
-  p <- prod(cos(x / sqrt(seq_len(length(x)))))
-  1 + s - p
+    s <- sum(x^2) / 4000
+    p <- prod(cos(x / sqrt(seq_len(length(x)))))
+    1 + s - p
 }
 
- 
+
 fRosenbrock <- function (x) {
-  e <- function (i) 100 * (x[i+1] - x[i]^2)^2 + (1 - x[i])^2
-  sum(sapply(seq_len(length(x) - 1), e))
+    e <- function (i) 100 * (x[i+1] - x[i]^2)^2 + (1 - x[i])^2
+    sum(sapply(seq_len(length(x) - 1), e))
 }
 
 
 fAckley <- function (x) {
-  n <- length(x)
-  exp1 <-  exp(-0.2 * sqrt(1/n * sum(x^2)))
-  exp2 <- exp(1/n * sum(cos(2 * pi * x)))
-  -20 * exp1 - exp2 + 20 + exp(1)
+    n <- length(x)
+    exp1 <-  exp(-0.2 * sqrt(1/n * sum(x^2)))
+    exp2 <- exp(1/n * sum(cos(2 * pi * x)))
+    -20 * exp1 - exp2 + 20 + exp(1)
 }

@@ -16,50 +16,50 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 terminationMaxGen <- function (eda, currGen, fEvals, pop, popEval) {
-  maxGen <- eda@parameters$maxGen
-  
-  if (is.null(maxGen)) maxGen <- 100
-  
-  currGen >= maxGen
+    maxGen <- eda@parameters$maxGen
+    
+    if (is.null(maxGen)) maxGen <- 100
+    
+    currGen >= maxGen
 }
 
 setMethod("termination", "EDA", terminationMaxGen)
 
 
 terminationMaxEvals <- function (eda, currGen, fEvals, pop, popEval) {
-  maxEvals <- eda@parameters$maxEvals
-  
-  if (is.null(maxEvals)) maxEvals <- 1000
-  
-  fEvals >= maxEvals
+    maxEvals <- eda@parameters$maxEvals
+    
+    if (is.null(maxEvals)) maxEvals <- 1000
+    
+    fEvals >= maxEvals
 }
 
 
 terminationEval <- function (eda, currGen, fEvals, pop, popEval) {
-  fEval <- eda@parameters$fEval
-  fEvalTol <- eda@parameters$fEvalTol
-  
-  if (is.null(fEval)) fEval <- 0 
-  if (is.null(fEvalTol)) fEvalTol <- 1e-08
-  
-  any(abs(popEval - fEval) <= fEvalTol)
+    fEval <- eda@parameters$fEval
+    fEvalTol <- eda@parameters$fEvalTol
+    
+    if (is.null(fEval)) fEval <- 0 
+    if (is.null(fEvalTol)) fEvalTol <- 1e-08
+    
+    any(abs(popEval - fEval) <= fEvalTol)
 }
 
 
 terminationEvalStdDev <- function (eda, currGen, fEvals, pop, popEval) {
-  fEvalStdDev <- eda@parameters$fEvalStdDev
-  
-  if (is.null(fEvalStdDev)) fEvalStdDev <- 1e-08
-  
-  isTRUE(sd(popEval) <= fEvalStdDev)
+    fEvalStdDev <- eda@parameters$fEvalStdDev
+    
+    if (is.null(fEvalStdDev)) fEvalStdDev <- 1e-08
+    
+    isTRUE(sd(popEval) <= fEvalStdDev)
 }
 
 
 terminationCombined <- function (..., requireAll = FALSE) {
-  function (eda, currGen, fEvals, pop, popEval) {
-    methods <- list(...)
-    args <- list(eda, currGen, fEvals, pop, popEval)
-    results <- sapply(methods, function (m) do.call(m, args))
-    if (requireAll) all(results) else any(results)
-  }
+    function (eda, currGen, fEvals, pop, popEval) {
+        methods <- list(...)
+        args <- list(eda, currGen, fEvals, pop, popEval)
+        results <- sapply(methods, function (m) do.call(m, args))
+        if (requireAll) all(results) else any(results)
+    }
 }

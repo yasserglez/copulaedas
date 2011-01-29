@@ -16,8 +16,8 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 updateList <- function(orig, repl) {
-  for (name in names(repl)) {
-    orig[[name]] <- repl[[name]]
-  }
-  orig
+    for (name in names(repl)) {
+        orig[[name]] <- repl[[name]]
+    }
+    orig
 }

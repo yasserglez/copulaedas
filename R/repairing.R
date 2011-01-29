@@ -16,7 +16,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 repairingDisabled <- function (eda, currGen, pop, lower, upper) {
-  pop
+    pop
 }
 
 setMethod("repairing", "EDA", repairingDisabled)

@@ -18,5 +18,5 @@
 # Functions used to estimate the parameters of the marginal distributions. 
 
 fnorm <- function (x) {
-  list(mean = mean(x), sd = sd(x))
+    list(mean = mean(x), sd = sd(x))
 }
