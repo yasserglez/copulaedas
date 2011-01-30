@@ -46,6 +46,6 @@ exportPattern("^termination[A-Z]")
 exportPattern("^reporting[A-Z]")
 
 exportPattern("^f[A-Z]") # Objective functions.
+exportPattern("^[fpq][a-z]") # Marginal distributions.
 export(indepRuns)
 export(minPopSize)
-export(fnorm)

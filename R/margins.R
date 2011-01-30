@@ -15,7 +15,21 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-# Functions used to estimate the parameters of the marginal distributions. 
+fpspline <- function (x) {
+    p <- rank(x) / length(x)
+    p[which.min(p)] <- 0
+    spline <- sm.spline(p, x)
+    list(spline = spline)
+}
+
+ppspline <- function (q, spline) {
+    rank(q) / (length(q) + 1)
+}
+
+qpspline <- function (p, spline) {
+    predict(spline, p)
+}
+
 
 fnorm <- function (x) {
     list(mean = mean(x), sd = sd(x))
