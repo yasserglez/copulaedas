@@ -16,7 +16,7 @@ Description: This package contains S4 classes and methods for the
     The package was inspired by the MATEDA toolbox for MATLAB.
 License: GPL (>= 3)
 LazyLoad: yes
-Depends: methods, mvtnorm, copula, vines
+Depends: methods, mvtnorm, copula
 Collate: EDA.R seeding.R selection.R repairing.R optimization.R
 	reporting.R replacement.R termination.R run.R margins.R f.R
 	indepRuns.R minPopSize.R misc.R UMDA.R EMNA.R CEDA.R

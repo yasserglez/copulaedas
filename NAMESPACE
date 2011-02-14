@@ -2,7 +2,6 @@
 
 import(mvtnorm)
 import(copula)
-import(vines)
 
 
 # Classes and generic functions

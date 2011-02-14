@@ -3,7 +3,6 @@
 	<name>edas</name>
 	<comment></comment>
 	<projects>
-		<project>R</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
