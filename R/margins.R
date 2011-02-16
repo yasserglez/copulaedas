@@ -15,19 +15,19 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-fpspline <- function (x) {
+fspline <- function (x) {
     p <- rank(x) / length(x)
     p[which.min(p)] <- 0
-    spline <- sm.spline(p, x)
+    spline <- smooth.spline(p, x)
     list(spline = spline)
 }
 
-ppspline <- function (q, spline) {
+pspline <- function (q, spline) {
     rank(q) / (length(q) + 1)
 }
 
-qpspline <- function (p, spline) {
-    predict(spline, p)
+qspline <- function (p, spline) {
+    predict(spline, p)$y
 }
 
 
