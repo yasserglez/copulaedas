@@ -29,7 +29,7 @@ UMDA <- function (parameters = list()) {
 learningUMDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
     fmargin <- eda@parameters$fmargin
     
-    if (is.null(fmargin)) fmargin <- fnorm
+    if (is.null(fmargin)) fmargin <- fspline
     
     margins <- lapply(seq(length = ncol(selectedPop)),
             function (i) fmargin(selectedPop[ , i]))
@@ -45,7 +45,7 @@ samplingUMDA <- function (eda, currGen, model, lower, upper) {
     qmargin <- eda@parameters$qmargin
     
     if (is.null(popSize)) popSize <- 100
-    if (is.null(qmargin)) qmargin <- qnorm
+    if (is.null(qmargin)) qmargin <- qspline
     
     n <- length(lower)
     U <- matrix(runif(popSize * n), popSize, n)
