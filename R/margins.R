@@ -18,7 +18,7 @@
 fspline <- function (x) {
     p <- rank(x) / length(x)
     p[which.min(p)] <- 0
-    spline <- smooth.spline(p, x)
+    spline <- smooth.spline(p, x, keep.data = FALSE)
     list(spline = spline)
 }
 
