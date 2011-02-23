@@ -31,8 +31,8 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
     pmargin <- eda@parameters$pmargin
     fitCopulaArgs <- as.list(eda@parameters$fitCopulaArgs)
     
-    if (is.null(fmargin)) fmargin <- fspline
-    if (is.null(pmargin)) pmargin <- pspline
+    if (is.null(fmargin)) fmargin <- fkernel
+    if (is.null(pmargin)) pmargin <- pkernel
     fitCopulaArgs <- updateList(
             list(copula = normalCopula(0, dim = 2, dispstr = "un"),
                     method = "itau",
@@ -70,7 +70,7 @@ samplingCEDA <- function (eda, currGen, model, lower, upper) {
     qmargin <- eda@parameters$qmargin
     
     if (is.null(popSize)) popSize <- 100
-    if (is.null(qmargin)) qmargin <- qspline
+    if (is.null(qmargin)) qmargin <- qkernel
     
     U <- rcopula(model$copula, popSize)
     pop <- sapply(seq(length = ncol(U)),

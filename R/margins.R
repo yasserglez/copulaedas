@@ -15,22 +15,51 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-fspline <- function (x) {
-    p <- rank(x) / length(x)
-    p[which.min(p)] <- 0
-    spline <- smooth.spline(p, x, keep.data = FALSE)
-    list(spline = spline)
-}
 
-pspline <- function (q, spline) {
-    rank(q) / (length(q) + 1)
-}
-
-qspline <- function (p, spline) {
-    predict(spline, p)$y
-}
-
+# Gaussian. pnorm and qnorm are defined in the stats package. 
 
 fnorm <- function (x) {
     list(mean = mean(x), sd = sd(x))
+}
+
+
+# Kernel-smoothed empirical margins. The sample is transformed into Uniform
+# variables using the Empirical CDF (modified to avoid problems in the boundary
+# of the interval). The inverse of the CDF is computed using the Newton-Raphson 
+# method using the sample quantiles as initial values. See Azzalini, A. (1981)
+# A note on the estimation of a distribution function and quantiles by a kernel
+# method, Biometrika, 68, 326-328 for more information.
+
+fkernel <- function (x) {
+    # TODO: Consider using other bandwidth selection methods.
+    list(X = x, b = bw.SJ(x, method = "dpi"))
+}
+
+pkernel <- function (q, X, b) {
+    rank(q) / (length(q) + 1)
+}
+
+qkernel <- function (p, X, b) {
+    n <- length(X)
+    f <- function (x) sum(dnorm((x - X) / b)) / (n * b)
+    F <- function (x) sum(pnorm((x - X) / b)) / n
+    sapply(seq(along = p), 
+            function (i) {
+                tol <- .Machine$double.eps^0.5
+                maxiter <- 100
+                iter <- 0
+                x <- quantile(X, p[i], names = FALSE)
+                Fx <- F(x) - p[i]
+                while (abs(Fx) > tol & iter <= maxiter) {
+                    nextPoint <- x - Fx / f(x)
+                    if (is.finite(nextPoint)) {
+                        x <- nextPoint
+                        Fx <- F(x) - p[i]
+                        iter <- iter + 1
+                    } else {
+                        break
+                    }
+                }
+                x
+            })
 }
