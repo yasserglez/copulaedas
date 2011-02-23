@@ -40,20 +40,20 @@ pkernel <- function (q, X, b) {
 }
 
 qkernel <- function (p, X, b) {
+    eps <- .Machine$double.eps^0.5
+    quantiles <- quantile(X, p, names = FALSE)
     n <- length(X)
     f <- function (x) sum(dnorm((x - X) / b)) / (n * b)
     F <- function (x) sum(pnorm((x - X) / b)) / n
     sapply(seq(along = p), 
             function (i) {
-                tol <- .Machine$double.eps^0.5
-                maxiter <- 100
                 iter <- 0
-                x <- quantile(X, p[i], names = FALSE)
+                x <- quantiles[i]
                 Fx <- F(x) - p[i]
-                while (abs(Fx) > tol & iter <= maxiter) {
-                    nextPoint <- x - Fx / f(x)
-                    if (is.finite(nextPoint)) {
-                        x <- nextPoint
+                while (abs(Fx) > eps && iter <= 100) {
+                    fx <- f(x)
+                    if (is.finite(fx) && abs(fx) > eps) {
+                        x <- x - Fx / fx
                         Fx <- F(x) - p[i]
                         iter <- iter + 1
                     } else {
