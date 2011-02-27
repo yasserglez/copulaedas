@@ -32,7 +32,7 @@ fnorm <- function (x) {
 
 fkernel <- function (x) {
     # TODO: Consider using other bandwidth selection methods.
-    list(X = x, b = bw.SJ(x, method = "dpi"))
+    list(X = x, b = bw.nrd0(x))
 }
 
 pkernel <- function (q, X, b) {
