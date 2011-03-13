@@ -50,7 +50,9 @@ tryPopSize <- function (eda, f, lower, upper, fEval, fEvalTol,
             cat("\nConverged ", totalRuns - failRuns, " of ", totalRuns,
                 " runs with population size ", eda@parameters$popSize, 
                 ".\n", sep = "")
+            show(results)
             show(summary(results))
+            cat("\n")
         }
     }
 
