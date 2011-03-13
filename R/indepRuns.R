@@ -94,7 +94,7 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE, runs = 3, verbose = 
         elapsedTime <- sapply(results, function (r) r@totalTime[3])
         
         cat("\n")
-        h <- c("", "Generations", "Evaluations", "Best Evaluation", 
+        h <- c("", "Generations", "Evaluations", "Best Evaluation",
                 "CPU Time", "Elapsed Time")
         cat(format(h, justify = "right", width = w), "\n")
         fs <- list(min, median, max, mean, sd)
@@ -107,7 +107,6 @@ indepRuns <- function (eda, f, lower, upper, trace = FALSE, runs = 3, verbose = 
                     format(c(f(cpuTime), f(elapsedTime)), width = w),
                     "\n")
         }
-        cat("\n")
     }
     
     as(results, "EDAResults")

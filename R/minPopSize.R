@@ -65,7 +65,7 @@ minPopSize <- function (eda, f, lower, upper, fEval, fEvalTol,
     
     results <- NULL
     if (is.null(eda@parameters$popSize)) eda@parameters$popSize <- 100
-    
+
     # Determine inital bounds of the interval (if not specified).
     while (!(is.finite(lowerPop) && is.finite(upperPop))) {
         currentResults <- tryPopSize(eda, f, lower, upper, 
