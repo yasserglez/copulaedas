@@ -28,26 +28,27 @@ ftruncnorm <- function (x, lower, upper) {
 }
 
 # Kernel-smoothed empirical margins. The sample is transformed into Uniform
-# variables using the Empirical CDF (modified to avoid problems in the boundary
+# variables using the Empirical c.d.f (modified to avoid problems in the boundary
 # of the interval). The inverse of the CDF is computed using the Newton-Raphson
 # method using the sample quantiles as initial values. See Azzalini, A. (1981)
 # A note on the estimation of a distribution function and quantiles by a kernel
-# method, Biometrika, 68, 326-328.
+# method, Biometrika, 68, 326-328 for information about the quantile function.
 
 fempirical <- function (x, lower, upper) {
-    list(X = x, b = bw.nrd0(x))
+    list(X = x, h = bw.nrd0(x))
 }
 
-pempirical <- function (q, X, b) {
+pempirical <- function (q, X, h) {
+    # Empirical c.d.f.
     rank(q) / (length(q) + 1)
 }
 
-qempirical <- function (p, X, b) {
+qempirical <- function (p, X, h) {
     eps <- .Machine$double.eps^0.5
     quantiles <- quantile(X, p, names = FALSE)
     n <- length(X)
-    f <- function (x) sum(dnorm((x - X) / b)) / (n * b)
-    F <- function (x) sum(pnorm((x - X) / b)) / n
+    f <- function (x) sum(dnorm((x - X) / h)) / (n * h)
+    F <- function (x) sum(pnorm((x - X) / h)) / n
     sapply(seq(along = p), 
             function (i) {
                 iter <- 0
@@ -65,4 +66,26 @@ qempirical <- function (p, X, b) {
                 }
                 x
             })
+}
+
+# Truncated kernel-smoothed empirical margins. See Nadarajah, S. and Kotz, S.
+# R Programs for Computing Truncated Distributions, Journal of Statistical Software,
+# Volume 16, Code Snippet 2 for information about the quantile function.
+
+ftruncempirical <- function (x, lower, upper) {
+    c(a = lower, b = upper, fempirical(x))
+}
+
+ptruncempirical <- function (q, a, b, X, h) {
+    # Empirical c.d.f.
+    rank(q) / (length(q) + 1)
+}
+
+qtruncempirical <- function (p, a, b, X, h) {
+    F <- function (x) sum(pnorm((x - X) / h)) / length(X)
+    Q <- qempirical
+    Fa <- F(a)
+    Fb <- F(b)
+    r <- Q(Fa + p*(Fb - Fa), X, h)
+    pmin(pmax(r, a), b)
 }
