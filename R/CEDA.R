@@ -26,22 +26,22 @@ CEDA <- function (parameters = list()) {
 }
 
 
-learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
+learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval, lower, upper) {
     fmargin <- eda@parameters$fmargin
     pmargin <- eda@parameters$pmargin
     fitCopulaArgs <- as.list(eda@parameters$fitCopulaArgs)
-    
-    if (is.null(fmargin)) fmargin <- fkernel
-    if (is.null(pmargin)) pmargin <- pkernel
+
+    if (is.null(fmargin)) fmargin <- fempirical
+    if (is.null(pmargin)) pmargin <- pempirical
     fitCopulaArgs <- updateList(
             list(copula = normalCopula(0, dim = 2, dispstr = "un"),
-                    method = "itau",
-                    estimate.variance = FALSE),
+                 method = "itau",
+                 estimate.variance = FALSE),
             fitCopulaArgs)
-    
+
     n <- ncol(selectedPop)
     margins <- lapply(seq(length = n),
-            function (i) fmargin(selectedPop[ , i]))
+            function (i) fmargin(selectedPop[ , i], lower[i], upper[i]))
     U <- sapply(seq(length = n),
             function (i) do.call(pmargin, c(list(selectedPop[ , i]), margins[[i]])))
     # Set the dimension of the copula to the dimension of the population.
@@ -58,7 +58,7 @@ learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
     start <- if (is(copula, "tCopula") && !copula@df.fixed) copula@parameters else NULL
     copula <- do.call(fitCopula,
             updateList(fitCopulaArgs, list(copula = copula, data = U, start = start)))@copula
-    
+
     list(copula = copula, margins = margins)
 }
 
@@ -68,14 +68,14 @@ setMethod("learning", "CEDA", learningCEDA)
 samplingCEDA <- function (eda, currGen, model, lower, upper) {
     popSize <- eda@parameters$popSize
     qmargin <- eda@parameters$qmargin
-    
+
     if (is.null(popSize)) popSize <- 100
-    if (is.null(qmargin)) qmargin <- qkernel
-    
+    if (is.null(qmargin)) qmargin <- qempirical
+
     U <- rcopula(model$copula, popSize)
     pop <- sapply(seq(length = ncol(U)),
             function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
-    
+
     pop
 }
 

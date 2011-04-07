@@ -111,13 +111,13 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
             selectedEval <- popEval[selectedInd]
             if (trace) selectionTimes <- c(selectionTimes, list(proc.time() - t0))
             if (trace) t0 <- proc.time()
-            model <- learning(eda, numGens, model, selectedPop, selectedEval)
+            model <- learning(eda, numGens, model, selectedPop, selectedEval, lower, upper)
             if (trace) learningTimes <- c(learningTimes, list(proc.time() - t0))
             if (trace) t0 <- proc.time()
             sampledPop <- sampling(eda, numGens, model, lower, upper)
             if (trace) samplingTimes <- c(samplingTimes, list(proc.time() - t0))
         }
-        
+
         # Evaluate the generated population.
         if (trace) t0 <- proc.time()
         sampledPop <- repairing(eda, numGens, sampledPop, lower, upper)
@@ -135,7 +135,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
         # Execute the function to report progress. 
         reporting(eda, numGens, fEvals, model, pop, popEval, selectedPop,
                 selectedEval, sampledPop, sampledEval)
-        
+
         # Update global statistics of the run.
         if (min(sampledEval) < bestEval) {
             i <- which.min(sampledEval)
@@ -148,7 +148,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
             selectedPops <- c(selectedPops, list(selectedPop))
             sampledPops <- c(sampledPops, list(sampledPop))
         }
-        
+
         # Execute the replacement method.
         if (trace) t0 <- proc.time()
         replaceResult <- replacement(eda, numGens, pop, popEval, selectedPop, 
@@ -160,7 +160,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
         # Evaluate the termination conditions.
         if (termination(eda, numGens, fEvals, pop, popEval)) break
     }
-    
+
     result <- new("EDAResult",
             eda = eda,
             f = f,
@@ -171,7 +171,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
             bestEval = bestEval,
             bestIndiv = bestIndiv,
             totalTime = proc.time() - startTime)
-    
+
     if (trace) {
         result <- new("EDATracedResult", result,
                 models = models,
@@ -186,7 +186,7 @@ runEDA <- function (eda, f, lower, upper, trace = FALSE) {
                 optimizationTimes = optimizationTimes,
                 replacementTimes = replacementTimes)
     }
-    
+
     result
 }
 

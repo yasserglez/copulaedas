@@ -3,43 +3,46 @@
 # Copyright (C) 2010-2011 Marta Soto
 #
 # This program is free software: you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free Software 
-# Foundation, either version 3 of the License, or (at your option) any later 
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
 # version.
 #
-# This program is distributed in the hope that it will be useful, but WITHOUT 
+# This program is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more 
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
 # details.
 #
-# You should have received a copy of the GNU General Public License along with 
+# You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
+# Normal (pnorm and qnorm defined in the stats package).
 
-# Gaussian. pnorm and qnorm are defined in the stats package. 
-
-fnorm <- function (x) {
+fnorm <- function (x, lower, upper) {
     list(mean = mean(x), sd = sd(x))
 }
 
+# Truncated Normal (ptruncnorm and qtruncnorm defined in the truncnorm package).
+
+ftruncnorm <- function (x, lower, upper) {
+    list(a = lower, b = upper, mean = mean(x), sd = sd(x))
+}
 
 # Kernel-smoothed empirical margins. The sample is transformed into Uniform
 # variables using the Empirical CDF (modified to avoid problems in the boundary
-# of the interval). The inverse of the CDF is computed using the Newton-Raphson 
+# of the interval). The inverse of the CDF is computed using the Newton-Raphson
 # method using the sample quantiles as initial values. See Azzalini, A. (1981)
 # A note on the estimation of a distribution function and quantiles by a kernel
-# method, Biometrika, 68, 326-328 for more information.
+# method, Biometrika, 68, 326-328.
 
-fkernel <- function (x) {
-    # TODO: Consider using other bandwidth selection methods.
+fempirical <- function (x, lower, upper) {
     list(X = x, b = bw.nrd0(x))
 }
 
-pkernel <- function (q, X, b) {
+pempirical <- function (q, X, b) {
     rank(q) / (length(q) + 1)
 }
 
-qkernel <- function (p, X, b) {
+qempirical <- function (p, X, b) {
     eps <- .Machine$double.eps^0.5
     quantiles <- quantile(X, p, names = FALSE)
     n <- length(X)

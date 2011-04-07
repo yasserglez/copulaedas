@@ -38,7 +38,7 @@ setGeneric("selection",
         useAsDefault = FALSE)
 
 setGeneric("learning",
-        function (eda, currGen, oldModel, selectedPop, selectedEval)
+        function (eda, currGen, oldModel, selectedPop, selectedEval, lower, upper)
             standardGeneric("learning"),
         signature = "eda",
         useAsDefault = FALSE)

@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-setClass("UMDA", 
+setClass("UMDA",
         contains = "EDA",
         prototype = prototype(
                 name = "Univariate Marginal Distribution Algorithm"))
@@ -26,14 +26,14 @@ UMDA <- function (parameters = list()) {
 }
 
 
-learningUMDA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
+learningUMDA <- function(eda, currGen, oldModel, selectedPop, selectedEval, lower, upper) {
     fmargin <- eda@parameters$fmargin
-    
-    if (is.null(fmargin)) fmargin <- fkernel
-    
+
+    if (is.null(fmargin)) fmargin <- fempirical
+
     margins <- lapply(seq(length = ncol(selectedPop)),
-            function (i) fmargin(selectedPop[ , i]))
-    
+            function (i) fmargin(selectedPop[ , i], lower[i], upper[i]))
+
     list(margins = margins)
 }
 
@@ -43,15 +43,15 @@ setMethod("learning", "UMDA", learningUMDA)
 samplingUMDA <- function (eda, currGen, model, lower, upper) {
     popSize <- eda@parameters$popSize
     qmargin <- eda@parameters$qmargin
-    
+
     if (is.null(popSize)) popSize <- 100
-    if (is.null(qmargin)) qmargin <- qkernel
-    
+    if (is.null(qmargin)) qmargin <- qempirical
+
     n <- length(lower)
     U <- matrix(runif(popSize * n), popSize, n)
     pop <- sapply(seq(length = n),
             function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
-    
+
     pop
 }
 

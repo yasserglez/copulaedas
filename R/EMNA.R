@@ -49,7 +49,7 @@ EMNAi <- function (parameters = list()) {
 }
 
 
-learningEMNA <- function(eda, currGen, oldModel, selectedPop, selectedEval) {
+learningEMNA <- function(eda, currGen, oldModel, selectedPop, selectedEval, lower, upper) {
     list(mean = colMeans(selectedPop), sigma = cov(selectedPop))
 }
 

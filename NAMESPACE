@@ -2,6 +2,7 @@
 
 import(mvtnorm)
 import(copula)
+import(truncnorm)
 
 
 # Classes and generic functions
