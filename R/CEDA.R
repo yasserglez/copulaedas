@@ -76,7 +76,7 @@ samplingCEDA <- function (eda, currGen, model, lower, upper) {
     pop <- sapply(seq(length = ncol(U)),
             function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
 
-    pop
+    matrix(pop, nrow = popSize)
 }
 
 setMethod("sampling", "CEDA", samplingCEDA)

@@ -52,7 +52,7 @@ samplingUMDA <- function (eda, currGen, model, lower, upper) {
     pop <- sapply(seq(length = n),
             function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
 
-    pop
+    matrix(pop, nrow = popSize)
 }
 
 setMethod("sampling", "UMDA", samplingUMDA)
