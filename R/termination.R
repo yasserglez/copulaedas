@@ -38,20 +38,20 @@ terminationMaxEvals <- function (eda, currGen, fEvals, pop, popEval) {
 terminationEval <- function (eda, currGen, fEvals, pop, popEval) {
     fEval <- eda@parameters$fEval
     fEvalTol <- eda@parameters$fEvalTol
-    
+
     if (is.null(fEval)) fEval <- 0 
     if (is.null(fEvalTol)) fEvalTol <- 1e-08
-    
-    any(abs(popEval - fEval) <= fEvalTol)
+
+    any(abs(popEval - fEval) < fEvalTol)
 }
 
 
 terminationEvalStdDev <- function (eda, currGen, fEvals, pop, popEval) {
     fEvalStdDev <- eda@parameters$fEvalStdDev
-    
+
     if (is.null(fEvalStdDev)) fEvalStdDev <- 1e-08
-    
-    isTRUE(sd(popEval) <= fEvalStdDev)
+
+    isTRUE(sd(popEval) < fEvalStdDev)
 }
 
 
