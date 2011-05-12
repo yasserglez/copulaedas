@@ -21,12 +21,6 @@ fnorm <- function (x, lower, upper) {
     list(mean = mean(x), sd = sd(x))
 }
 
-# Truncated Normal (ptruncnorm and qtruncnorm defined in the truncnorm package).
-
-ftruncnorm <- function (x, lower, upper) {
-    list(a = lower, b = upper, mean = mean(x), sd = sd(x))
-}
-
 # Kernel-smoothed empirical margins. The sample is transformed into Uniform
 # variables using the Empirical c.d.f (modified to avoid problems in the boundary
 # of the interval). The inverse of the CDF is computed using the Newton-Raphson
@@ -66,26 +60,4 @@ qempirical <- function (p, X, h) {
                 }
                 x
             })
-}
-
-# Truncated kernel-smoothed empirical margins. See Nadarajah, S. and Kotz, S.
-# R Programs for Computing Truncated Distributions, Journal of Statistical Software,
-# Volume 16, Code Snippet 2 for information about the quantile function.
-
-ftruncempirical <- function (x, lower, upper) {
-    c(a = lower, b = upper, fempirical(x))
-}
-
-ptruncempirical <- function (q, a, b, X, h) {
-    # Empirical c.d.f.
-    rank(q) / (length(q) + 1)
-}
-
-qtruncempirical <- function (p, a, b, X, h) {
-    F <- function (x) sum(pnorm((x - X) / h)) / length(X)
-    Q <- qempirical
-    Fa <- F(a)
-    Fb <- F(b)
-    r <- Q(Fa + p*(Fb - Fa), X, h)
-    pmin(pmax(r, a), b)
 }
