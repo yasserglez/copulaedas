@@ -19,4 +19,4 @@ LazyLoad: yes
 Depends: methods, mvtnorm, copula, truncnorm
 Collate: EDA.R seeding.R selection.R repairing.R optimization.R
 	reporting.R replacement.R termination.R run.R margins.R f.R
-	indepRuns.R minPopSize.R misc.R UMDA.R EMNA.R CEDA.R
+	indepRuns.R minPopSize.R misc.R CEDA.R
