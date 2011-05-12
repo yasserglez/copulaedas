@@ -15,8 +15,12 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-optimizationDisabled <- function (eda, currGen, pop, popEval, f, lower, upper) {
-    list(pop = pop, popEval = popEval)
+edaSeedUniform <- function (eda, lower, upper) {
+    popSize <- eda@parameters$popSize
+    
+    if (is.null(popSize)) popSize <- 100
+
+    sapply(seq(along = lower), function (i) runif(popSize, lower[i], upper[i]))
 }
 
-setMethod("optimization", "EDA", optimizationDisabled)
+setMethod("edaSeed", "EDA", edaSeedUniform)

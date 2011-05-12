@@ -15,21 +15,13 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-seedingUniform <- function (eda, lower, upper) {
-    popSize <- eda@parameters$popSize
-    
-    if (is.null(popSize)) popSize <- 100
-    
-    sapply(seq(along = lower), function (i) runif(popSize, lower[i], upper[i]))
+edaSelectTruncation <- function (eda, gen, pop, popEval) {
+    truncFactor <- eda@parameters$truncFactor
+
+    if (is.null(truncFactor)) truncFactor <- 0.3
+
+    popOrder <- order(popEval)
+    popOrder[seq(ceiling(truncFactor * length(popOrder)))]
 }
 
-setMethod("seeding", "EDA", seedingUniform)
-
-
-seedingInitialPop <- function (eda, lower, upper) {
-    initialPop <- eda@parameters$initialPop
-    
-    if (is.null(initialPop)) initialPop <- seedingUniform(eda, lower, upper)
-    
-    initialPop
-}
+setMethod("edaSelect", "EDA", edaSelectTruncation)

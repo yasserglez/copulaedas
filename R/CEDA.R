@@ -18,54 +18,47 @@
 setClass("CEDA", 
         contains = "EDA",
         prototype = prototype(
-                name = "Copula Estimation of Distribution Algorithm"))
+            name = "Copula Estimation of Distribution Algorithm"))
 
 
-CEDA <- function (parameters = list()) {
-    new("CEDA", parameters = parameters)
+CEDA <- function (...) {
+    new("CEDA", parameters = list(...))
 }
 
 
-learningCEDA <- function(eda, currGen, oldModel, selectedPop, selectedEval, lower, upper) {
+edaLearnCEDA <- function(eda, gen, previousModel,
+        selectedPop, selectedEval, lower, upper) {
     fmargin <- eda@parameters$fmargin
     pmargin <- eda@parameters$pmargin
+    copula <- eda@parameters$copula
+
     fitCopulaArgs <- as.list(eda@parameters$fitCopulaArgs)
 
     if (is.null(fmargin)) fmargin <- fempirical
     if (is.null(pmargin)) pmargin <- pempirical
-    fitCopulaArgs <- updateList(
-            list(copula = normalCopula(0, dim = 2, dispstr = "un"),
-                 method = "itau",
-                 estimate.variance = FALSE),
-            fitCopulaArgs)
+    if (is.null(copula)) copula <- "normal"
 
     n <- ncol(selectedPop)
     margins <- lapply(seq(length = n),
             function (i) fmargin(selectedPop[ , i], lower[i], upper[i]))
     U <- sapply(seq(length = n),
             function (i) do.call(pmargin, c(list(selectedPop[ , i]), margins[[i]])))
-    # Set the dimension of the copula to the dimension of the population.
-    copula <- fitCopulaArgs$copula
-    if (copula@dimension != n) {
-        copula <- switch(class(copula),
-                claytonCopula = claytonCopula(copula@parameters, dim = n),
-                gumbelCopula = gumbelCopula(copula@parameters, dim = n),
-                frankCopula = frankCopula(copula@parameters, dim = n),
-                normalCopula = normalCopula(rep(0, choose(n, 2)), dim = n, dispstr = "un"),
-                tCopula = tCopula(rep(0, choose(n, 2)), dim = n, dispstr = "un", df = copula@df))
+
+    copula <- switch(copula,
+            indep = indepCopula(dim = n),
+            normal = normalCopula(rep(0, choose(n, 2)), dim = n, dispstr = "un"))
+    if (length(copula@parameters) > 0) {
+        copula <- fitCopula(copula = copula, data = U,
+                method = "itau", estimate.variance = FALSE)@copula
     }
-    # Set the start argument for the t copula without df fixed.
-    start <- if (is(copula, "tCopula") && !copula@df.fixed) copula@parameters else NULL
-    copula <- do.call(fitCopula,
-            updateList(fitCopulaArgs, list(copula = copula, data = U, start = start)))@copula
 
     list(copula = copula, margins = margins)
 }
 
-setMethod("learning", "CEDA", learningCEDA)
+setMethod("edaLearn", "CEDA", edaLearnCEDA)
 
 
-samplingCEDA <- function (eda, currGen, model, lower, upper) {
+edaSampleCEDA <- function (eda, gen, model, lower, upper) {
     popSize <- eda@parameters$popSize
     qmargin <- eda@parameters$qmargin
 
@@ -73,10 +66,11 @@ samplingCEDA <- function (eda, currGen, model, lower, upper) {
     if (is.null(qmargin)) qmargin <- qempirical
 
     U <- rcopula(model$copula, popSize)
+
     pop <- sapply(seq(length = ncol(U)),
             function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
 
     matrix(pop, nrow = popSize)
 }
 
-setMethod("sampling", "CEDA", samplingCEDA)
+setMethod("edaSample", "CEDA", edaSampleCEDA)

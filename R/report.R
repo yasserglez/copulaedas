@@ -15,34 +15,30 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-reportingDisabled <- function (eda, currGen, fEvals, model, pop, popEval, 
-        selectedPop, selectedEval, sampledPop, sampledEval) {
+edaReportDisabled <- function (eda, gen, fEvals, model, pop, popEval) {
 }
 
-setMethod("reporting", "EDA", reportingDisabled)
+setMethod("edaReport", "EDA", edaReportDisabled)
 
 
-reportingSimple <- function (eda, currGen, fEvals, model, pop, popEval, 
-        selectedPop, selectedEval, sampledPop, sampledEval) {
-    w <- max(getOption("digits") + 5, 10)
-    if (currGen == 1) {
+edaReportSimple <- function (eda, gen, fEvals, model, pop, popEval) {
+    width <- max(getOption("digits") + 5, 10)
+    if (gen == 1) {
         cat("\n")
         h <- c("Generation", "Minimum", "Mean", "Std. Dev.")
-        cat(format(h, justify = "right", width = w), "\n")
+        cat(format(h, justify = "right", width = width), "\n")
     }
-    stats <- c(min(sampledEval), mean(sampledEval), sd(sampledEval))
-    cat(format(currGen, width = w),
-            format(stats, scientific = TRUE, width = w), 
-            "\n")
+    stats <- c(min(popEval), mean(popEval), sd(popEval))
+    cat(format(gen, width = width),
+        format(stats, scientific = TRUE, width = width),
+        "\n")
 }
 
 
-reportingCombined <- function (...) {
-    function (eda, currGen, fEvals, model, pop, popEval,
-            selectedPop, selectedEval, sampledPop, sampledEval) {
+edaReportCombine <- function (...) {
+    function (eda, gen, fEvals, model, pop, popEval) {
         methods <- list(...)
-        args <- list(eda, currGen, fEvals, model, pop, popEval,
-                selectedPop, selectedEval, sampledPop, sampledEval)
+        args <- list(eda, gen, fEvals, model, pop, popEval)
         sapply(methods, function (m) do.call(m, args))
     }
 }

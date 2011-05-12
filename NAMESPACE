@@ -1,27 +1,25 @@
 # Imports
 
-import(mvtnorm)
 import(copula)
-import(truncnorm)
+import(vines)
 
 
 # Classes and generic functions
 
 exportClasses(EDA)
 exportClasses(CEDA)
+exportClasses(VEDA)
 
-exportClasses(EDAResult, EDATracedResult)
+exportClasses(EDAResult)
 
-exportMethods(seeding)
-exportMethods(selection)
-exportMethods(learning)
-exportMethods(sampling)
-exportMethods(repairing)
-exportMethods(replacement)
-exportMethods(optimization)
-exportMethods(termination)
-exportMethods(reporting)
-exportMethods(run)
+exportMethods(edaSeed)
+exportMethods(edaSelect)
+exportMethods(edaLearn)
+exportMethods(edaSample)
+exportMethods(edaReplace)
+exportMethods(edaOptimize)
+exportMethods(edaTerminate)
+exportMethods(edaReport)
 
 exportMethods(show, summary)
 
@@ -29,19 +27,20 @@ exportMethods(show, summary)
 # Exported functions
 
 export(CEDA)
+export(VEDA)
+export(edaRun)
+export(edaIndepRuns)
+export(edaCriticalPopSize)
 
-exportPattern("^run[A-Z]")
-exportPattern("^seeding[A-Z]")
-exportPattern("^selection[A-Z]")
-exportPattern("^learning[A-Z]")
-exportPattern("^sampling[A-Z]")
-exportPattern("^repairing[A-Z]")
-exportPattern("^replacement[A-Z]")
-exportPattern("^optimization[A-Z]")
-exportPattern("^termination[A-Z]")
-exportPattern("^reporting[A-Z]")
+exportPattern("^edaSeed[A-Z]")
+exportPattern("^edaSelect[A-Z]")
+exportPattern("^edaLearn[A-Z]")
+exportPattern("^edaSample[A-Z]")
+exportPattern("^edaRepair[A-Z]")
+exportPattern("^edaReplace[A-Z]")
+exportPattern("^edaOptimize[A-Z]")
+exportPattern("^edaTerminate[A-Z]")
+exportPattern("^edaReport[A-Z]")
 
 exportPattern("^f[A-Z]") # Objective functions.
-exportPattern("^[fpq][a-z]") # Marginal distributions.
-export(indepRuns)
-export(minPopSize)
+exportPattern("^[fpq][a-z]") # Margins.

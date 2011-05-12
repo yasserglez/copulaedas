@@ -8,15 +8,17 @@ Author: Yasser González-Fernández <y.gonzalez@lab.matcom.uh.cu>
 	and Marta Soto <mrosa@icmf.inf.cu>
 Maintainer: Yasser González-Fernández <y.gonzalez@lab.matcom.uh.cu>
 Description: This package contains S4 classes and methods for the
-    development of Estimation of Distribution Algorithms (EDAs). New EDAs can 
-    be created specifying methods for generic functions implementing its main 
-    parts: seeding, selection, learning, sampling, repairing, replacement, local 
-    optimization, termination and reporting methods. It also contains complete 
-    implementations of EDAs and functions to analyze the results of EDAs. 
-    The package was inspired by the MATEDA toolbox for MATLAB.
+	development of Estimation of Distribution Algorithms (EDAs).
+	EDAs can be implemented by defining methods for generic functions
+	that specify its main parts: seeding, selection, learning, sampling,
+	replacement, local optimization, termination and reporting. It also
+	contains implementations of continuous EDAs based on copula theory,
+	a group of well-known continuous optimization test problems and
+	utility functions to analyze the results of EDAs. The modular design
+	of the package was inspired by the MATEDA toolbox for MATLAB.
 License: GPL (>= 3)
 LazyLoad: yes
-Depends: methods, mvtnorm, copula, truncnorm
-Collate: EDA.R seeding.R selection.R repairing.R optimization.R
-	reporting.R replacement.R termination.R run.R margins.R f.R
-	indepRuns.R minPopSize.R misc.R CEDA.R
+Depends: methods, copula, vines
+Collate: EDA.R seed.R select.R optimize.R report.R replace.R
+	terminate.R run.R margins.R f.R indepRuns.R criticalPopSize.R
+	misc.R CEDA.R VEDA.R

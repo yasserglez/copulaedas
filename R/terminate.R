@@ -15,51 +15,51 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-terminationMaxGen <- function (eda, currGen, fEvals, pop, popEval) {
+edaTerminateMaxGen <- function (eda, gen, fEvals, pop, popEval) {
     maxGen <- eda@parameters$maxGen
-    
+
     if (is.null(maxGen)) maxGen <- 100
-    
-    currGen >= maxGen
+
+    gen >= maxGen
 }
 
-setMethod("termination", "EDA", terminationMaxGen)
+setMethod("edaTerminate", "EDA", edaTerminateMaxGen)
 
 
-terminationMaxEvals <- function (eda, currGen, fEvals, pop, popEval) {
+edaTerminateMaxEvals <- function (eda, gen, fEvals, pop, popEval) {
     maxEvals <- eda@parameters$maxEvals
-    
+
     if (is.null(maxEvals)) maxEvals <- 1000
-    
+
     fEvals >= maxEvals
 }
 
 
-terminationEval <- function (eda, currGen, fEvals, pop, popEval) {
+edaTerminateEval <- function (eda, gen, fEvals, pop, popEval) {
     fEval <- eda@parameters$fEval
     fEvalTol <- eda@parameters$fEvalTol
 
-    if (is.null(fEval)) fEval <- 0 
-    if (is.null(fEvalTol)) fEvalTol <- 1e-08
+    if (is.null(fEval)) fEval <- 0
+    if (is.null(fEvalTol)) fEvalTol <- 1e-06
 
     any(abs(popEval - fEval) < fEvalTol)
 }
 
 
-terminationEvalStdDev <- function (eda, currGen, fEvals, pop, popEval) {
+edaTerminateEvalStdDev <- function (eda, gen, fEvals, pop, popEval) {
     fEvalStdDev <- eda@parameters$fEvalStdDev
 
-    if (is.null(fEvalStdDev)) fEvalStdDev <- 1e-08
+    if (is.null(fEvalStdDev)) fEvalStdDev <- 1e-02
 
     isTRUE(sd(popEval) < fEvalStdDev)
 }
 
 
-terminationCombined <- function (..., requireAll = FALSE) {
-    function (eda, currGen, fEvals, pop, popEval) {
+edaTerminateCombine <- function (...) {
+    function (eda, gen, fEvals, pop, popEval) {
         methods <- list(...)
-        args <- list(eda, currGen, fEvals, pop, popEval)
+        args <- list(eda, gen, fEvals, pop, popEval)
         results <- sapply(methods, function (m) do.call(m, args))
-        if (requireAll) all(results) else any(results)
+        any(results)
     }
 }

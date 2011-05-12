@@ -15,9 +15,8 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-replacementFull <- function (eda, currGen, pop, popEval, selectedPop,
-        selectedEval, sampledPop, sampledEval) {
+edaReplaceComplete <- function (eda, gen, pop, popEval, sampledPop, sampledEval) {
     list(pop = sampledPop, popEval = sampledEval)
 }
 
-setMethod("replacement", "EDA", replacementFull)
+setMethod("edaReplace", "EDA", edaReplaceComplete)

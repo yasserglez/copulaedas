@@ -15,8 +15,8 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-repairingDisabled <- function (eda, currGen, pop, lower, upper) {
-    pop
+edaOptimizeDisabled <- function (eda, gen, pop, popEval, f, lower, upper) {
+    list(pop = pop, popEval = popEval)
 }
 
-setMethod("repairing", "EDA", repairingDisabled)
+setMethod("edaOptimize", "EDA", edaOptimizeDisabled)

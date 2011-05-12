@@ -21,12 +21,12 @@ fnorm <- function (x, lower, upper) {
     list(mean = mean(x), sd = sd(x))
 }
 
-# Kernel-smoothed empirical margins. The sample is transformed into Uniform
-# variables using the Empirical c.d.f (modified to avoid problems in the boundary
-# of the interval). The inverse of the CDF is computed using the Newton-Raphson
-# method using the sample quantiles as initial values. See Azzalini, A. (1981)
-# A note on the estimation of a distribution function and quantiles by a kernel
-# method, Biometrika, 68, 326-328 for information about the quantile function.
+# Kernel-smoothed empirical margins. The sample is transformed into uniform
+# variables using the empirical c.d.f (modified to avoid problems in the boundary
+# of the interval). The inverse of the c.d.f is computed from the kernel-smoothed
+# c.d.f using the Newton-Raphson method with the sample quantiles as initial values. 
+# See Azzalini, A. (1981) A note on the estimation of a distribution function and 
+# quantiles by a kernel method, Biometrika, 68, 326-328.
 
 fempirical <- function (x, lower, upper) {
     list(X = x, h = bw.nrd0(x))
@@ -39,6 +39,7 @@ pempirical <- function (q, X, h) {
 
 qempirical <- function (p, X, h) {
     eps <- .Machine$double.eps^0.5
+    maxIter <- 100
     quantiles <- quantile(X, p, names = FALSE)
     n <- length(X)
     f <- function (x) sum(dnorm((x - X) / h)) / (n * h)
@@ -48,7 +49,7 @@ qempirical <- function (p, X, h) {
                 iter <- 0
                 x <- quantiles[i]
                 Fx <- F(x) - p[i]
-                while (abs(Fx) > eps && iter <= 100) {
+                while (abs(Fx) > eps && iter <= maxIter) {
                     fx <- f(x)
                     if (is.finite(fx) && abs(fx) > eps) {
                         x <- x - Fx / fx

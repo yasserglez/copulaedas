@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-setClass("EDA", 
+setClass("EDA",
         contains = "VIRTUAL",
         representation = representation(
                 name = "character",
@@ -25,71 +25,57 @@ setClass("EDA",
                 parameters = list()))
 
 
-setGeneric("seeding",
-        function (eda, lower, upper) 
-            standardGeneric("seeding"),
+setGeneric("edaSeed",
+        function (eda, lower, upper)
+            standardGeneric("edaSeed"),
         signature = "eda",
         useAsDefault = FALSE)
 
-setGeneric("selection",
-        function (eda, currGen, pop, popEval) 
-            standardGeneric("selection"),
+setGeneric("edaSelect",
+        function (eda, gen, pop, popEval)
+            standardGeneric("edaSelect"),
         signature = "eda",
         useAsDefault = FALSE)
 
-setGeneric("learning",
-        function (eda, currGen, oldModel, selectedPop, selectedEval, lower, upper)
-            standardGeneric("learning"),
+setGeneric("edaLearn",
+        function (eda, gen, previousModel, selectedPop, selectedEval, lower, upper)
+            standardGeneric("edaLearn"),
         signature = "eda",
         useAsDefault = FALSE)
 
-setGeneric("sampling",
-        function (eda, currGen, model, lower, upper) 
-            standardGeneric("sampling"),
+setGeneric("edaSample",
+        function (eda, gen, model, lower, upper)
+            standardGeneric("edaSample"),
         signature = "eda",
         useAsDefault = FALSE)
 
-setGeneric("repairing",
-        function (eda, currGen, pop, lower, upper) 
-            standardGeneric("repairing"),
+setGeneric("edaReplace",
+        function (eda, gen, pop, popEval, sampledPop, sampledEval)
+            standardGeneric("edaReplace"),
         signature = "eda",
         useAsDefault = FALSE)
 
-setGeneric("replacement",
-        function (eda, currGen, pop, popEval, 
-                selectedPop, selectedEval, sampledPop, sampledEval)
-            standardGeneric("replacement"),
-        signature = "eda",
-        useAsDefault = FALSE)
-
-setGeneric("optimization",
-        function (eda, currGen, pop, popEval, f, lower, upper) 
-            standardGeneric("optimization"),
+setGeneric("edaOptimize",
+        function (eda, gen, pop, popEval, f, lower, upper)
+            standardGeneric("edaOptimize"),
         signature = "eda", 
         useAsDefault = FALSE)
 
-setGeneric("termination",
-        function (eda, currGen, fEvals, pop, popEval)
-            standardGeneric("termination"),
+setGeneric("edaTerminate",
+        function (eda, gen, fEvals, pop, popEval)
+            standardGeneric("edaTerminate"),
         signature = "eda",
         useAsDefault = FALSE)
 
-setGeneric("reporting",
-        function (eda, currGen, fEvals, model, pop, popEval, selectedPop,
-                selectedEval, sampledPop, sampledEval)
-            standardGeneric("reporting"),
-        signature = "eda",
-        useAsDefault = FALSE)
-
-setGeneric("run",
-        function (eda, f, lower, upper, trace = FALSE)
-            standardGeneric("run"),
+setGeneric("edaReport",
+        function (eda, gen, fEvals, model, pop, popEval)
+            standardGeneric("edaReport"),
         signature = "eda",
         useAsDefault = FALSE)
 
 
 showEDA <- function (object) {
-    cat("Estimation of Distribution Algorithm\n\n")
+    cat("\nEstimation of Distribution Algorithm\n\n")
     cat("Name:", object@name, "\n")
 }
 
