@@ -1,9 +1,9 @@
-\name{edas-package}
+\name{copulaedas-package}
 
 \docType{package}
 
-\alias{edas-package}
-\alias{edas}
+\alias{copulaedas-package}
+\alias{copulaedas}
 
 \title{Estimation of Distribution Algorithms based on Copula Theory}
 

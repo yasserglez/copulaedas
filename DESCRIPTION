@@ -1,6 +1,6 @@
 Type: Package
 Encoding: UTF-8
-Package: edas
+Package: copulaedas
 Title: Estimation of Distribution Algorithms based on Copula Theory
 Version: 1.0.0
 Date: 2011-05-12
