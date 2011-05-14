@@ -55,7 +55,7 @@ edaTerminateEvalStdDev <- function (eda, gen, fEvals, pop, popEval) {
 }
 
 
-edaTerminateCombine <- function (...) {
+edaTerminateCombined <- function (...) {
     function (eda, gen, fEvals, pop, popEval) {
         methods <- list(...)
         args <- list(eda, gen, fEvals, pop, popEval)

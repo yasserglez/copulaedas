@@ -65,7 +65,7 @@ showEDAResults <- function (object) {
 setMethod("show", "EDAResults", showEDAResults)
 
 
-edaIndepRuns <- function (eda, f, lower, upper, runs = 3, verbose = FALSE) {
+edaIndepRuns <- function (eda, f, lower, upper, runs, verbose = FALSE) {
     results <- new("EDAResults")
 
     for (run in seq(length = runs)) {

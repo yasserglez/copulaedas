@@ -35,7 +35,7 @@ edaReportSimple <- function (eda, gen, fEvals, model, pop, popEval) {
 }
 
 
-edaReportCombine <- function (...) {
+edaReportCombined <- function (...) {
     function (eda, gen, fEvals, model, pop, popEval) {
         methods <- list(...)
         args <- list(eda, gen, fEvals, model, pop, popEval)

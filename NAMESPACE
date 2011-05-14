@@ -10,7 +10,7 @@ exportClasses(EDA)
 exportClasses(CEDA)
 exportClasses(VEDA)
 
-exportClasses(EDAResult)
+exportClasses(EDAResult, EDAResults)
 
 exportMethods(edaSeed)
 exportMethods(edaSelect)
