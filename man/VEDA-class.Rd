@@ -61,7 +61,7 @@ the search distributions using D-vines (Soto and González-Fernández, 2010).}
 }
 
 Greedy heuristics are used to determine the structure of the C-vine and 
-D-vine in CVEDA and DVEDA respectively. The selection of each bivariate
+D-vine in CVEDA and DVEDA, respectively. The selection of each bivariate
 copula in both decomposition starts with an independence test. The 
 independence copula is selected if there is not enough evidence against
 the null hypothesis of independence at a given significance level. In the 
