@@ -4,7 +4,7 @@ Package: copulaedas
 Title: Estimation of Distribution Algorithms based on Copula Theory
 Version: 1.0.0
 Date: 2011-05-12
-Author: Yasser González-Fernández <y.gonzalez@lab.matcom.uh.cu>
+Author: Yasser González-Fernández <yglezfdez@icmf.inf.cu>
 	and Marta Soto <mrosa@icmf.inf.cu>
 Maintainer: Yasser González-Fernández <y.gonzalez@lab.matcom.uh.cu>
 Description: This package contains S4 classes and methods for the

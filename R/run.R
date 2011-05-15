@@ -38,7 +38,7 @@ showEDAResult <- function (object) {
                 format(object@fEvals),
                 paste(format(object@cpuTime), "seconds"))
 
-    cat("\n", object@eda@name, " Results\n\n", sep = "")
+    cat("\nResults for ", object@eda@name, "\n", sep = "")
     width <- max(nchar(names))
     for (i in seq(along = names)) {
         cat(format(names[i], width = width), values[i], "\n")
