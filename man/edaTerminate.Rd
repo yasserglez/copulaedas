@@ -23,8 +23,7 @@ edaTerminateCombined(...)
 
 \arguments{
 \item{eda}{
-  An \code{\linkS4class{EDA}} instance.
-}
+  An \code{\linkS4class{EDA}} instance.}
 \item{gen}{
   Generation.}
 \item{fEvals}{
@@ -38,6 +37,9 @@ edaTerminateCombined(...)
 }
 
 \details{
+Termination methods decide when to stop the main loop of the EDA. 
+The following termination methods are implemented.
+
 \describe{
 \item{\code{edaTerminateMaxGen}}{
   Stop when a maximum number of generations has been reached.
@@ -63,5 +65,5 @@ edaTerminateCombined(...)
 }
 
 \value{
-  A \code{logical} value indicating if the algorithm should terminate.
+A \code{logical} value indicating if the algorithm should terminate.
 }
