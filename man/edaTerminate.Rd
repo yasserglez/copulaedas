@@ -29,9 +29,9 @@ edaTerminateCombined(...)
 \item{fEvals}{
   Number of function evaluations.}
 \item{pop}{
-  A \code{matrix} with one row for each individual in the population.}
+  A \code{"matrix"} with one row for each individual in the population.}
 \item{popEval}{
-  A \code{numeric} vector with the evaluation of each individual in \code{pop}.}
+  A \code{"numeric"} vector with the evaluation of each individual in \code{pop}.}
 \item{\dots}{
   Functions implementing termination methods.}
 }
@@ -65,5 +65,5 @@ The following termination methods are implemented.
 }
 
 \value{
-A \code{logical} value indicating if the algorithm should terminate.
+A \code{"logical"} value indicating if the algorithm should terminate.
 }

@@ -21,9 +21,9 @@ edaSelectTruncation(eda, gen, pop, popEval)
 \item{fEvals}{
   Number of function evaluations.}
 \item{pop}{
-  A \code{matrix} with one row for each individual in the population.}
+  A \code{"matrix"} with one row for each individual in the population.}
 \item{popEval}{
-  A \code{numeric} vector with the evaluation of each individual in \code{pop}.}
+  A \code{"numeric"} vector with the evaluation of each individual in \code{pop}.}
 }
 
 \details{

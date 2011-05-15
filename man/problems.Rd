@@ -25,7 +25,7 @@ fSummationCancellation(x)
 }
 
 \value{
-The value of the function at the vector \code{x}.
+The value of the function for the vector \code{x}.
 }
 
 \details{
