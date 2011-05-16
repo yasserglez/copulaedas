@@ -11,8 +11,8 @@ Determine the critical population size using a bisection method.
 \usage{
 edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
                    totalRuns = 30, successRuns = totalRuns,
-                   lowerPop = 2, upperPop = NA, stopPercent = 10,
-                   verbose = FALSE)
+                   lowerPop = 2, upperPop = NA, 
+                   stopPercent = 10, verbose = FALSE)
 }
 
 \arguments{

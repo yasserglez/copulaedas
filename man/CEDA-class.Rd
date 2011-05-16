@@ -12,13 +12,12 @@
 \title{Class for Copula Estimation of Distribution Algorithms}
 
 \description{
-Extends the \code{\linkS4class{EDA}} class to implement Copula Estimation of 
-Distribution Algorithms.
+Extends the \code{\linkS4class{EDA}} class to implement Copula Estimation 
+of Distribution Algorithms.
 }
 
 \section{Objects from the Class}{
-As illustrated in the examples, objects can be created by calls to the
-\code{CEDA} function.
+Objects are created by calls to the \code{CEDA} function.
 }
 
 \section{Slots}{
@@ -52,14 +51,13 @@ instances of this class of EDAs are implemented in the package.
   the resulting algorithm corresponds to the continuous Univariate Marginal 
   Distribution Algorithm (UMDA) introduced in (Larrañaga et al., 2000).}
 
-\item{If the dependence structure is modeled using the normal copula,
-  the resulting algorithm corresponds to the Gaussian Copula Estimation 
-  of Distribution Algorithm (GCEDA) introduced in 
-  (Soto et al., 2007; Arderí, 2007). The correlation matrix of the normal
-  copula is calculated using the inversion of Kendall's tau for each pair 
-  of variables (Demarta and McNeil, 2005). If the resulting correlation
-  matrix is not positive-definite, the correction proposed in 
-  (Rousseeuw and Molenberghs, 1993) is applied.}
+\item{If the dependence structure is modeled using the normal copula, the
+  resulting algorithm corresponds to the Gaussian Copula Estimation of
+  Distribution Algorithm (GCEDA) introduced in (Soto et al., 2007; Arderí, 2007). 
+  The correlation matrix of the normal copula is calculated using the inversion
+  of Kendall's tau for each pair of variables (Demarta and McNeil, 2005).
+  If the resulting correlation matrix is not positive-definite, the correction
+  proposed in (Rousseeuw and Molenberghs, 1993) is applied.}
 }
 
 The following parameters are recognized by the functions implementing the
@@ -67,21 +65,16 @@ The following parameters are recognized by the functions implementing the
 \code{\linkS4class{CEDA}} class.
 
 \describe{
-\item{\code{fmargin}}{
-  Function to fit the marginal distributions. 
-  Default value: \code{fempirical}.}
-\item{\code{pmargin}}{
-  CDF of the marginal distributions. 
-  Default value: \code{pempirical}.}
-\item{\code{qmargin}}{
-  Inverse of the CDF of the marginal distributions.
-  Default value: \code{qempirical}.}
-\item{\code{copula}}{
-  Multivariate copula used to represent the dependence structure. Supported
-  values are: \code{"indep"} (independence copula) and \code{"normal"}
-  (normal copula). Default value: \code{"normal"}.}
-\item{\code{popSize}}{
-  Population size. Default value: \code{100}.}
+\item{\code{fmargin}}{Function to fit the marginal distributions. 
+  Default value: \code{\link{fempirical}}.}
+\item{\code{pmargin}}{Cumulative distribution function of the marginal 
+  distributions. Default value: \code{\link{pempirical}}.}
+\item{\code{qmargin}}{Inverse of the cumulative distribution function of 
+  the marginal distributions. Default value: \code{\link{qempirical}}.}
+\item{\code{copula}}{Multivariate copula used to represent the dependence 
+  structure. Supported values are: \code{"indep"} (independence copula) and 
+  \code{"normal"} (normal copula). Default value: \code{"normal"}.}
+\item{\code{popSize}}{Population size. Default value: \code{100}.}
 }
 }
 
@@ -111,13 +104,13 @@ Institute of Cybernetics, Mathematics, and Physics.
 setMethod("edaTerminate", "EDA", edaTerminateEval)
 setMethod("edaReport", "EDA", edaReportSimple)
 
-UMDA <- CEDA(copula = "indep",
-             fmargin = fnorm, pmargin = pnorm, qmargin = qnorm,
+UMDA <- CEDA(copula = "indep", fmargin = fnorm, 
+             pmargin = pnorm, qmargin = qnorm,
              popSize = 200, fEval = 0, fEvalTol = 1e-03)
 UMDA@name <- "Univariate Marginal Distribution Algorithm"
 
-GCEDA <- CEDA(copula = "normal",
-              fmargin = fnorm, pmargin = pnorm, qmargin = qnorm,
+GCEDA <- CEDA(copula = "normal", fmargin = fnorm, 
+              pmargin = pnorm, qmargin = qnorm,
               popSize = 200, fEval = 0, fEvalTol = 1e-03)
 GCEDA@name <- "Gaussian Copula Estimation of Distribution Algorithm"
 

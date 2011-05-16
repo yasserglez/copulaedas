@@ -9,21 +9,20 @@
 \title{Class for the Results of a Sequence of Runs of an EDA}
 
 \description{
-Results of a sequence of independent runs of an EDA. This class is just a 
-wrapper for a \code{"list"} object with \code{\linkS4class{edaResult}}
-instances.
+Results of a sequence of independent runs of an EDA. This class is just a wrapper 
+for a \code{"list"} object with \code{\linkS4class{edaResult}} instances.
 }
 
 \section{Objects from the Class}{
-Objects are be created by calls to the \code{\link{edaIndepRuns}} function.
+Objects are created by calls to the \code{\link{edaIndepRuns}} function.
 }
 
 \section{Methods}{
 \describe{
-  \item{show}{\code{signature(object = "EDAResults")}:
-    Print a table with the results.}
-  \item{summary}{\code{signature(object = "EDAResults")}:
-    Print a summary of the results.}
+  \item{show}{\code{signature(object = "EDAResults")}: Print a table with 
+    the results.}
+  \item{summary}{\code{signature(object = "EDAResults")}: Print a summary of 
+    the results.}
 }
 }
 
