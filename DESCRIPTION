@@ -3,8 +3,9 @@ Encoding: UTF-8
 Package: copulaedas
 Title: Estimation of Distribution Algorithms based on Copula Theory
 Version: 1.0.0
-Date: 2011-05-12
-Author: Yasser González-Fernández <ygf@icmf.inf.cu> and Marta Soto <mrosa@icmf.inf.cu>
+Date: 2011-05-15
+Author: Yasser González-Fernández <ygf@icmf.inf.cu>
+    and Marta Soto <mrosa@icmf.inf.cu>
 Maintainer: Yasser González-Fernández <ygf@icmf.inf.cu>
 Description: This package contains implementations of various classes of Estimation
     of Distribution Algorithms (EDAs) based on copula theory: Copula EDAs and Vine
