@@ -18,8 +18,6 @@ edaSelectTruncation(eda, gen, pop, popEval)
   An \code{\linkS4class{EDA}} instance.}
 \item{gen}{
   Generation.}
-\item{fEvals}{
-  Number of function evaluations.}
 \item{pop}{
   A \code{"matrix"} with one row for each individual in the population.}
 \item{popEval}{

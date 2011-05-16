@@ -121,6 +121,7 @@ Mathematics, and Physics.
 
 \examples{
 setMethod("edaTerminate", "EDA", edaTerminateEval)
+setMethod("edaReport", "EDA", edaReportSimple)
 
 CVEDA <- VEDA(vine = "CVine", copulas = c("normal", "clayton", "gumbel"),
               indepTestSigLevel = 0.01, fmargin = fnorm,

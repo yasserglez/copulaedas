@@ -109,6 +109,7 @@ Institute of Cybernetics, Mathematics, and Physics.
 
 \examples{
 setMethod("edaTerminate", "EDA", edaTerminateEval)
+setMethod("edaReport", "EDA", edaReportSimple)
 
 UMDA <- CEDA(copula = "indep",
              fmargin = fnorm, pmargin = pnorm, qmargin = qnorm,
