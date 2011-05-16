@@ -121,8 +121,8 @@ GCEDA <- CEDA(copula = "normal",
               popSize = 200, fEval = 0, fEvalTol = 1e-03)
 GCEDA@name <- "Gaussian Copula Estimation of Distribution Algorithm"
 
-resultsUMDA <- edaRun(UMDA, fSphere, rep(-0.16, 5), rep(0.16, 5))
-resultsGCEDA <- edaRun(GCEDA, fSphere, rep(-0.16, 5), rep(0.16, 5))
+resultsUMDA <- edaRun(UMDA, fSphere, rep(-600, 5), rep(600, 5))
+resultsGCEDA <- edaRun(GCEDA, fSphere, rep(-600, 5), rep(600, 5))
 
 show(resultsUMDA)
 show(resultsGCEDA)

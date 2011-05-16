@@ -8,16 +8,15 @@
 \title{Estimation of Distribution Algorithms based on Copula Theory}
 
 \description{
-This package contains S4 classes and methods for the
-development of Estimation of Distribution Algorithms (EDAs).
-EDAs can be implemented by defining methods for generic functions
-that specify its main parts: seeding, selection, learning, sampling,
-replacement, local optimization, termination and reporting methods.
-It also contains implementations of continuous EDAs based on copula
-theory, a group of well-known continuous optimization test problems,
-and utility functions to analyze the results of EDAs. The modular
-design of the package was inspired by the Mateda-2.0 toolbox for
-MATLAB.
+This package contains implementations of Estimation of Distribution 
+Algorithms (EDAs) based on copula theory. EDAs can be implemented by 
+defining methods for generic functions that specify its main parts: 
+seeding, selection, learning, sampling, replacement, local optimization, 
+termination and reporting methods. It also contains implementations of 
+continuous EDAs based on copula theory, a group of well-known continuous 
+optimization test problems, and utility functions to analyze the results 
+of EDAs. The modular design of the package was inspired by the Mateda-2.0 
+toolbox for MATLAB.
 }
 
 \references{
