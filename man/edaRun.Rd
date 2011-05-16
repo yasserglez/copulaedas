@@ -31,6 +31,7 @@ edaRun(eda, f, lower, upper)
 
 \seealso{
 \code{\linkS4class{EDA}},
+\code{\linkS4class{EDAResult}},
 \code{\link{edaIndepRuns}}.
 }
 

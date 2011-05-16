@@ -15,7 +15,6 @@
 
 \description{
 This is the base class of classes implementing EDAs in the package.
-It is a virtual class, no objects may be created from it.
 }
 
 \section{Slots}{

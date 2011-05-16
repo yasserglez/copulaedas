@@ -8,10 +8,11 @@
 \title{Class for the Results of a Run of an EDA}
 
 \description{
+Results of a run of an EDA.
 }
 
 \section{Objects from the Class}{
-Objects can be created by calls of the form \code{new("EDAResult", ...)}.
+Objects are be created by calls to the \code{\link{edaRun}} function.
 }
 
 \section{Slots}{
@@ -26,11 +27,11 @@ Objects can be created by calls of the form \code{new("EDAResult", ...)}.
     \item{\code{numGens}:}{Object of class \code{"numeric"}.
       The number of generations.}
     \item{\code{fEvals}:}{Object of class \code{"numeric"}.
-      The number of function evaluations.}
+      The number of evaluations of the objective function.}
     \item{\code{bestEval}:}{Object of class \code{"numeric"}.
-      }
+      Best evaluation of the objective function.}
     \item{\code{bestIndiv}:}{Object of class \code{"numeric"}.
-      }
+      Best individual.}
     \item{\code{cpuTime}:}{Object of class \code{"numeric"}.
       Run time of the algorithms (in seconds).}
   }

@@ -6,19 +6,24 @@
 \alias{show,EDAResults-method}
 \alias{summary,EDAResults-method}
 
-\title{Class for the Results of Various Runs of an EDA}
+\title{Class for the Results of a Sequence of Runs of an EDA}
 
 \description{
+Results of a sequence of independent runs of an EDA. This class is just a 
+wrapper for a \code{"list"} object with \code{\linkS4class{edaResult}}
+instances.
 }
 
 \section{Objects from the Class}{
-Objects can be created by calls of the form \code{new("EDAResults", ...)}.
+Objects are be created by calls to the \code{\link{edaIndepRuns}} function.
 }
 
 \section{Methods}{
 \describe{
-  \item{show}{\code{signature(object = "EDAResults")}: ... }
-  \item{summary}{\code{signature(object = "EDAResults")}: ... }
+  \item{show}{\code{signature(object = "EDAResults")}:
+    Print a table with the results.}
+  \item{summary}{\code{signature(object = "EDAResults")}:
+    Print a summary of the results.}
 }
 }
 

@@ -4,19 +4,16 @@ Package: copulaedas
 Title: Estimation of Distribution Algorithms based on Copula Theory
 Version: 1.0.0
 Date: 2011-05-12
-Author: Yasser González-Fernández <yglezfdez@icmf.inf.cu>
-	and Marta Soto <mrosa@icmf.inf.cu>
-Maintainer: Yasser González-Fernández <y.gonzalez@lab.matcom.uh.cu>
-Description: This package contains S4 classes and methods for the
-	development of Estimation of Distribution Algorithms (EDAs).
-	EDAs can be implemented by defining methods for generic functions
-	that specify its main parts: seeding, selection, learning, sampling,
-	replacement, local optimization, termination and reporting methods.
-	It also contains implementations of continuous EDAs based on copula
-	theory, a group of well-known continuous optimization test problems,
-	and utility functions to analyze the results of EDAs. The modular
-	design of the package was inspired by the Mateda-2.0 toolbox for
-	MATLAB.
+Author: Yasser González-Fernández <ygf@icmf.inf.cu> and Marta Soto <mrosa@icmf.inf.cu>
+Maintainer: Yasser González-Fernández <ygf@icmf.inf.cu>
+Description: This package contains S4 classes and methods for the development of 
+    Estimation of Distribution Algorithms (EDAs). EDAs can be implemented by 
+    defining methods for generic functions that specify its main parts: seeding, 
+    selection, learning, sampling, replacement, local optimization, termination 
+    and reporting methods. It also contains implementations of continuous EDAs 
+    based on copula theory, a group of well-known continuous optimization test 
+    problems, and utility functions to analyze the results of EDAs. The modular
+	design of the package was inspired by the Mateda-2.0 toolbox for MATLAB.
 License: GPL (>= 3)
 LazyLoad: yes
 Depends: methods, copula, vines
