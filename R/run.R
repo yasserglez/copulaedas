@@ -52,7 +52,6 @@ edaRun <- function (eda, f, lower, upper) {
     gen <- 0
     terminate <- FALSE
     fEvals <- 0; fWrap <- function (...) { fEvals <<- fEvals + 1; f(...) }
-    model <- NULL
     bestEval <- NA
     bestIndiv <- NA
     startTime <- proc.time()
@@ -61,6 +60,8 @@ edaRun <- function (eda, f, lower, upper) {
         gen <- gen + 1
 
         if (gen == 1) {
+            model <- NULL
+
             pop <- edaSeed(eda, lower, upper)
 
             popEval <- sapply(seq(length = nrow(pop)),

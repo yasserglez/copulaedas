@@ -65,6 +65,7 @@ Toward a new generation of Evolutionary Algorithms, Springer-Verlag.
 }
 
 \examples{
+setMethod("edaReport", "EDA", edaReportDisabled)
 setMethod("edaTerminate", "EDA", 
           edaTerminateCombined(edaTerminateEval, 
                                edaTerminateMaxEvals))
