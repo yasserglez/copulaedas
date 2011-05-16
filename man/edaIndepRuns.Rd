@@ -39,10 +39,11 @@ An \code{\linkS4class{EDAResults}} instance.
 \examples{
 setMethod("edaTerminate", "EDA", edaTerminateEval)
 
-DVEDA <- VEDA(vine = "DVine", copulas = c("normal", "clayton", "gumbel"),
+DVEDA <- VEDA(vine = "DVine", 
+              copulas = c("normal", "clayton", "gumbel"),
               indepTestSigLevel = 0.01, fmargin = fnorm,
-              pmargin = pnorm, qmargin = qnorm, popSize = 200,
-              fEval = 0, fEvalTol = 1e-03)
+              pmargin = pnorm, qmargin = qnorm, 
+              popSize = 200, fEval = 0, fEvalTol = 1e-03)
 DVEDA@name <- "D-vine Estimation of Distribution Algorithm"
 
 results <- edaIndepRuns(DVEDA, fSphere, rep(-600, 5), rep(600, 5), 3)
