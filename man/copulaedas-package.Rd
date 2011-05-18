@@ -38,11 +38,11 @@ Software} \bold{35}, 1--30.
 
 Soto, M. and Ochoa, A. and Arderí, R. J. (2007). El Algoritmo con Estimación
 de Distribuciones basado en Cópula Gausiana, Technical Report ICIMAF 2007-406,
-Institute of Cybernetics, Mathematics, and Physics.
+ISSN 0138-8916, Institute of Cybernetics, Mathematics, and Physics.
 
 Soto, M. and González-Fernández, Y. (2010). Vine Estimation of Distribution
-Algorithms, Technical Report ICIMAF 2010-561, Institute of Cybernetics,
-Mathematics, and Physics.
+Algorithms, Technical Report ICIMAF 2010-561, ISSN 0138-8916, Institute of 
+Cybernetics, Mathematics, and Physics.
 }
 
 \keyword{package}

@@ -114,8 +114,8 @@ and Schweizer, B. and Taylor, M. D., editors, \emph{Distributions with
 fixed marginals and related topics}, 120--141.
 
 Soto, M. and González-Fernández, Y. (2010). Vine Estimation of Distribution
-Algorithms, Technical Report ICIMAF 2010-561, Institute of Cybernetics,
-Mathematics, and Physics.
+Algorithms, Technical Report ICIMAF 2010-561, ISSN 0138-8916, Institute of 
+Cybernetics, Mathematics, and Physics.
 }
 
 \examples{
