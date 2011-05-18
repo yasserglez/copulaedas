@@ -24,6 +24,7 @@ Objects are created by calls to the \code{CEDA} function.
 \describe{
   \item{\code{name}:}{See the documentation of the slot in the
   	\code{\linkS4class{EDA}} class.}
+
   \item{\code{parameters}:}{See the documentation of the slot in the
   	\code{\linkS4class{EDA}} class.}
 }
@@ -31,33 +32,34 @@ Objects are created by calls to the \code{CEDA} function.
 
 \section{Methods}{
 \describe{
-  \item{edaLearn}{\code{signature(eda = "CEDA")}:
-    The \code{edaLearnCEDA} function.}
-  \item{edaSample}{\code{signature(eda = "CEDA")}:
-    The \code{edaSampleCEDA} function.}
+  \item{edaLearn}{\code{signature(eda = "CEDA")}: The \code{edaLearnCEDA} 
+    function.}
+
+  \item{edaSample}{\code{signature(eda = "CEDA")}: The \code{edaSampleCEDA} 
+    function.}
 }
 }
 
 \details{
-Copula Estimation of Distribution Algorithms are a class of EDAs which model 
-the search distributions using multivariate copulas. These algorithms 
+Copula Estimation of Distribution Algorithm is a class of EDAs which models 
+the search distributions using a multivariate copula. These algorithms
 separately estimate the marginal distributions and the dependence structure 
 between the variables of the selected population at each generation. The 
 dependence structure is represented by a multivariate copula. The following 
 instances of this class of EDAs are implemented in the package.
 
 \itemize{
-\item{If the dependence structure is modeled using the independence copula, 
-  the resulting algorithm corresponds to the continuous Univariate Marginal 
-  Distribution Algorithm (UMDA) introduced in (Larrañaga et al., 2000).}
+  \item{If the dependence structure is modeled using the independence copula,
+    the resulting algorithm corresponds to the continuous Univariate Marginal 
+    Distribution Algorithm (UMDA) introduced in (Larrañaga et al., 2000).}
 
-\item{If the dependence structure is modeled using the normal copula, the
-  resulting algorithm corresponds to the Gaussian Copula Estimation of
-  Distribution Algorithm (GCEDA) introduced in (Soto et al., 2007; Arderí, 2007). 
-  The correlation matrix of the normal copula is calculated using the inversion
-  of Kendall's tau for each pair of variables (Demarta and McNeil, 2005).
-  If the resulting correlation matrix is not positive-definite, the correction
-  proposed in (Rousseeuw and Molenberghs, 1993) is applied.}
+  \item{If the dependence structure is modeled using the normal copula, the
+    resulting algorithm corresponds to the Gaussian Copula Estimation of
+    Distribution Algorithm (GCEDA) introduced in (Soto et al., 2007; Arderí, 2007). 
+    The correlation matrix of the normal copula is calculated using the inversion
+    of Kendall's tau for each pair of variables (Demarta and McNeil, 2005).
+    If the resulting correlation matrix is not positive-definite, the correction
+    proposed in (Rousseeuw and Molenberghs, 1993) is applied.}
 }
 
 The following parameters are recognized by the functions implementing the
@@ -65,16 +67,20 @@ The following parameters are recognized by the functions implementing the
 \code{\linkS4class{CEDA}} class.
 
 \describe{
-\item{\code{fmargin}}{Function to fit the marginal distributions. 
-  Default value: \code{\link{fempirical}}.}
-\item{\code{pmargin}}{Cumulative distribution function of the marginal 
-  distributions. Default value: \code{\link{pempirical}}.}
-\item{\code{qmargin}}{Inverse of the cumulative distribution function of 
-  the marginal distributions. Default value: \code{\link{qempirical}}.}
-\item{\code{copula}}{Multivariate copula used to represent the dependence 
-  structure. Supported values are: \code{"indep"} (independence copula) and 
-  \code{"normal"} (normal copula). Default value: \code{"normal"}.}
-\item{\code{popSize}}{Population size. Default value: \code{100}.}
+  \item{\code{fmargin}}{Function to fit the marginal distributions. 
+    Default value: \code{\link{fempirical}}.}
+  
+  \item{\code{pmargin}}{Cumulative distribution function of the marginal 
+    distributions. Default value: \code{\link{pempirical}}.}
+  
+  \item{\code{qmargin}}{Inverse of the cumulative distribution function of 
+    the marginal distributions. Default value: \code{\link{qempirical}}.}
+  
+  \item{\code{copula}}{Multivariate copula used to represent the dependence 
+    structure. Supported values are: \code{"indep"} (independence copula) and 
+    \code{"normal"} (normal copula). Default value: \code{"normal"}.}
+  
+  \item{\code{popSize}}{Population size. Default value: \code{100}.}
 }
 }
 

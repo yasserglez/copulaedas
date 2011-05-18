@@ -13,18 +13,17 @@ edaIndepRuns(eda, f, lower, upper, runs, verbose = FALSE)
 }
 
 \arguments{
-\item{eda}{
-  An \code{\linkS4class{EDA}} instance.}
-\item{f}{
-  The objective function.}
-\item{lower}{
-  A \code{"numeric"} vector with the lower bounds of the variables of the function.}
-\item{upper}{
-  A \code{"numeric"} vector with the upper bounds of the variables of the function.}
-\item{runs}{
-  The number of runs.}
-\item{verbose}{
-  Print information after each run and a final summary.}
+  \item{eda}{An \code{\linkS4class{EDA}} instance.}
+  
+  \item{f}{Objective function}
+  
+  \item{lower}{Lower bounds of the variables of the objective function.}
+  
+  \item{upper}{Upper bounds of the variables of the objective function.}
+  
+  \item{runs}{Number of runs.}
+  
+  \item{verbose}{Print information after each run and a final summary.}
 }
 
 \value{

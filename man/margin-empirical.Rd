@@ -19,12 +19,17 @@ qempirical(p, X, h)
 }
 
 \arguments{
-\item{x, q}{vector of quantiles.}
-\item{lower}{lower bound of the variable.}
-\item{upper}{upper bound of the variable.}
-\item{p}{vector of probabilities}
-\item{X}{observations of the variable.}
-\item{h}{bandwidth of the kernel.}
+  \item{x, q}{Vector of quantiles.}
+  
+  \item{lower}{Lower bound of the variable.}
+  
+  \item{upper}{Upper bound of the variable.}
+  
+  \item{p}{Vector of probabilities}
+  
+  \item{X}{Observations of the variable.}
+  
+  \item{h}{Bandwidth of the kernel.}
 }
 
 \details{
@@ -44,8 +49,6 @@ in the boundary of the \eqn{[0,1]} interval.
 The \code{qempirical} function uses the Gaussian kernel density estimator
 fitted by \code{fempirical} to evaluate the inverse of the cumulative
 distribution function, following the procedure suggested in (Azzalini, 1981).
-
-
 }
 
 \references{

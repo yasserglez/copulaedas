@@ -21,7 +21,7 @@ fSummationCancellation(x)
 }
 
 \arguments{
-\item{x}{A vector to be evaluated in the function.}
+  \item{x}{A vector to be evaluated in the function.}
 }
 
 \value{

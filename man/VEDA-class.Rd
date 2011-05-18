@@ -75,21 +75,27 @@ The following parameters are recognized by the functions implementing the
 \code{\linkS4class{VEDA}} class.
 
 \describe{
-\item{\code{vine}}{Vine type. Supported values are: \code{"CVine"} 
-  (Canonical vine) and \code{"DVine"} (D-vine). Default value: \code{"DVine"}.}
-\item{\code{copulas}}{A \code{character} vector specifying the candidate copulas. 
-  Supported values are: \code{"normal"} (normal copula),
-  \code{"t"} (t copula), \code{"clayton"} (Clayton copula), and
-  \code{"gumbel"} (Gumbel copula). Default value: \code{c("normal")}.}
-\item{\code{indepTestSigLevel}}{Significance level of the independence test. 
-  Default value: \code{0.01}.}    
-\item{\code{fmargin}}{Function to fit the marginal distributions. 
-  Default value: \code{\link{fempirical}}.}
-\item{\code{pmargin}}{Cumulative distribution function of the marginal 
-  distributions. Default value: \code{\link{pempirical}}.}
-\item{\code{qmargin}}{Inverse of the cumulative distribution function of 
-  the marginal distributions. Default value: \code{\link{qempirical}}.}
-\item{\code{popSize}}{Population size. Default value: \code{100}.}
+  \item{\code{vine}}{Vine type. Supported values are: \code{"CVine"} 
+    (Canonical vine) and \code{"DVine"} (D-vine). Default value: \code{"DVine"}.}
+  
+  \item{\code{copulas}}{A \code{character} vector specifying the candidate copulas. 
+    Supported values are: \code{"normal"} (normal copula),
+    \code{"t"} (t copula), \code{"clayton"} (Clayton copula), and
+    \code{"gumbel"} (Gumbel copula). Default value: \code{c("normal")}.}
+  
+  \item{\code{indepTestSigLevel}}{Significance level of the independence test. 
+    Default value: \code{0.01}.}
+      
+  \item{\code{fmargin}}{Function to fit the marginal distributions. 
+    Default value: \code{\link{fempirical}}.}
+  
+  \item{\code{pmargin}}{Cumulative distribution function of the marginal 
+    distributions. Default value: \code{\link{pempirical}}.}
+  
+  \item{\code{qmargin}}{Inverse of the cumulative distribution function of 
+    the marginal distributions. Default value: \code{\link{qempirical}}.}
+  
+  \item{\code{popSize}}{Population size. Default value: \code{100}.}
 }
 }
 

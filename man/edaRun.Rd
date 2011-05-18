@@ -15,14 +15,13 @@ edaRun(eda, f, lower, upper)
 }
 
 \arguments{
-\item{eda}{
-  An \code{\linkS4class{EDA}} instance.}
-\item{f}{
-  The objective function.}
-\item{lower}{
-  A \code{"numeric"} vector with the lower bounds of the variables of the function.}
-\item{upper}{
-  A \code{"numeric"} vector with the upper bounds of the variables of the function.}
+  \item{eda}{An \code{\linkS4class{EDA}} instance.}
+
+  \item{f}{Objective function}
+
+  \item{lower}{Lower bounds of the variables of the objective function.}
+  
+  \item{upper}{Upper bounds of the variables of the objective function.}
 }
 
 \details{
@@ -39,58 +38,58 @@ functions that implement the main parts of the EDA. It is a simplified version
 of the implementation of the \code{\link{edaRun}} function.
 
 \preformatted{
-    gen <- 0 # Counts the number of generations.
-    fEvals <- 0 # Counts the number of evaluations
-                # of the objective function.
-    terminate <- FALSE
+gen <- 0 # Counts the number of generations.
+fEvals <- 0 # Counts the number of evaluations
+            # of the objective function.
+terminate <- FALSE
 
-    while (!terminate) {
-        gen <- gen + 1
+while (!terminate) {
+    gen <- gen + 1
 
-        if (gen == 1) {
-            model <- NULL
+    if (gen == 1) {
+        model <- NULL
 
-            pop <- edaSeed(eda, lower, upper)
+        pop <- edaSeed(eda, lower, upper)
 
-            # Set the popEval vector to the evaluation 
-            # of the objective function for each 
-            # individual in pop. fEvals is updated.
+        # Set the popEval vector to the evaluation 
+        # of the objective function for each 
+        # individual in pop. fEvals is updated.
 
-            r <- edaOptimize(eda, gen, pop, popEval,
-                             f, lower, upper)
-            pop <- r$pop
-            popEval <- r$popEval
-        } else {
-            s <- edaSelect(eda, gen, pop, popEval)
-            selectedPop <- pop[s, ]
-            selectedEval <- popEval[s]
+        r <- edaOptimize(eda, gen, pop, popEval,
+                         f, lower, upper)
+        pop <- r$pop
+        popEval <- r$popEval
+    } else {
+        s <- edaSelect(eda, gen, pop, popEval)
+        selectedPop <- pop[s, ]
+        selectedEval <- popEval[s]
 
-            model <- edaLearn(eda, gen, model, selectedPop,
-                              selectedEval, lower, upper)
+        model <- edaLearn(eda, gen, model, selectedPop,
+                          selectedEval, lower, upper)
 
-            sampledPop <- edaSample(eda, gen, model, 
-                                    lower, upper)
+        sampledPop <- edaSample(eda, gen, model, 
+                                lower, upper)
 
-            # Set the sampledEval vector to the evaluation 
-            # of the objective function for each individual 
-            # in sampledPop. fEvals is updated.
+        # Set the sampledEval vector to the evaluation 
+        # of the objective function for each individual 
+        # in sampledPop. fEvals is updated.
 
-            r <- edaOptimize(eda, gen, sampledPop, 
-                             sampledEval, f, lower, upper) 
-            sampledPop <- r$pop
-            sampledEval <- r$popEval
-            
-            r <- edaReplace(eda, gen, pop, popEval, 
-                            sampledPop, sampledEval)
-            pop <- r$pop
-            popEval <- r$popEval
-        }
-
-        edaReport(eda, gen, fEvals, model, pop, popEval)
-
-        terminate <- edaTerminate(eda, gen, fEvals, 
-                                  pop, popEval)
+        r <- edaOptimize(eda, gen, sampledPop, 
+                         sampledEval, f, lower, upper) 
+        sampledPop <- r$pop
+        sampledEval <- r$popEval
+        
+        r <- edaReplace(eda, gen, pop, popEval, 
+                        sampledPop, sampledEval)
+        pop <- r$pop
+        popEval <- r$popEval
     }
+
+    edaReport(eda, gen, fEvals, model, pop, popEval)
+
+    terminate <- edaTerminate(eda, gen, fEvals, 
+                              pop, popEval)
+}
 }
 }
 

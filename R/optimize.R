@@ -1,6 +1,6 @@
-# edas: R package for Estimation of Distribution Algorithms
-# Copyright (C) 2010, 2011 Yasser González-Fernández
-# Copyright (C) 2010, 2011 Marta Soto
+# copulaedas: Estimation of Distribution Algorithms based on Copula Theory
+# Copyright (C) 2010, 2011 Yasser González-Fernández <ygf@icmf.inf.cu>
+# Copyright (C) 2010, 2011 Marta Soto <mrosa@icmf.inf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software 

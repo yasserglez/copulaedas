@@ -16,19 +16,30 @@ edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
 }
 
 \arguments{
-\item{eda}{\code{\linkS4class{EDA}} instance.}
-\item{f}{objective function}
-\item{lower}{lower bounds of the variables of the objective function.}
-\item{upper}{upper bounds of the variables of the objective function.}
-\item{fEval}{value of the objective function to be reached.}
-\item{fEvalTol}{tolerance checking for equality of the evaluations
-  of the objective function.}
-\item{totalRuns}{total number of runs.}
-\item{successRuns}{required number of successfully runs.}
-\item{lowerPop}{lower bound of the initial interval for the population.}
-\item{upperPop}{upper bound of the initial interval for the population.}
-\item{stopPercent}{stop percent.}
-\item{verbose}{print progress information.}
+  \item{eda}{An \code{\linkS4class{EDA}} instance.}
+  
+  \item{f}{Objective function}
+  
+  \item{lower}{Lower bounds of the variables of the objective function.}
+  
+  \item{upper}{Upper bounds of the variables of the objective function.}
+  
+  \item{fEval}{Value of the objective function to be reached.}
+  
+  \item{fEvalTol}{Tolerance checking for equality of the evaluations
+    of the objective function.}
+    
+  \item{totalRuns}{Total number of runs.}
+  
+  \item{successRuns}{Required number of successfully runs.}
+  
+  \item{lowerPop}{Lower bound of the initial interval for the population.}
+  
+  \item{upperPop}{Upper bound of the initial interval for the population.}
+  
+  \item{stopPercent}{Stop percent.}
+  
+  \item{verbose}{Print progress information.}
 }
 
 \details{
