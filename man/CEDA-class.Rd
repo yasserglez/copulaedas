@@ -12,12 +12,12 @@
 \title{Class for Copula Estimation of Distribution Algorithms}
 
 \description{
-Extends the \code{\linkS4class{EDA}} class to implement Copula Estimation 
-of Distribution Algorithms.
+Extends the \code{\linkS4class{EDA}} class to implement Estimation 
+of Distribution Algorithms based on multivariate copulas.
 }
 
 \section{Objects from the Class}{
-Objects are created by calls to the \code{CEDA} function.
+Objects are created by calling the \code{CEDA} function.
 }
 
 \section{Slots}{
@@ -41,12 +41,11 @@ Objects are created by calls to the \code{CEDA} function.
 }
 
 \details{
-Copula Estimation of Distribution Algorithm is a class of EDAs which models 
-the search distributions using a multivariate copula. These algorithms
-separately estimate the marginal distributions and the dependence structure 
-between the variables of the selected population at each generation. The 
-dependence structure is represented by a multivariate copula. The following 
-instances of this class of EDAs are implemented in the package.
+Copula Estimation of Distribution Algorithm (CEDA) is a class of EDAs which 
+models the search distributions using a multivariate copula. These algorithms
+estimate separately the univariate marginal distributions and the dependence 
+structure from the selected population. The dependence structure is represented 
+by a multivariate copula. The following instances of CEDA are implemented.
 
 \itemize{
   \item{If the dependence structure is modeled using the independence copula,
@@ -55,7 +54,7 @@ instances of this class of EDAs are implemented in the package.
 
   \item{If the dependence structure is modeled using the normal copula, the
     resulting algorithm corresponds to the Gaussian Copula Estimation of
-    Distribution Algorithm (GCEDA) introduced in (Soto et al., 2007; Arderí, 2007). 
+    Distribution Algorithm (GCEDA) (Soto et al., 2007; Arderí, 2007). 
     The correlation matrix of the normal copula is calculated using the inversion
     of Kendall's tau for each pair of variables (Demarta and McNeil, 2005).
     If the resulting correlation matrix is not positive-definite, the correction
@@ -71,14 +70,14 @@ The following parameters are recognized by the functions implementing the
     Default value: \code{\link{fempirical}}.}
   
   \item{\code{pmargin}}{Cumulative distribution function of the marginal 
-    distributions. Default value: \code{\link{pempirical}}.}
+    distribution. Default value: \code{\link{pempirical}}.}
   
   \item{\code{qmargin}}{Inverse of the cumulative distribution function of 
-    the marginal distributions. Default value: \code{\link{qempirical}}.}
+    the marginal distribution. Default value: \code{\link{qempirical}}.}
   
-  \item{\code{copula}}{Multivariate copula used to represent the dependence 
-    structure. Supported values are: \code{"indep"} (independence copula) and 
-    \code{"normal"} (normal copula). Default value: \code{"normal"}.}
+  \item{\code{copula}}{Multivariate copula. Supported values are: \code{"indep"} 
+    (independence copula) and \code{"normal"} (normal copula). Default value: 
+    \code{"normal"}.}
   
   \item{\code{popSize}}{Population size. Default value: \code{100}.}
 }

@@ -24,10 +24,10 @@ edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
   
   \item{upper}{Upper bounds of the variables of the objective function.}
   
-  \item{fEval}{Value of the objective function to be reached.}
+  \item{fEval}{Optimum value of the objective function.}
   
-  \item{fEvalTol}{Tolerance checking for equality of the evaluations
-    of the objective function.}
+  \item{fEvalTol}{A run is considered successful if the difference between
+    \code{fEval} and the best solution found is less than \code{fEvalTol}.}
     
   \item{totalRuns}{Total number of runs.}
   
@@ -50,19 +50,19 @@ total of \code{totalRuns} independent runs (critical population size).
 The population size is determined using by a bisection method starting with the
 interval delimited by the \code{lowerPop} and \code{upperPop} arguments. The
 bisection procedure stops when the current population size is less than 
-\code{stopPercent} percent from the critical population. If the one of the 
-arguments \code{lowerPop} or \code{upperPop} is not specified, the algorithm will 
-determine an initial interval based on the value of the \code{popSize} parameter 
-of the EDA and then continue using the bisection method.
+\code{stopPercent} percent from the critical population. If either \code{lowerPop} 
+or \code{upperPop} is not specified, the algorithm will determine an initial 
+interval based on the value of the \code{popSize} parameter and continue 
+using the bisection method.
 
 See (Pelikan, 2005) for the pseudocode of the algorithm in which this function is 
 based.
 }
 
 \value{
-Either \code{NULL} if could not determine the critical population size or
-an \code{\linkS4class{EDAResults}} instance with the results of the runs of the
-EDA for the critical population size.
+Either \code{NULL} if the critical population size was not determined or
+an \code{\linkS4class{EDAResults}} instance with the results of the runs of 
+the EDA for the critical population size.
 }
 
 \references{

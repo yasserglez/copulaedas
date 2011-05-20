@@ -12,13 +12,13 @@ Results of a run of an EDA.
 }
 
 \section{Objects from the Class}{
-Objects are created by calls to the \code{\link{edaRun}} function.
+Objects are created by calling the \code{\link{edaRun}} function.
 }
 
 \section{Slots}{
 \describe{
   \item{\code{eda}:}{Object of class \code{"EDA"}.}
-  \item{\code{f}:}{Object of class \code{"function"}. The objective function.}
+  \item{\code{f}:}{Object of class \code{"function"}. Objective function.}
   \item{\code{lower}:}{Object of class \code{"numeric"}. Lower bounds of the 
     variables of the objective function.}
   \item{\code{upper}:}{Object of class \code{"numeric"}. Upper bounds of the 

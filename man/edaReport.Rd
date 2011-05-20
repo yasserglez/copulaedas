@@ -35,15 +35,15 @@ edaReportCombined(...)
 
 \details{
 Reporting methods can be used to provide progress information during the 
-evolution of the algorithm. The following reporting methods are implemented.
+execution of the algorithm. The following reporting methods are implemented.
 
 \describe{
   \item{\code{edaReportDisabled}}{Disable reporting progress information.}
-  
+
   \item{\code{edaReportSimple}}{Print one line at each generation with the
-    generation number, and the minimum, mean and standard deviation of the 
-    evaluation of the individuals in the population.}
-    
+    number of generations, and the minimum, mean and standard deviation of 
+    the evaluation of the individuals in the population.}
+
   \item{\code{edaReportCombined}}{Execute all the reporting methods specified 
     in \code{\dots} argument.}
 }

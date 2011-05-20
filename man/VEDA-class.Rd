@@ -12,12 +12,12 @@
 \title{Class for Vine Estimation of Distribution Algorithms}
 
 \description{
-Extends the \code{\linkS4class{EDA}} class to implement Vine Estimation of
-Distribution Algorithms.
+Extends the \code{\linkS4class{EDA}} class to implement Estimation of
+Distribution Algorithms based on vines.
 }
 
 \section{Objects from the Class}{
-Objects are created by calls to the \code{VEDA} function.
+Objects are created by calling the \code{VEDA} function.
 }
 
 \section{Slots}{
@@ -39,17 +39,17 @@ Objects are created by calls to the \code{VEDA} function.
 }
 
 \details{
-Vine Estimation of Distribution Algorithms (VEDAs) are a class of EDAs introduced
-in (Soto and González-Fernández, 2010) which model the search distributions
-using vines. Vines are graphical models that build high-dimensional distributions 
-by decomposing a multivariate density into bivariate copulas and one-dimensional 
-densities (Joe, 1996; Bedford and Cooke, 2001; Aas et al., 2009). Similarly 
-to Copula Estimation of Distribution Algorithms, these algorithms separately 
-estimate the marginal distributions and the dependence structure between the 
-variables of the selected population at each generation. Instead of representing 
-the dependence structure using a single multivariate copula, VEDAs use a cascade
-of bivariate copulas. Each bivariate copula can belong to different families. 
-The following instances of VEDAs are implemented in the package.
+Vine Estimation of Distribution Algorithm (VEDA) is a class of EDAs (Soto and
+González-Fernández, 2010) which model the search distributions using vines.
+Vines are graphical models that represent high-dimensional distributions
+by decomposing a multivariate density into bivariate copulas and one-dimensional
+densities (Joe, 1996; Bedford and Cooke, 2001; Aas et al., 2009). Similarly
+to Copula Estimation of Distribution Algorithms, these algorithms estimate
+separately the univariate marginal distributions and the dependence structure
+from the selected population. Instead of representing the dependence structure
+using a single multivariate copula, VEDAs model a rich variety of dependencies
+by combining bivariate copulas that belong to different families. The following 
+instances of VEDA are implemented.
 
 \itemize{
 \item{C-vine Estimation of Distribution Algorithm (CVEDA), which models
@@ -60,10 +60,10 @@ The following instances of VEDAs are implemented in the package.
 
 Greedy heuristics are used to determine the structure of the C-vine and 
 D-vine in CVEDA and DVEDA, respectively. The selection of each bivariate
-copula in both decomposition starts with an independence test. The 
+copula in both decompositions starts with an independence test. The 
 independence copula is selected if there is not enough evidence against
 the null hypothesis of independence at a given significance level. In the 
-other case, the parameters of a group candidate copulas are estimated and the 
+other case, the parameters of a group of candidate copulas are estimated and the 
 one that better fits the data is selected. A model selection procedure based 
 on AIC is used to truncate the vines if enough dependence is captured in the 
 first trees. See the references and the documentation of the 
@@ -90,10 +90,10 @@ The following parameters are recognized by the functions implementing the
     Default value: \code{\link{fempirical}}.}
   
   \item{\code{pmargin}}{Cumulative distribution function of the marginal 
-    distributions. Default value: \code{\link{pempirical}}.}
+    distribution. Default value: \code{\link{pempirical}}.}
   
   \item{\code{qmargin}}{Inverse of the cumulative distribution function of 
-    the marginal distributions. Default value: \code{\link{qempirical}}.}
+    the marginal distribution. Default value: \code{\link{qempirical}}.}
   
   \item{\code{popSize}}{Population size. Default value: \code{100}.}
 }

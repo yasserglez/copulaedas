@@ -9,7 +9,7 @@
 \title{Test Problems}
 
 \description{
-A group of well-known continuous optimization test problems.
+Test problems.
 }
 
 \usage{
@@ -57,12 +57,4 @@ all.equal(fGriewank(rep(0, 10)), 0)
 all.equal(fRosenbrock(rep(1, 10)), 0)
 all.equal(fSphere(rep(0, 10)), 0)
 all.equal(fSummationCancellation(rep(0, 10)), -1e+05)
-}
-
-\references{
-Bengoetxea, E. and Miquélez, T. and Lozano, J. A. and Larrañaga, P.
-(2002) Experimental results in function optimization with EDAs in 
-continuous domain. In Larrañaga, P. and Lozano, J. A., editors, 
-\emph{Estimation of Distribution Algorithms. A new tool for Evolutionary
-Computation}, 181--194. Kluwer Academic Publisher.
 }

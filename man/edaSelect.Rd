@@ -25,14 +25,14 @@ edaSelectTruncation(eda, gen, pop, popEval)
 
 \details{
 Selection methods determine the individuals that will be modeled by the search 
-distribution. Usually these individuals are the most promising individuals 
-of the population. The following selection methods are implemented.
+distribution estimated using the \code{edaLearn} function. Usually these individuals 
+are the most promising individuals of the population. The following selection 
+methods are implemented.
 
 \describe{
   \item{\code{edaSelectTruncation}}{Select the best \code{100*truncFactor} percent 
-    of the population with the best evaluation of the objective function, where 
-    parameter \code{truncFactor} specifies the truncation factor (default 
-    value: \code{0.3}).}
+    of the best individuals of the population. The parameter \code{truncFactor} 
+    specifies the truncation factor (default value: \code{0.3}).}
 }
 }
 

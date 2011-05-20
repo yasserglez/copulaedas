@@ -5,8 +5,8 @@
 \title{Normal Marginal Distribution}
 
 \description{
-These functions can be set as values of the \code{fmargin}, \code{pmargin},
-and \code{qmargin} parameters of the EDAs to use normal marginal distributions.
+Values of the \code{fmargin}, \code{pmargin}, and \code{qmargin} parameters of 
+the EDAs to use normal marginal distributions.
 }
 
 \usage{

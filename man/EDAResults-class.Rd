@@ -14,7 +14,7 @@ for a \code{"list"} object with \code{\linkS4class{edaResult}} instances.
 }
 
 \section{Objects from the Class}{
-Objects are created by calls to the \code{\link{edaIndepRuns}} function.
+Objects are created by calling the \code{\link{edaIndepRuns}} function.
 }
 
 \section{Methods}{

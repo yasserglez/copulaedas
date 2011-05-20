@@ -7,9 +7,8 @@
 \title{Empirical Marginal Distribution}
 
 \description{
-These functions can be set as values of the \code{fmargin}, \code{pmargin},
-and \code{qmargin} parameters of the EDAs to use empirical marginal
-distributions.
+Values of the \code{fmargin}, \code{pmargin}, and \code{qmargin} parameters of 
+the EDAs to use empirical marginal distributions.
 }
 
 \usage{

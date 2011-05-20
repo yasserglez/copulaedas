@@ -25,6 +25,8 @@ edaTerminateCombined(...)
   \item{eda}{An \code{\linkS4class{EDA}} instance.}
 
   \item{gen}{Generation.}
+  
+  \item{fEvals}{Number of evaluations of the objective function.}  
 
   \item{pop}{Matrix with one row for each individual in the population.}
 
@@ -49,8 +51,7 @@ The following termination methods are implemented.
   \item{\code{edaTerminateEval}}{Stop when a given value of the objective 
     function has been reached. The parameters \code{fEval} (default value: 
     \code{0}) and \code{fEvalTol} (default value: \code{1e-06}) set the value 
-    of the objective function and the tolerance checking for equality, 
-    respectively.}
+    of the objective function and the tolerance, respectively.}
 
   \item{\code{edaTerminateEvalStdDev}}{Stop when the standard deviation of 
     the evaluation of the individuals in the population is less than a value 
