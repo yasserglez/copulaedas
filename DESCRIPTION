@@ -3,7 +3,7 @@ Encoding: UTF-8
 Package: copulaedas
 Title: Estimation of Distribution Algorithms Based on Copula Theory
 Version: 1.0.0
-Date: 2011-05-15
+Date: 2011-05-20
 Author: Yasser González-Fernández <ygf@icmf.inf.cu>
     and Marta Soto <mrosa@icmf.inf.cu>
 Maintainer: Yasser González-Fernández <ygf@icmf.inf.cu>
