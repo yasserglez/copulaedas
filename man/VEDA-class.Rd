@@ -66,9 +66,7 @@ the null hypothesis of independence at a given significance level. In the
 other case, the parameters of a group of candidate copulas are estimated and the 
 one that better fits the data is selected. A model selection procedure based 
 on AIC is used to truncate the vines if enough dependence is captured in the 
-first trees. See the references and the documentation of the 
-\code{\link[=vines-package]{vines}} \R package for more information 
-about these matters.
+first trees.
 
 The following parameters are recognized by the functions implementing the
 \code{\link{edaLearn}} and \code{\link{edaSample}} methods for the

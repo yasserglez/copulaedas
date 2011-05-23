@@ -81,15 +81,14 @@ setMethod("edaTerminate", "EDA",
           edaTerminateCombined(edaTerminateEval, 
                                edaTerminateMaxEvals))
 
-DVEDA <- VEDA(vine = "DVine", copulas = c("normal"),
-              indepTestSigLevel = 0.01, fmargin = fnorm,
-              pmargin = pnorm, qmargin = qnorm,
-              fEval = 0, fEvalTol = 1e-03, maxEvals = 2000)
-DVEDA@name <- "D-vine Estimation of Distribution Algorithm"
+UMDA <- CEDA(copula = "indep", fmargin = fnorm, 
+             pmargin = pnorm, qmargin = qnorm,
+             fEval = 0, fEvalTol = 1e-03, maxEvals = 10000)
+UMDA@name <- "Univariate Marginal Distribution Algorithm"
 
-results <- edaCriticalPopSize(DVEDA, fSphere, rep(-600, 5), 
-                              rep(600, 5), 0, 1e-03,
-                              totalRuns = 10, successRuns = 10, 
+results <- edaCriticalPopSize(UMDA, fSphere, rep(-600, 10), 
+                              rep(600, 10), 0, 1e-03,
+                              totalRuns = 30, successRuns = 30,
                               lowerPop = 50, upperPop = 100,
                               verbose = TRUE)
 
