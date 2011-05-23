@@ -109,12 +109,12 @@ Institute of Cybernetics, Mathematics, and Physics.
 setMethod("edaTerminate", "EDA", edaTerminateEval)
 setMethod("edaReport", "EDA", edaReportSimple)
 
-UMDA <- CEDA(copula = "indep", fmargin = fnorm, 
+UMDA <- CEDA(copula = "indep", fmargin = fnorm,
              pmargin = pnorm, qmargin = qnorm,
              popSize = 200, fEval = 0, fEvalTol = 1e-03)
 UMDA@name <- "Univariate Marginal Distribution Algorithm"
 
-GCEDA <- CEDA(copula = "normal", fmargin = fnorm, 
+GCEDA <- CEDA(copula = "normal", fmargin = fnorm,
               pmargin = pnorm, qmargin = qnorm,
               popSize = 200, fEval = 0, fEvalTol = 1e-03)
 GCEDA@name <- "Gaussian Copula Estimation of Distribution Algorithm"

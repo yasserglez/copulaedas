@@ -10,7 +10,7 @@
 
 \description{
 Results of a sequence of independent runs of an EDA. This class is just a wrapper 
-for a \code{"list"} object with \code{\linkS4class{edaResult}} instances.
+for a \code{"list"} object with \code{\linkS4class{EDAResult}} instances.
 }
 
 \section{Objects from the Class}{
