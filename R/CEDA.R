@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License along with 
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-setClass("CEDA", 
+setClass("CEDA",
         contains = "EDA",
         prototype = prototype(
             name = "Copula Estimation of Distribution Algorithm"))
@@ -31,8 +31,6 @@ edaLearnCEDA <- function(eda, gen, previousModel,
     fmargin <- eda@parameters$fmargin
     pmargin <- eda@parameters$pmargin
     copula <- eda@parameters$copula
-
-    fitCopulaArgs <- as.list(eda@parameters$fitCopulaArgs)
 
     if (is.null(fmargin)) fmargin <- fempirical
     if (is.null(pmargin)) pmargin <- pempirical
