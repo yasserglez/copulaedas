@@ -41,8 +41,8 @@ Objects are created by calling the \code{CEDA} function.
 }
 
 \details{
-Copula Estimation of Distribution Algorithm (CEDA) is a class of EDAs which 
-models the search distributions using a multivariate copula. These algorithms
+Copula Estimation of Distribution Algorithms (CEDA) are a class of EDAs which 
+model the search distributions using a multivariate copula. These algorithms
 estimate separately the univariate marginal distributions and the dependence 
 structure from the selected population. The dependence structure is represented 
 by a multivariate copula. The following instances of CEDA are implemented.
@@ -85,7 +85,7 @@ The following parameters are recognized by the functions implementing the
 
 \references{
 Arderí, R. J. (2007). Algoritmo con Estimación de Distribuciones con Cópula
-Gaussiana, Diploma Thesis, University of Havana.
+Gaussiana, Bachelor thesis, University of Havana.
 
 Demarta, S. and McNeil, A. J. (2005). The t copula and related copulas, 
 \emph{International Statistical Review}, 73:111--129.
