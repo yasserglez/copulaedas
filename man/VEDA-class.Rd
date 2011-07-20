@@ -40,7 +40,7 @@ Objects are created by calling the \code{VEDA} function.
 
 \details{
 Vine Estimation of Distribution Algorithms (VEDA) are a class of EDAs (Soto and
-GonzÃ¡lez-FernÃ¡ndez, 2010; GonzÃ¡lez-FernÃ¡ndez, 2011) which model the search 
+González-Fernández, 2010; González-Fernández, 2011) that model the search 
 distributions using vines. Vines are graphical models that represent high-dimensional
 distributions by decomposing a multivariate density into bivariate copulas and 
 one-dimensional densities (Joe, 1996; Bedford and Cooke, 2001; Aas et al., 2009). 
@@ -52,12 +52,12 @@ dependencies by combining bivariate copulas that belong to different families.
 The following instances of VEDA are implemented.
 
 \itemize{
-\item{C-vine Estimation of Distribution Algorithm (CVEDA), which models
-  the search distributions using C-vines (Soto and GonzÃ¡lez-FernÃ¡ndez, 2010; 
-  GonzÃ¡lez-FernÃ¡ndez, 2011).}
-\item{D-vine Estimation of Distribution Algorithm (DVEDA), which models
-  the search distributions using D-vines (Soto and GonzÃ¡lez-FernÃ¡ndez, 2010; 
-  GonzÃ¡lez-FernÃ¡ndez, 2011).}
+\item{C-vine Estimation of Distribution Algorithm (CVEDA), that models
+  the search distributions using C-vines (Soto and González-Fernández, 2010; 
+  González-Fernández, 2011).}
+\item{D-vine Estimation of Distribution Algorithm (DVEDA), that models
+  the search distributions using D-vines (Soto and González-Fernández, 2010; 
+  González-Fernández, 2011).}
 }
 
 Greedy heuristics are used to determine the structure of the C-vine and 
@@ -108,15 +108,15 @@ Bedford, T. and Cooke, R. M. (2001). Probability density decomposition for
 conditionally dependent random variables modeled by vines. \emph{Annals 
 of Mathematics and Artificial Intelligence}, 32:245--268.
 
-GonzÃ¡lez-FernÃ¡ndez, Y. (2011). Algoritmos con estimaciÃ³n de distribuciones
-basados en cÃ³pulas y vines, Bachelor thesis, University of Havana.
+González-Fernández, Y. (2011). Algoritmos con estimación de distribuciones
+basados en cópulas y vines, Bachelor thesis, University of Havana.
 
 Joe, H. (1996). Families of \eqn{m}-variate distributions with given margins 
-and \eqn{m(m-1)/2} bivariate dependence parameters. In RÃ¼schendorf, L. 
-and Schweizer, B. and Taylor, M. D., editors, \emph{Distributions with 
+and \eqn{m(m-1)/2} bivariate dependence parameters. In Röschendorf, L.
+and Schweizer, B. and Taylor, M. D., editors, \emph{Distributions with
 fixed marginals and related topics}, 120--141.
 
-Soto, M. and GonzÃ¡lez-FernÃ¡ndez, Y. (2010). Vine Estimation of Distribution
+Soto, M. and González-Fernández, Y. (2010). Vine Estimation of Distribution
 Algorithms, Technical Report ICIMAF 2010-561, ISSN 0138-8916, Institute of 
 Cybernetics, Mathematics, and Physics.
 }

@@ -55,8 +55,7 @@ or \code{upperPop} is not specified, the algorithm will determine an initial
 interval based on the value of the \code{popSize} parameter and continue 
 using the bisection method.
 
-See (Pelikan, 2005) for the pseudocode of the algorithm in which this function is 
-based.
+See (Pelikan, 2005) for a pseudocode of a similar algorithm.
 }
 
 \value{

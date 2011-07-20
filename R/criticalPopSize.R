@@ -1,5 +1,5 @@
 # copulaedas: Estimation of Distribution Algorithms based on Copula Theory
-# Copyright (C) 2010, 2011 Yasser Gonz√°lez-Fern√°ndez <ygf@icmf.inf.cu>
+# Copyright (C) 2010, 2011 Yasser Gonz·lez-Fern·ndez <ygf@icmf.inf.cu>
 # Copyright (C) 2010, 2011 Marta Soto <mrosa@icmf.inf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under

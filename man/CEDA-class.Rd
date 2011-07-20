@@ -41,7 +41,7 @@ Objects are created by calling the \code{CEDA} function.
 }
 
 \details{
-Copula Estimation of Distribution Algorithms (CEDA) are a class of EDAs which 
+Copula Estimation of Distribution Algorithms (CEDA) are a class of EDAs that 
 model the search distributions using a multivariate copula. These algorithms
 estimate separately the univariate marginal distributions and the dependence 
 structure from the selected population. The dependence structure is represented 
@@ -50,11 +50,11 @@ by a multivariate copula. The following instances of CEDA are implemented.
 \itemize{
   \item{If the dependence structure is modeled using the independence copula,
     the resulting algorithm corresponds to the continuous Univariate Marginal 
-    Distribution Algorithm (UMDA) introduced in (LarraÃ±aga et al., 2000).}
+    Distribution Algorithm (UMDA) introduced in (Larrañaga et al., 2000).}
 
   \item{If the dependence structure is modeled using the normal copula, the
     resulting algorithm corresponds to the Gaussian Copula Estimation of
-    Distribution Algorithm (GCEDA) (Soto et al., 2007; ArderÃ­, 2007). 
+    Distribution Algorithm (GCEDA) (Soto et al., 2007; Arderí, 2007). 
     The correlation matrix of the normal copula is calculated using the inversion
     of Kendall's tau for each pair of variables (Demarta and McNeil, 2005).
     If the resulting correlation matrix is not positive-definite, the correction
@@ -84,24 +84,24 @@ The following parameters are recognized by the functions implementing the
 }
 
 \references{
-ArderÃ­, R. J. (2007). Algoritmo con EstimaciÃ³n de Distribuciones con CÃ³pula
+Arderí, R. J. (2007). Algoritmo con Estimación de Distribuciones con Cópula
 Gaussiana, Bachelor thesis, University of Havana.
 
 Demarta, S. and McNeil, A. J. (2005). The t copula and related copulas, 
 \emph{International Statistical Review}, 73:111--129.
 
-LarraÃ±aga, P. and Etxeberria, R. and Lozano, J. A. and PeÃ±a, J. M. (2000).
-Optimization in continous domains by learning and simulation of Gaussian 
-networks. \emph{Proceedings of the Workshop in Optimization by Building and 
-Using Probabilistic Models in the Genetic and Evolutionary Computation 
+Larrañaga, P. and Etxeberria, R. and Lozano, J. A. and Peña, J. M. (2000).
+Optimization in continous domains by learning and simulation of Gaussian
+networks. \emph{Proceedings of the Workshop in Optimization by Building and
+Using Probabilistic Models in the Genetic and Evolutionary Computation
 Conference (GECCO 2000)}, 201--204.
 
-Rousseeuw, P. and Molenberghs, G. (1993). Transformation of nonpositive 
-semidefinite correlation matrices. \emph{Communications in Statistics: 
+Rousseeuw, P. and Molenberghs, G. (1993). Transformation of nonpositive
+semidefinite correlation matrices. \emph{Communications in Statistics:
 Theory and Methods}, 22:965--984.
 
-Soto, M. and Ochoa, A. and ArderÃ­, R. J. (2007). El Algoritmo con EstimaciÃ³n
-de Distribuciones basado en CÃ³pula Gausiana, Technical Report ICIMAF 2007-406,
+Soto, M. and Ochoa, A. and Arderí, R. J. (2007). El Algoritmo con Estimación
+de Distribuciones basado en Cópula Gausiana, Technical Report ICIMAF 2007-406,
 Institute of Cybernetics, Mathematics, and Physics.
 }
 

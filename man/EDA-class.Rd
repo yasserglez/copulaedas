@@ -45,7 +45,7 @@ Base class of all the classes implementing EDAs in the package.
   \item{edaTerminate}{\code{signature(eda = "EDA")}: Termination method. 
     Default method: \code{\link{edaTerminateMaxGen}}.}
     
-  \item{show}{\code{signature(object = "EDA")}: Print a text representation 
+  \item{show}{\code{signature(object = "EDA")}: Print a textual representation 
     of the EDA.}
 }
 }
