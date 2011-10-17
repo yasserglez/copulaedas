@@ -1,4 +1,4 @@
-# copulaedas: Estimation of Distribution Algorithms based on Copula Theory
+# copulaedas: Estimation of Distribution Algorithms based on Copulas
 # Copyright (C) 2010, 2011 Yasser González-Fernández <ygf@icimaf.cu>
 # Copyright (C) 2010, 2011 Marta Soto <mrosa@icimaf.cu>
 #

@@ -1,7 +1,7 @@
 Type: Package
 Encoding: latin1
 Package: copulaedas
-Title: Estimation of Distribution Algorithms Based on Copula Theory
+Title: Estimation of Distribution Algorithms Based on Copulas
 Version: 1.0.3
 Date: 2011-07-28
 Author: Yasser González-Fernández <ygf@icimaf.cu> and Marta Soto <mrosa@icimaf.cu>
