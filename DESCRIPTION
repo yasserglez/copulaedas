@@ -7,13 +7,13 @@ Date: 2011-07-28
 Author: Yasser González-Fernández <ygf@icimaf.cu> and Marta Soto <mrosa@icimaf.cu>
 Maintainer: Yasser González-Fernández <ygf@icimaf.cu>
 Description: This package contains implementations of various classes of
- Estimation of Distribution Algorithms (EDAs) based on copula theory:
- Copula EDAs and Vine EDAs. In this package, EDAs are implemented
- using S4 classes with generic functions for its main parts:
- seeding, selection, learning, sampling, replacement, local
- optimization, termination, and reporting. The package also
- includes the implementation of a group of well-known optimization
- test problems and utility functions to study the behavior of EDAs.
+  Estimation of Distribution Algorithms (EDAs) based on copulas:
+  Copula EDAs and Vine EDAs. In this package, EDAs are implemented
+  using S4 classes with generic functions for its main parts:
+  seeding, selection, learning, sampling, replacement, local
+  optimization, termination, and reporting. The package also
+  includes the implementation of a group of well-known optimization
+  test problems and utility functions to study the behavior of EDAs.
 License: GPL (>= 3)
 LazyLoad: yes
 Depends: methods, copula, vines

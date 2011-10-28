@@ -15,9 +15,9 @@ edaRun(eda, f, lower, upper)
 }
 
 \arguments{
-  \item{eda}{An \code{\linkS4class{EDA}} instance.}
+  \item{eda}{\code{\linkS4class{EDA}} instance.}
 
-  \item{f}{Objective function}
+  \item{f}{Objective function.}
 
   \item{lower}{Lower bounds of the variables of the objective function.}
   
@@ -25,15 +25,16 @@ edaRun(eda, f, lower, upper)
 }
 
 \details{
-EDAs are implemented using S4 classes with generic functions for its main parts: 
-seeding (\code{\link{edaSeed}}), selection (\code{\link{edaSelect}}), 
+EDAs are implemented using S4 classes with generic functions for its main 
+parts: seeding (\code{\link{edaSeed}}), selection (\code{\link{edaSelect}}), 
 learning (\code{edaLearn}), sampling (\code{edaSample}), replacement 
 (\code{\link{edaReplace}}), local optimization (\code{\link{edaOptimize}}), 
-termination (\code{\link{edaTerminate}}), and reporting (\code{\link{edaReport}}). 
+termination (\code{\link{edaTerminate}}), and reporting 
+(\code{\link{edaReport}}). 
 
 The following pseudocode illustrates the interactions between all the generic 
-functions that implement the main parts of the EDA. It is a simplified version 
-of the implementation of the \code{\link{edaRun}} function.
+functions that implement the main parts of the EDA. It is a simplified 
+version of the implementation of the \code{\link{edaRun}} function.
 
 \preformatted{
 gen <- 0 # Counts the number of generations.
@@ -104,13 +105,13 @@ An \code{\linkS4class{EDAResult}} instance.
 \examples{
 setMethod("edaReport", "EDA", edaReportSimple)
 setMethod("edaTerminate", "EDA",
-          edaTerminateCombined(edaTerminateMaxGen,
-                               edaTerminateEval))
+    edaTerminateCombined(edaTerminateMaxGen,
+        edaTerminateEval))
 
 DVEDA <- VEDA(vine = "DVine", copulas = c("normal"),
-              indepTestSigLevel = 0.01, fmargin = fnorm,
-              pmargin = pnorm, qmargin = qnorm, popSize = 200, 
-              maxGens = 50, fEval = 0, fEvalTol = 1e-03)
+    indepTestSigLevel = 0.01, margin = "norm",
+    popSize = 200, maxGens = 50, fEval = 0, 
+    fEvalTol = 1e-03)
 DVEDA@name <- "D-vine Estimation of Distribution Algorithm"
 
 result <- edaRun(DVEDA, fSphere, rep(-600, 5), rep(600, 5))

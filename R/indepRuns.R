@@ -16,7 +16,7 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 setClass("EDAResults", 
-        contains = "list")
+    contains = "list")
 
 
 summaryEDAResults <- function (object) {

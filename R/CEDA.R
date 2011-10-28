@@ -3,22 +3,22 @@
 # Copyright (C) 2010, 2011 Marta Soto <mrosa@icimaf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free Software 
-# Foundation, either version 3 of the License, or (at your option) any later 
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
 # version.
 #
-# This program is distributed in the hope that it will be useful, but WITHOUT 
+# This program is distributed in the hope that it will be useful, but WITHOUT
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more 
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
 # details.
 #
-# You should have received a copy of the GNU General Public License along with 
+# You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 setClass("CEDA",
-        contains = "EDA",
-        prototype = prototype(
-            name = "Copula Estimation of Distribution Algorithm"))
+    contains = "EDA",
+    prototype = prototype(
+        name = "Copula Estimation of Distribution Algorithm"))
 
 
 CEDA <- function (...) {
@@ -26,27 +26,29 @@ CEDA <- function (...) {
 }
 
 
-edaLearnCEDA <- function(eda, gen, previousModel,
-        selectedPop, selectedEval, lower, upper) {
-    fmargin <- eda@parameters$fmargin
-    pmargin <- eda@parameters$pmargin
+edaLearnCEDA <- function(eda, gen, previousModel, selectedPop,
+        selectedEval, lower, upper) {
+    margin <- eda@parameters$margin
     copula <- eda@parameters$copula
 
-    if (is.null(fmargin)) fmargin <- fempirical
-    if (is.null(pmargin)) pmargin <- pempirical
+    if (is.null(margin)) margin <- "norm"
     if (is.null(copula)) copula <- "normal"
 
     n <- ncol(selectedPop)
-    margins <- lapply(seq(length = n),
-            function (i) fmargin(selectedPop[ , i], lower[i], upper[i]))
-    U <- sapply(seq(length = n),
-            function (i) do.call(pmargin, c(list(selectedPop[ , i]), margins[[i]])))
-
+    fmargin <- get(paste("f", margin, sep = ""))
+    pmargin <- get(paste("p", margin, sep = ""))
     copula <- switch(copula,
-            indep = indepCopula(dim = n),
-            normal = normalCopula(rep(0, choose(n, 2)), dim = n, dispstr = "un"))
+        indep = indepCopula(dim = n),
+        normal = normalCopula(rep(0, choose(n, 2)), dim = n, dispstr = "un"))
+
+    margins <- lapply(seq(length = n),
+        function (i) fmargin(selectedPop[ , i], lower[i], upper[i]))
+    uniformPop <- sapply(seq(length = n),
+        function (i) do.call(pmargin, 
+                c(list(selectedPop[ , i]), margins[[i]])))
+
     if (length(copula@parameters) > 0) {
-        copula <- fitCopula(copula = copula, data = U,
+        copula <- fitCopula(copula = copula, data = uniformPop,
                 method = "itau", estimate.variance = FALSE)@copula
     }
 
@@ -58,17 +60,20 @@ setMethod("edaLearn", "CEDA", edaLearnCEDA)
 
 edaSampleCEDA <- function (eda, gen, model, lower, upper) {
     popSize <- eda@parameters$popSize
-    qmargin <- eda@parameters$qmargin
+    margin <- eda@parameters$margin
 
     if (is.null(popSize)) popSize <- 100
-    if (is.null(qmargin)) qmargin <- qempirical
+    if (is.null(margin)) margin <- "norm"
+    
+    qmargin <- get(paste("q", margin, sep = ""))
 
-    U <- rcopula(model$copula, popSize)
+    uniformPop <- rcopula(model$copula, popSize)
+    pop <- sapply(seq(length = ncol(uniformPop)),
+        function (i) do.call(qmargin,
+            c(list(uniformPop[ , i]), model$margins[[i]])))
+    pop <- matrix(pop, nrow = popSize)
 
-    pop <- sapply(seq(length = ncol(U)),
-            function (i) do.call(qmargin, c(list(U[ , i]), model$margins[[i]])))
-
-    matrix(pop, nrow = popSize)
+    pop
 }
 
 setMethod("edaSample", "CEDA", edaSampleCEDA)

@@ -6,7 +6,7 @@
 \title{Seeding Methods}
 
 \description{
-Method definitions for the \code{edaSeed} generic function.
+Methods for the \code{edaSeed} generic function.
 }
 
 \usage{
@@ -14,7 +14,7 @@ edaSeedUniform(eda, lower, upper)
 }
 
 \arguments{
-  \item{eda}{An \code{\linkS4class{EDA}} instance.}
+  \item{eda}{\code{\linkS4class{EDA}} instance.}
   
   \item{lower}{Lower bounds of the variables of the objective function.}
   
@@ -22,19 +22,19 @@ edaSeedUniform(eda, lower, upper)
 }
 
 \details{
-Seeding methods are used to create the initial population of the EDA. The length
-of the \code{lower} and \code{upper} vectors determine the number of variables
-of the objective function. The following seeding methods are implemented.
+Seeding methods create the initial population. The length of the \code{lower}
+and \code{upper} vectors determine the number of variables of the objective 
+function. The following seeding methods are implemented.
 
 \describe{
-  \item{\code{edaSeedUniform}}{Sample each variable according to a continuous 
-    uniform distribution in the interval determined by the \code{lower} and 
-    \code{upper} vectors. The parameter \code{popSize} specifies the number 
-    of individuals to be sampled (default value: \code{100}).}
+  \item{\code{edaSeedUniform}}{Sample each variable from a continuous uniform
+    distribution in the interval determined by the \code{lower} and 
+    \code{upper} vectors. The parameter \code{popSize} sets the number of
+    individuals in the population (default value: \code{100}).}
 }
 }
 
 \value{
-A matrix object with one column for each variable of the objective function 
-and one row for each individual in the population.
+A matrix with one column for each variable of the objective function and one
+row for each individual in the population.
 }

@@ -5,8 +5,8 @@
 \title{Normal Marginal Distribution}
 
 \description{
-Values of the \code{fmargin}, \code{pmargin}, and \code{qmargin} parameters of 
-the EDAs to use normal marginal distributions.
+Functions that implement the normal marginal distributions for EDAs
+with the \code{margin} parameter set to \code{"norm"}.
 }
 
 \usage{
@@ -23,7 +23,7 @@ fnorm(x, lower, upper)
 
 \details{
 The \code{fnorm} function fits the marginal distribution. It returns a 
-\code{"list"} object with the mean (\code{mean} component) and the standard
+\code{list} object with the mean (\code{mean} component) and the standard
 deviation (\code{sd} component). These components give values to the
 corresponding arguments to the \code{\link{pnorm}} and \code{\link{qnorm}} 
 functions.

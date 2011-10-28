@@ -12,7 +12,7 @@ citEntry(entry = "manual",
 	note = paste("{R} package version", version),
 	url = "http://CRAN.R-project.org/package=copulaedas",
 	textVersion = paste("González-Fernández, Y. and Soto, M. (", year, ") ",
-	                    "copulaedas: Estimation of Distribution Algorithms based on Copulas. ",
-	                    paste("R package version", version),
-	                    ". URL http://CRAN.R-project.org/package=copulaedas",
-	                    ".", sep = ""))
+        "copulaedas: Estimation of Distribution Algorithms based on Copulas. ",
+        paste("R package version", version),
+        ". URL http://CRAN.R-project.org/package=copulaedas",
+        ".", sep = ""))

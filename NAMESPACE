@@ -1,10 +1,10 @@
-# Imports
+# Imports.
 
 import(copula)
 import(vines)
 
 
-# Classes and generic functions
+# Classes and generic functions.
 
 exportClasses(EDA)
 exportClasses(CEDA)
@@ -24,7 +24,7 @@ exportMethods(edaReport)
 exportMethods(show, summary)
 
 
-# Exported functions
+# Exported functions.
 
 export(CEDA)
 export(VEDA)
@@ -43,4 +43,4 @@ exportPattern("^edaTerminate[A-Z]")
 exportPattern("^edaReport[A-Z]")
 
 exportPattern("^f[A-Z]") # Objective functions.
-exportPattern("^[fpq][a-z]") # Margins.
+exportPattern("^[fpq][a-z]") # Marginal distributions.

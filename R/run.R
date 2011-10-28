@@ -16,16 +16,16 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 setClass("EDAResult",
-        representation = representation(
-                eda = "EDA",
-                f = "function",
-                lower = "numeric",
-                upper = "numeric",
-                numGens = "numeric",
-                fEvals = "numeric",
-                bestEval = "numeric",
-                bestIndiv = "numeric",
-                cpuTime = "numeric"))
+    representation = representation(
+        eda = "EDA",
+        f = "function",
+        lower = "numeric",
+        upper = "numeric",
+        numGens = "numeric",
+        fEvals = "numeric",
+        bestEval = "numeric",
+        bestIndiv = "numeric",
+        cpuTime = "numeric"))
 
 
 showEDAResult <- function (object) {
@@ -63,9 +63,8 @@ edaRun <- function (eda, f, lower, upper) {
             model <- NULL
 
             pop <- edaSeed(eda, lower, upper)
-
             popEval <- sapply(seq(length = nrow(pop)),
-                    function (i) fWrap(pop[i, ]))
+                function (i) fWrap(pop[i, ]))
 
             r <- edaOptimize(eda, gen, pop, popEval, fWrap, lower, upper) 
             pop <- r$pop
@@ -76,15 +75,14 @@ edaRun <- function (eda, f, lower, upper) {
             selectedEval <- popEval[s]
 
             model <- edaLearn(eda, gen, model, 
-                    selectedPop, selectedEval, lower, upper)
+                selectedPop, selectedEval, lower, upper)
 
             sampledPop <- edaSample(eda, gen, model, lower, upper)
-
             sampledEval <- sapply(seq(length = nrow(sampledPop)),
-                    function (i) fWrap(sampledPop[i, ]))
+                function (i) fWrap(sampledPop[i, ]))
 
             r <- edaOptimize(eda, gen, sampledPop, sampledEval, 
-                    fWrap, lower, upper) 
+                fWrap, lower, upper) 
             sampledPop <- r$pop
             sampledEval <- r$popEval
             
@@ -106,15 +104,15 @@ edaRun <- function (eda, f, lower, upper) {
 
     elapsedTime <- proc.time() - startTime
     result <- new("EDAResult",
-            eda = eda,
-            f = f,
-            lower = lower,
-            upper = upper,
-            numGens = gen,
-            fEvals = fEvals,
-            bestEval = bestEval,
-            bestIndiv = bestIndiv,
-            cpuTime = sum(elapsedTime, na.rm = TRUE) - elapsedTime[3])
+        eda = eda,
+        f = f,
+        lower = lower,
+        upper = upper,
+        numGens = gen,
+        fEvals = fEvals,
+        bestEval = bestEval,
+        bestIndiv = bestIndiv,
+        cpuTime = sum(elapsedTime, na.rm = TRUE) - elapsedTime[3])
 
     result
 }

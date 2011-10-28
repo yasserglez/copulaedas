@@ -3,7 +3,7 @@
 # Copyright (C) 2010, 2011 Marta Soto <mrosa@icimaf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free Software 
+# the terms of the GNU General Public License as published by the Free Software
 # Foundation, either version 3 of the License, or (at your option) any later 
 # version.
 #
@@ -16,62 +16,62 @@
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
 setClass("EDA",
-        contains = "VIRTUAL",
-        representation = representation(
-                name = "character",
-                parameters = "list"),
-        prototype = prototype(
-                name = "Estimation of Distribution Algorithm",
-                parameters = list()))
+    contains = "VIRTUAL",
+    representation = representation(
+        name = "character",
+        parameters = "list"),
+    prototype = prototype(
+        name = "Estimation of Distribution Algorithm",
+        parameters = list()))
 
 
 setGeneric("edaSeed",
-        function (eda, lower, upper)
-            standardGeneric("edaSeed"),
-        signature = "eda",
-        useAsDefault = FALSE)
+    function (eda, lower, upper)
+        standardGeneric("edaSeed"),
+    signature = "eda",
+    useAsDefault = FALSE)
 
 setGeneric("edaSelect",
-        function (eda, gen, pop, popEval)
-            standardGeneric("edaSelect"),
-        signature = "eda",
-        useAsDefault = FALSE)
+    function (eda, gen, pop, popEval)
+        standardGeneric("edaSelect"),
+    signature = "eda",
+    useAsDefault = FALSE)
 
 setGeneric("edaLearn",
-        function (eda, gen, previousModel, selectedPop, selectedEval, lower, upper)
-            standardGeneric("edaLearn"),
-        signature = "eda",
-        useAsDefault = FALSE)
+    function (eda, gen, previousModel, selectedPop, selectedEval, lower, upper)
+        standardGeneric("edaLearn"),
+    signature = "eda",
+    useAsDefault = FALSE)
 
 setGeneric("edaSample",
-        function (eda, gen, model, lower, upper)
-            standardGeneric("edaSample"),
-        signature = "eda",
-        useAsDefault = FALSE)
+    function (eda, gen, model, lower, upper)
+        standardGeneric("edaSample"),
+    signature = "eda",
+    useAsDefault = FALSE)
 
 setGeneric("edaReplace",
-        function (eda, gen, pop, popEval, sampledPop, sampledEval)
-            standardGeneric("edaReplace"),
-        signature = "eda",
-        useAsDefault = FALSE)
+    function (eda, gen, pop, popEval, sampledPop, sampledEval)
+        standardGeneric("edaReplace"),
+    signature = "eda",
+    useAsDefault = FALSE)
 
 setGeneric("edaOptimize",
-        function (eda, gen, pop, popEval, f, lower, upper)
-            standardGeneric("edaOptimize"),
-        signature = "eda", 
-        useAsDefault = FALSE)
+    function (eda, gen, pop, popEval, f, lower, upper)
+        standardGeneric("edaOptimize"),
+    signature = "eda", 
+    useAsDefault = FALSE)
 
 setGeneric("edaTerminate",
-        function (eda, gen, fEvals, pop, popEval)
-            standardGeneric("edaTerminate"),
-        signature = "eda",
-        useAsDefault = FALSE)
+    function (eda, gen, fEvals, pop, popEval)
+        standardGeneric("edaTerminate"),
+    signature = "eda",
+    useAsDefault = FALSE)
 
 setGeneric("edaReport",
-        function (eda, gen, fEvals, model, pop, popEval)
-            standardGeneric("edaReport"),
-        signature = "eda",
-        useAsDefault = FALSE)
+    function (eda, gen, fEvals, model, pop, popEval)
+        standardGeneric("edaReport"),
+    signature = "eda",
+    useAsDefault = FALSE)
 
 
 showEDA <- function (object) {

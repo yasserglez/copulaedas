@@ -17,10 +17,11 @@
 
 edaSeedUniform <- function (eda, lower, upper) {
     popSize <- eda@parameters$popSize
-    
+
     if (is.null(popSize)) popSize <- 100
 
-    sapply(seq(along = lower), function (i) runif(popSize, lower[i], upper[i]))
+    sapply(seq(along = lower), 
+        function (i) runif(popSize, lower[i], upper[i]))
 }
 
 setMethod("edaSeed", "EDA", edaSeedUniform)

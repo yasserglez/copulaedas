@@ -28,37 +28,37 @@ fnorm <- function (x, lower, upper) {
 # See Azzalini, A. (1981) A note on the estimation of a distribution function and 
 # quantiles by a kernel method, Biometrika, 68, 326-328.
 
-fempirical <- function (x, lower, upper) {
+fkernel <- function (x, lower, upper) {
     list(X = x, h = bw.nrd0(x))
 }
 
-pempirical <- function (q, X, h) {
+pkernel <- function (q, X, h) {
     # Empirical c.d.f.
     rank(q) / (length(q) + 1)
 }
 
-qempirical <- function (p, X, h) {
+qkernel <- function (p, X, h) {
     eps <- .Machine$double.eps^0.5
     maxIter <- 100
     quantiles <- quantile(X, p, names = FALSE)
     n <- length(X)
     f <- function (x) sum(dnorm((x - X) / h)) / (n * h)
     F <- function (x) sum(pnorm((x - X) / h)) / n
-    sapply(seq(along = p), 
-            function (i) {
-                iter <- 0
-                x <- quantiles[i]
-                Fx <- F(x) - p[i]
-                while (abs(Fx) > eps && iter <= maxIter) {
-                    fx <- f(x)
-                    if (is.finite(fx) && abs(fx) > eps) {
-                        x <- x - Fx / fx
-                        Fx <- F(x) - p[i]
-                        iter <- iter + 1
-                    } else {
-                        break
-                    }
+    sapply(seq(along = p),
+        function (i) {
+            iter <- 0
+            x <- quantiles[i]
+            Fx <- F(x) - p[i]
+            while (abs(Fx) > eps && iter <= maxIter) {
+                fx <- f(x)
+                if (is.finite(fx) && abs(fx) > eps) {
+                    x <- x - Fx / fx
+                    Fx <- F(x) - p[i]
+                    iter <- iter + 1
+                } else {
+                    break
                 }
-                x
-            })
+            }
+            x
+        })
 }
