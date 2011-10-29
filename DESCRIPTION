@@ -18,5 +18,5 @@ License: GPL (>= 3)
 LazyLoad: yes
 Depends: methods, copula, vines
 Collate: EDA.R seed.R select.R optimize.R report.R replace.R terminate.R
-  run.R margins.R functions.R indepRuns.R criticalPopSize.R misc.R
+  run.R margins.R problems.R indepRuns.R criticalPopSize.R common.R
   CEDA.R VEDA.R
