@@ -7,7 +7,7 @@ version <- desc$Version
 citEntry(entry = "manual",
 	title = "copulaedas: Estimation of Distribution Algorithms based on Copulas",
 	author = personList(as.person("González-Fernández, Y."),
-	                    as.person("Soto, M.")),
+        as.person("Soto, M.")),
 	year = year,
 	note = paste("{R} package version", version),
 	url = "http://CRAN.R-project.org/package=copulaedas",

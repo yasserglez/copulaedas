@@ -26,7 +26,7 @@ edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
   \item{fEval}{Optimum value of the objective function.}
 
   \item{fEvalTol}{A run is considered successful if the difference between
-    \code{fEval} and the best solution found is less than \code{fEvalTol}.}
+    \code{fEval} and the best found solution is less than \code{fEvalTol}.}
 
   \item{totalRuns}{Total number of runs.}
 
@@ -49,8 +49,8 @@ of a total of \code{totalRuns} independent runs (critical population size).
 The population size is determined using a bisection method starting with the
 interval delimited by the \code{lowerPop} and \code{upperPop} arguments. The
 bisection procedure stops when the estimated population size is less than 
-\code{stopPercent} percent from the critical population. If either 
-\code{lowerPop} or \code{upperPop} is not specified, the algorithm will 
+\code{stopPercent} percent away from the critical population size. If either
+\code{lowerPop} or \code{upperPop} is not specified, the algorithm will
 determine an initial interval based on the value of the \code{popSize} 
 parameter and then continue using the bisection method.
 
@@ -60,12 +60,12 @@ See (Pelikan, 2005) for a pseudocode of a similar algorithm.
 \value{
 Either \code{NULL} if the critical population size was not determined or
 an \code{\linkS4class{EDAResults}} instance with the results of the runs 
-of the EDA for the critical population size.
+of the EDA using the critical population size.
 }
 
 \references{
 Pelikan, M. (2005). Hierarchical Bayesian Optimization Algorithm. 
-Toward a new generation of Evolutionary Algorithms, Springer-Verlag.
+Toward a New Generation of Evolutionary Algorithms, Springer-Verlag.
 }
 
 \seealso{

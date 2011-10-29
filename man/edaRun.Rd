@@ -37,57 +37,36 @@ functions that implement the main parts of the EDA. It is a simplified
 version of the implementation of the \code{\link{edaRun}} function.
 
 \preformatted{
-gen <- 0 # Counts the number of generations.
-fEvals <- 0 # Counts the number of evaluations
-            # of the objective function.
-terminate <- FALSE
+gen <- 0; fEvals <- 0; terminate <- FALSE
 
 while (!terminate) {
-    gen <- gen + 1
+  gen <- gen + 1
 
-    if (gen == 1) {
-        model <- NULL
-
-        pop <- edaSeed(eda, lower, upper)
-
-        # Set the popEval vector to the evaluation 
-        # of the objective function for each 
-        # individual in pop. fEvals is updated.
-
-        r <- edaOptimize(eda, gen, pop, popEval,
-                         f, lower, upper)
-        pop <- r$pop
-        popEval <- r$popEval
-    } else {
-        s <- edaSelect(eda, gen, pop, popEval)
-        selectedPop <- pop[s, ]
-        selectedEval <- popEval[s]
-
-        model <- edaLearn(eda, gen, model, selectedPop,
-                          selectedEval, lower, upper)
-
-        sampledPop <- edaSample(eda, gen, model, 
-                                lower, upper)
-
-        # Set the sampledEval vector to the evaluation 
-        # of the objective function for each individual 
-        # in sampledPop. fEvals is updated.
-
-        r <- edaOptimize(eda, gen, sampledPop, 
-                         sampledEval, f, lower, upper) 
-        sampledPop <- r$pop
-        sampledEval <- r$popEval
-        
-        r <- edaReplace(eda, gen, pop, popEval, 
-                        sampledPop, sampledEval)
-        pop <- r$pop
-        popEval <- r$popEval
+  if (gen == 1) {
+    model <- NULL
+    pop <- edaSeed(lower, upper)
+    # Set the popEval vector to the fitness of each
+    # individual in pop. Update fEvals.
+    r <- edaOptimize(gen, pop, popEval, f, lower, upper)
+    pop <- r$pop; popEval <- r$popEval
+  } else {
+      s <- edaSelect(gen, pop, popEval)
+      selectedPop <- pop[s, ]; selectedEval <- popEval[s]
+      model <- edaLearn(gen, model, selectedPop,
+                        selectedEval, lower, upper)
+      sampledPop <- edaSample(gen, model, lower, upper)
+      # Set the sampledEval vector to the fitness of each
+      # individual in sampledPop. Update fEvals. 
+      r <- edaOptimize(gen, sampledPop, sampledEval, 
+                       f, lower, upper) 
+      sampledPop <- r$pop; sampledEval <- r$popEval
+      r <- edaReplace(gen, pop, popEval, 
+                      sampledPop, sampledEval)
+      pop <- r$pop; popEval <- r$popEval
     }
 
-    edaReport(eda, gen, fEvals, model, pop, popEval)
-
-    terminate <- edaTerminate(eda, gen, fEvals, 
-                              pop, popEval)
+  edaReport(gen, fEvals, model, pop, popEval)
+  terminate <- edaTerminate(gen, fEvals, pop, popEval)
 }
 }
 }

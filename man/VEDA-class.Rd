@@ -12,12 +12,9 @@
 \title{Class for Vine Estimation of Distribution Algorithms}
 
 \description{
-Extends the \code{\linkS4class{EDA}} class to implement Estimation of
-Distribution Algorithms based on vines.
-}
-
-\section{Objects from the Class}{
-Objects are created by calling the \code{VEDA} function.
+Extends the \code{\linkS4class{EDA}} class to implement estimation of
+distribution algorithms based on vines. Objects are created by calling the
+\code{VEDA} function.
 }
 
 \section{Slots}{
@@ -71,7 +68,8 @@ The independence copula is selected if there is not enough evidence against
 the null hypothesis of independence at a given significance level. In the 
 other case, the parameters of a group of candidate copulas are estimated 
 and the one that minimizes a distance to the empirical copula is selected.
-As distance we use a Cramér-von Mises statistic (Genest and Rémillard, 2008).
+A Cramér-von Mises statistic is used as the measure of distance
+(Genest and Rémillard, 2008).
 
 The parameters of all the candidate copulas but the t copula are estimated
 using the inversion of Kendall's tau. In the case of the t copula,
@@ -100,9 +98,9 @@ the \code{\link{edaLearn}} and \code{\link{edaSample}} methods for the
   \item{\code{indepTestSigLevel}}{Significance level of the independence
     test. Default value: \code{0.01}.}
 
-  \item{\code{margin}}{Marginal distributions. If the value of this argument
-    is \code{"xxx"}, the algorithm will search for three functions named
-    \code{fxxx}. \code{pxxx} and \code{qxxx} to fit each marginal distribution
+  \item{\code{margin}}{Marginal distributions. If this argument is \code{"xxx"},
+    the algorithm will search for three functions named \code{fxxx}.
+    \code{pxxx} and \code{qxxx} to fit each marginal distribution
     and evaluate the cumulative distribution function and its inverse,
     respectively. Default value: \code{"norm"}.}
 
@@ -111,37 +109,37 @@ the \code{\link{edaLearn}} and \code{\link{edaSample}} methods for the
 }
 
 \references{
-Aas, K. and Czado, C. and Frigessi, A. and Bakken, H. (2009). Pair-copula 
-constructions of multiple dependence. \emph{Insurance: Mathematics and 
+Aas, K. and Czado, C. and Frigessi, A. and Bakken, H. (2009). Pair-Copula 
+Constructions of Multiple Dependence. \emph{Insurance: Mathematics and 
 Economics}, 44:182--198.
 
-Bedford, T. and Cooke, R. M. (2001). Probability density decomposition for 
-conditionally dependent random variables modeled by vines. \emph{Annals 
+Bedford, T. and Cooke, R. M. (2001). Probability Density Decomposition for 
+Conditionally Dependent Random Variables Modeled by Vines. \emph{Annals 
 of Mathematics and Artificial Intelligence}, 32:245--268.
 
-Brechmann, E. C. (2010) Truncated and simplified regular vines 
-and their applications. Diploma thesis. University of Technology, 
+Brechmann, E. C. (2010) Truncated and Simplified Regular Vines 
+and Their Applications. Diploma thesis. University of Technology, 
 Munich, Germany.
 
-Demarta, S. and McNeil, A. J. (2005). The t copula and related copulas, 
+Demarta, S. and McNeil, A. J. (2005). The t Copula and Related Copulas, 
 \emph{International Statistical Review}, 73:111--129.
 
-Genest, C. and Rémillard, B. (2004). Tests of independence or randomness 
-based on the empirical copula process. Test, 13:335--369.
+Genest, C. and Rémillard, B. (2004). Tests of Independence or Randomness 
+Based on the Empirical Copula Process. \emph{Test}, 13:335--369.
 
-Genest, C. and Quessy, J. F. and Rémillard, B. (2007). Asymptotic local 
-efficiency of Cramér-von Mises tests for multivariate independence.
-The Annals of Statistics, 35:166--191.
+Genest, C. and Quessy, J. F. and Rémillard, B. (2007). Asymptotic Local 
+Efficiency of Cramér-von Mises Tests for Multivariate Independence.
+\emph{The Annals of Statistics}, 35:166--191.
 
-Genest, C. and Rémillard, B. (2008). Validity of the parametric bootstrap 
-for goodness-of-fit testing in semiparametric models. Annales de l'Institut 
-Henri Poincaré: Probabilités et Statistiques, 44:1096--1127.
+Genest, C. and Rémillard, B. (2008). Validity of the Parametric Bootstrap 
+for Goodness-of-Fit Testing in Semiparametric Models. \emph{Annales de 
+l'Institut Henri Poincaré: Probabilités et Statistiques}, 44:1096--1127.
 
-González-Fernández, Y. (2011). Algoritmos con estimación de distribuciones
-basados en cópulas y vines. Bachelor thesis. University of Havana, Cuba.
+González-Fernández, Y. (2011). Algoritmos con Estimación de Distribuciones
+Basados en Cópulas y Vines. Bachelor thesis. University of Havana, Cuba.
 
-Joe, H. (1996). Families of \eqn{m}-variate distributions with given margins
-and \eqn{m(m-1)/2} bivariate dependence parameters. In Röschendorf, L.
+Joe, H. (1996). Families of \eqn{m}-variate Distributions with Given Margins
+and \eqn{m(m-1)/2} Bivariate Dependence Parameters. In Röschendorf, L.
 and Schweizer, B. and Taylor, M. D., editors, \emph{Distributions with
 fixed marginals and related topics}, 120--141.
 

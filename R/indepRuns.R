@@ -28,15 +28,10 @@ summaryEDAResults <- function (object) {
     f <- function (x) c(min(x), median(x), max(x), mean(x), sd(x)) 
     data <- cbind(f(numGens), f(fEvals), f(bestEval), f(cpuTime))
 
-    colnames(data) <- c("Generations", 
-                        "Evaluations", 
-                        "Best Evaluation",
-                        "CPU Time")
-    rownames(data) <- c("Minimum", 
-                        "Median", 
-                        "Maximum", 
-                        "Mean", 
-                        "Std. Dev.")
+    colnames(data) <- c("Generations", "Evaluations", 
+                        "Best Evaluation", "CPU Time")
+    rownames(data) <- c("Minimum", "Median", "Maximum", 
+                        "Mean", "Std. Dev.")
 
     data
 }
@@ -51,15 +46,11 @@ showEDAResults <- function (object) {
     cpuTime <- sapply(object, function (r) r@cpuTime)
     
     data <- cbind(numGens, fEvals, bestEval, cpuTime)
-    colnames(data) <- c("Generations", 
-                        "Evaluations", 
-                        "Best Evaluation",
-                        "CPU Time")
+    colnames(data) <- c("Generations", "Evaluations", 
+                        "Best Evaluation", "CPU Time")
     rownames(data) <- paste("Run", as.character(seq(length = nrow(data))))
 
-    cat("\n")
-    print(data)
-    cat("\n")
+    cat("\n"); print(data); cat("\n")
 }
 
 setMethod("show", "EDAResults", showEDAResults)
@@ -76,11 +67,8 @@ edaIndepRuns <- function (eda, f, lower, upper, runs, verbose = FALSE) {
             if (run == 1) {
                 cat("\n")
                 w <- max(getOption("digits") + 5, 15)
-                h <- c("Run", 
-                       "Generations", 
-                       "Evaluations", 
-                       "Best Evaluation", 
-                       "CPU Time")
+                h <- c("Run", "Generations", "Evaluations", 
+                       "Best Evaluation", "CPU Time")
                 cat(format(h, justify = "right", width = w), "\n")
             }
             cat(format(c(run, result@numGens, result@fEvals), width = w),
@@ -97,23 +85,20 @@ edaIndepRuns <- function (eda, f, lower, upper, runs, verbose = FALSE) {
         cpuTime <- sapply(results, function (r) r@cpuTime)
         
         cat("\n")
-        h <- c("", 
-               "Generations", 
-               "Evaluations", 
-               "Best Evaluation",
-               "CPU Time")
+        h <- c("", "Generations", "Evaluations", 
+               "Best Evaluation", "CPU Time")
         cat(format(h, justify = "right", width = w), "\n")
-        fs <- list(min, median, max, mean, sd)
-        rNames <- c("Minimum", "Median", "Maximum", "Mean", "Std. Dev.")
-        for (i in seq(along = fs)) {
-            f <- fs[[i]]
-            cat(format(rNames[i], justify = "right", width = w),
+        functions <- list(min, median, max, mean, sd)
+        rowNames <- c("Minimum", "Median", "Maximum", "Mean", "Std. Dev.")
+        for (i in seq(along = functions)) {
+            f <- functions[[i]]
+            cat(format(rowNames[i], justify = "right", width = w),
                     format(c(f(numGens), f(fEvals)), width = w),
                     format(f(bestEval), scientific = TRUE, width = w),
                     format(f(cpuTime), width = w),
                     "\n")
         }
     }
-    
+
     as(results, "EDAResults")
 }

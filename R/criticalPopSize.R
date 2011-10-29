@@ -79,7 +79,7 @@ edaCriticalPopSize <- function (eda, f, lower, upper, fEval, fEvalTol,
     }
 
     # Continue by bisection.
-    while ((upperPop - lowerPop) > 1 && 
+    while ((upperPop - lowerPop) > 1 &&
             (upperPop - lowerPop) / lowerPop >= stopPercent / 100) {
         eda@parameters$popSize <- max(ceiling((upperPop + lowerPop) / 2), 2)
         currentResults <- tryPopSize(eda, f, lower, upper,

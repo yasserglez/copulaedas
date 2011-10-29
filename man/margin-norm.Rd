@@ -5,7 +5,7 @@
 \title{Normal Marginal Distribution}
 
 \description{
-Functions that implement the normal marginal distributions for EDAs
+Functions that implement the normal marginal distribution for EDAs
 with the \code{margin} parameter set to \code{"norm"}.
 }
 

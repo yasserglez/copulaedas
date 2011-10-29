@@ -10,7 +10,7 @@
 \title{Benchmark Problems}
 
 \description{
-Implementation of a group of classical benchmark problems usually used
+Implementation of a group of well-known benchmark problems usually used
 to evaluate the performance of EDAs and optimization algorithms for
 unconstrained optimization in general.
 }
@@ -62,14 +62,15 @@ for a description of the functions.
 \references{
 Bengoetxea, E. and Miquélez, T. and Lozano, J. A. and Larrañaga, P. (2002).
 Experimental Results in Function Optimization with EDAs in Continuous Domain.
-In Larrañaga, P. and Lozano, J. A., editors, Estimation of Distribution
-Algorithms. A New Tool for Evolutionary Computation, Kluwer Academic Publisher,
-181--194.
+In Larrañaga, P. and Lozano, J. A., editors, \emph{Estimation of Distribution
+Algorithms. A New Tool for Evolutionary Computation}, Kluwer Academic 
+Publisher, 181--194.
 
 Bosman, P. A. N. and Thierens, D. (2006). Numerical Optimization with
 Real-Valued Estimation of Distribution Algorithms. In Pelikan, M. and
-Sastry, K. and Cantú-Paz, E., editors, Scalable Optimization via Probabilistic
-Modeling. From Algorithms to Applications, Springer-Verlag, 91--120.
+Sastry, K. and Cantú-Paz, E., editors, \emph{Scalable Optimization via 
+Probabilistic Modeling}. From Algorithms to Applications, 
+Springer-Verlag, 91--120.
 }
 
 \examples{

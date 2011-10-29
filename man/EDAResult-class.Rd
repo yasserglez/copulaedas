@@ -8,11 +8,8 @@
 \title{Class for the Results of a Run of an EDA}
 
 \description{
-Results of a run of an EDA.
-}
-
-\section{Objects from the Class}{
-Objects are created by calling the \code{\link{edaRun}} function.
+Results of a run of an EDA. Objects are created by calling the 
+\code{\link{edaRun}} function.
 }
 
 \section{Slots}{

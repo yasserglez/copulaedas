@@ -5,7 +5,7 @@
 \title{Independent Runs}
 
 \description{
-Independent runs.
+Execute independent runs.
 }
 
 \usage{

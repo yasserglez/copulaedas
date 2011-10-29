@@ -8,7 +8,7 @@
 
 \description{
 Functions that implement the kernel-smoothed empirical marginal 
-distributions for EDAs with the \code{margin} parameter set to 
+distribution for EDAs with the \code{margin} parameter set to 
 \code{"kernel"}.
 }
 
@@ -52,6 +52,6 @@ distribution function, following the procedure suggested in (Azzalini, 1981).
 }
 
 \references{
-Azzalini, A. (1981) A note on the estimation of a distribution function and 
-quantiles by a kernel method, \emph{Biometrika}, \bold{68}, 326-328.
+Azzalini, A. (1981) A Note on the Estimation of a Distribution Function and 
+Quantiles by a Kernel Method, \emph{Biometrika}, \bold{68}, 326-328.
 }

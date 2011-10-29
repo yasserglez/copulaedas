@@ -29,10 +29,8 @@ setClass("EDAResult",
 
 
 showEDAResult <- function (object) {
-    names <- c("Best function evaluation",
-               "No. of generations",
-               "No. of function evaluations",
-               "CPU time")
+    names <- c("Best function evaluation", "No. of generations",
+               "No. of function evaluations", "CPU time")
     values <- c(format(object@bestEval, scientific = TRUE),
                 format(object@numGens),
                 format(object@fEvals),
