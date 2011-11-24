@@ -124,11 +124,9 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
         indepTestStat <- indepTestSim(m, 2, print.every = -1)
     }
 
-    vine <- do.call(vineFit,
-        list(type = vine, data = orderedPop,
-            selectCopula = selectCopula,
-            truncMethod = "AIC",
-            method = "ml", optimMethod = ""))@vine
+    vine <- vineFit(type = vine, data = orderedPop,
+            selectCopula = selectCopula, truncMethod = "AIC",
+            method = "ml", optimMethod = "")@vine
 
     list(vine = vine, margins = margins, ordering = ordering,
         indepTestStat = indepTestStat)
