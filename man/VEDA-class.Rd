@@ -92,8 +92,9 @@ the \code{\link{edaLearn}} and \code{\link{edaSample}} methods for the
 
   \item{\code{copulas}}{A \code{character} vector specifying the candidate
     copulas. Supported values are: \code{"normal"} (normal copula),
-    \code{"t"} (t copula), \code{"clayton"} (Clayton copula), and
-    \code{"gumbel"} (Gumbel copula). Default value: \code{c("normal")}.}
+    \code{"t"} (t copula), \code{"clayton"} (Clayton copula),
+    \code{"frank"} (Frank copula), and \code{"gumbel"} (Gumbel copula).
+    Default value: \code{c("normal")}.}
 
   \item{\code{indepTestSigLevel}}{Significance level of the independence
     test. Default value: \code{0.01}.}
@@ -153,13 +154,13 @@ setMethod("edaTerminate", "EDA", edaTerminateEval)
 setMethod("edaReport", "EDA", edaReportSimple)
 
 CVEDA <- VEDA(vine = "CVine",
-    copulas = c("normal", "clayton", "gumbel"),
+    copulas = c("normal", "clayton", "frank", "gumbel"),
     indepTestSigLevel = 0.01, margin = "norm",
     popSize = 200, fEval = 0, fEvalTol = 1e-03)
 CVEDA@name <- "C-vine Estimation of Distribution Algorithm"
 
 DVEDA <- VEDA(vine = "DVine",
-    copulas = c("normal", "clayton", "gumbel"),
+    copulas = c("normal", "clayton", "frank", "gumbel"),
     indepTestSigLevel = 0.01, margin = "norm",
     popSize = 200, fEval = 0, fEvalTol = 1e-03)
 DVEDA@name <- "D-vine Estimation of Distribution Algorithm"

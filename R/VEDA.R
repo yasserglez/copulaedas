@@ -68,16 +68,13 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
                 L <- function (df) loglikCopula(c(rho, df), data, normalCopula(0))
                 df <- optimize(L, c(1, 30), maximum = TRUE)$maximum
                 candidateCopula <- tCopula(rho, df = df, df.fixed = TRUE)
-            } else if (identical(copula, "clayton")) {
-                # Setting bounds to Kendall's tau to avoid numerical
-                # problems evaluating the density.
-                theta <- calibKendallsTau(claytonCopula(1), max(0, min(tau, 0.95)))
-                candidateCopula <- claytonCopula(theta)
-            } else if (identical(copula, "gumbel")) {
-                # Setting bounds to Kendall's tau to avoid numerical
-                # problems evaluating the density.
-                theta <- calibKendallsTau(gumbelCopula(1), max(0, min(tau, 0.95)))
-                candidateCopula <- gumbelCopula(theta)
+            } else if (copula %in% c("clayton", "frank", "gumbel")) {
+                # Setting bounds to Kendall's tau to avoid numerical problems.
+                theta <- switch(copula,
+                    clayton = calibKendallsTau(claytonCopula(1), max(0, min(tau, 0.95))),
+                    frank = calibKendallsTau(frankCopula(0), max(-0.95, min(tau, 0.95))),
+                    gumbel = calibKendallsTau(gumbelCopula(1), max(0, min(tau, 0.95))))
+                candidateCopula <- archmCopula(copula, theta)
             } else {
                 stop("copula ", dQuote(copula), " not supported")
             }
