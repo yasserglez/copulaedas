@@ -54,12 +54,14 @@ implemented.
 
   \item{If the dependence structure is modeled using a normal copula, the
     resulting algorithm corresponds to the Gaussian Copula Estimation of
-    Distribution Algorithm (GCEDA) (Soto et al., 2007; Arderí, 2007). 
-    The correlation matrix of the normal copula is calculated using the 
-    inversion of Kendall's tau for each pair of variables 
-    (Demarta and McNeil, 2005). If the resulting correlation matrix is 
-    not positive-definite, the correction proposed in 
-    (Rousseeuw and Molenberghs, 1993) is applied.}
+    Distribution Algorithm (GCEDA) (Soto et al., 2007; Arderí, 2007).
+    If the marginal distributions are other than normal, the correlation
+    matrix is calculated using the inversion of Kendall's tau for each pair
+    of variables (Demarta and McNeil, 2005). If the resulting correlation
+    matrix is not positive-definite, the correction proposed in
+    (Rousseeuw and Molenberghs, 1993) is applied. If normal marginal
+    distributions are used, the correlation matrix is estimated directly
+    from the selected population using the \code{\link{cor}} function.}
 }
 
 The following parameters are recognized by the functions that implement the

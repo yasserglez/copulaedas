@@ -31,8 +31,8 @@ edaLearnCEDA <- function(eda, gen, previousModel, selectedPop,
     margin <- eda@parameters$margin
     copula <- eda@parameters$copula
 
-    if (is.null(margin)) margin <- "norm"
     if (is.null(copula)) copula <- "normal"
+    if (is.null(margin)) margin <- "norm"
 
     n <- ncol(selectedPop)
     fmargin <- get(paste("f", margin, sep = ""))
@@ -44,12 +44,17 @@ edaLearnCEDA <- function(eda, gen, previousModel, selectedPop,
     margins <- lapply(seq(length = n),
         function (i) fmargin(selectedPop[ , i], lower[i], upper[i]))
     uniformPop <- sapply(seq(length = n),
-        function (i) do.call(pmargin, 
+        function (i) do.call(pmargin,
                 c(list(selectedPop[ , i]), margins[[i]])))
 
     if (length(copula@parameters) > 0) {
-        copula <- fitCopula(copula = copula, data = uniformPop,
-                method = "itau", estimate.variance = FALSE)@copula
+        if (is(copula, "normalCopula") && identical(margin, "norm")) {
+            R <- cor(selectedPop)
+            copula <- normalCopula(R[lower.tri(R)], dim = n, dispstr = "un")
+        } else {
+            copula <- fitCopula(copula = copula, data = uniformPop,
+                    method = "itau", estimate.variance = FALSE)@copula
+        }
     }
 
     list(copula = copula, margins = margins)
