@@ -24,7 +24,7 @@ setClass("EDAResult",
         numGens = "numeric",
         fEvals = "numeric",
         bestEval = "numeric",
-        bestIndiv = "numeric",
+        bestSol = "numeric",
         cpuTime = "numeric"))
 
 
@@ -51,7 +51,7 @@ edaRun <- function (eda, f, lower, upper) {
     terminate <- FALSE
     fEvals <- 0; fWrap <- function (...) { fEvals <<- fEvals + 1; f(...) }
     bestEval <- NA
-    bestIndiv <- NA
+    bestSol <- NA
     startTime <- proc.time()
 
     while (!terminate) {
@@ -96,7 +96,7 @@ edaRun <- function (eda, f, lower, upper) {
         if (is.na(bestEval) || min(popEval) < bestEval) {
             i <- which.min(popEval)
             bestEval <- popEval[i]
-            bestIndiv <- pop[i, ]
+            bestSol <- pop[i, ]
         }
     }
 
@@ -109,7 +109,7 @@ edaRun <- function (eda, f, lower, upper) {
         numGens = gen,
         fEvals = fEvals,
         bestEval = bestEval,
-        bestIndiv = bestIndiv,
+        bestSol = bestSol,
         cpuTime = sum(elapsedTime, na.rm = TRUE) - elapsedTime[3])
 
     result

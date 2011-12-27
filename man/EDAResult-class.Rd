@@ -33,7 +33,7 @@ Results of a run of an EDA. Objects are created by calling the
   \item{\code{bestEval}:}{Object of class \code{numeric}. Best evaluation 
     of the objective function.}
 
-  \item{\code{bestIndiv}:}{Object of class \code{numeric}. Best individual.}
+  \item{\code{bestSol}:}{Object of class \code{numeric}. Best individual.}
 
   \item{\code{cpuTime}:}{Object of class \code{numeric}. Run time of the
     algorithms in seconds.}
