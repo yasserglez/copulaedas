@@ -18,21 +18,21 @@ edaReplaceComplete(eda, gen, pop, popEval, sampledPop, sampledEval)
 
   \item{gen}{Generation.}
 
-  \item{pop}{Matrix with one row for each individual in the population.}
+  \item{pop}{Matrix with one row for each solution in the population.}
 
-  \item{popEval}{Vector with the evaluation of each individual in \code{pop}.}
+  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 
-  \item{sampledPop}{Matrix with one row for each individual sampled in the
+  \item{sampledPop}{Matrix with one row for each solution sampled in the
     current generation.}
 
-  \item{sampledEval}{Vector with the evaluation of the individuals in
-    \code{sampledPop}.}
+  \item{sampledEval}{Vector with the evaluation of the candidate solutions
+    in \code{sampledPop}.}
 }
 
 \details{
-Replacement methods combine the individuals sampled in the current generation 
-with individuals from the population of the previous generation. The following 
-replacement methods are implemented.
+Replacement methods combine the candidate solutions sampled in the current 
+generation with the candidate solutions from the population of the previous 
+generation. The following replacement methods are implemented.
 
 \describe{
   \item{\code{edaReplaceComplete}}{The population sampled in the current 
@@ -43,9 +43,9 @@ replacement methods are implemented.
 \value{
 A \code{list} with the following components.
 
-\item{pop}{Matrix with one row for each individual in the resulting 
+\item{pop}{Matrix with one row for each solution in the resulting 
   population.}
 
-\item{popEval}{Vector with the evaluation of each individual in the 
+\item{popEval}{Vector with the evaluation of each solution in the 
   resulting population.}
 }

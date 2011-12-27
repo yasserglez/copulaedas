@@ -28,9 +28,9 @@ edaTerminateCombined(...)
   
   \item{fEvals}{Evaluations of the objective function.}
 
-  \item{pop}{Matrix with one row for each individual in the population.}
+  \item{pop}{Matrix with one row for each solution in the population.}
 
-  \item{popEval}{Vector with the evaluation of each individual in \code{pop}.}
+  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
   
   \item{\dots}{Functions that implement termination methods.}
 }
@@ -54,7 +54,7 @@ The following termination methods are implemented.
     of the objective function and the tolerance, respectively.}
 
   \item{\code{edaTerminateEvalStdDev}}{Stop when the standard deviation of 
-    the evaluation of the individuals in the population is less than the value
+    the evaluation of the solutions in the population is less than the value
     given by the parameter \code{fEvalStdDev} (default value: \code{1e-02})}.
 
   \item{\code{edaTerminateCombined}}{Evaluate all the termination criteria 

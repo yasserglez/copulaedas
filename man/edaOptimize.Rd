@@ -18,9 +18,9 @@ edaOptimizeDisabled(eda, gen, pop, popEval, f, lower, upper)
 
   \item{gen}{Generation.}
 
-  \item{pop}{Matrix with one row for each individual in the population.}
+  \item{pop}{Matrix with one row for each solution in the population.}
 
-  \item{popEval}{Vector with the evaluation of each individual in \code{pop}.}
+  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 
   \item{f}{Objective function}
 
@@ -41,8 +41,8 @@ distribution. The following local optimization methods are implemented.
 \value{
 A \code{list} with the following components.
 
-  \item{pop}{Matrix with one row for each individual in the optimized
+  \item{pop}{Matrix with one row for each solution in the optimized
     population.}
   
-  \item{popEval}{Vector with the evaluation of each individual in \code{pop}.}
+  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 }

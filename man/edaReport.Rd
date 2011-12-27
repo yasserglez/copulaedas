@@ -26,9 +26,9 @@ edaReportCombined(...)
 
   \item{model}{Model learned in the current generation.}
 
-  \item{pop}{Matrix with one row for each individual in the population.}
+  \item{pop}{Matrix with one row for each solution in the population.}
 
-  \item{popEval}{Vector with the evaluation of each individual in \code{pop}.}
+  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 
   \item{\dots}{Functions that implement reporting methods.}
 }
@@ -42,7 +42,7 @@ EDA. The following reporting methods are implemented.
 
   \item{\code{edaReportSimple}}{Print one line at each generation with the
     number of generations, and the minimum, mean and standard deviation of
-    the evaluation of the individuals in the population.}
+    the evaluation of the candidate solutions in the population.}
 
   \item{\code{edaReportCombined}}{Execute all the reporting methods specified
     in \code{\dots}.}

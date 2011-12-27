@@ -18,25 +18,25 @@ edaSelectTruncation(eda, gen, pop, popEval)
 
   \item{gen}{Generation.}
 
-  \item{pop}{Matrix with one row for each individual in the population.}
+  \item{pop}{Matrix with one row for each solution in the population.}
 
-  \item{popEval}{Vector with the evaluation of each individual in \code{pop}.}
+  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 }
 
 \details{
-Selection methods determine the individuals to be modeled by the search 
-distribution. These individuals are usually the most promising individuals 
+Selection methods determine the solutions to be modeled by the search 
+distribution. These solutions are usually the most promising solutions 
 of the population. The following selection methods are implemented.
 
 \describe{
   \item{\code{edaSelectTruncation}}{Select the best \code{100*truncFactor} 
-    percent of individuals with the best fitness in the population. The 
+    percent of solutions with the best fitness in the population. The
     parameter \code{truncFactor} specifies the truncation factor (default 
     value: \code{0.3}).}
 }
 }
 
 \value{
-An \code{integer} vector with the indexes of the individuals selected 
-from \code{pop}.
+An \code{integer} vector with the indexes of the candidate solutions
+selected from \code{pop}.
 }

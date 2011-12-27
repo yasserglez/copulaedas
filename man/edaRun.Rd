@@ -46,7 +46,7 @@ while (!terminate) {
     model <- NULL
     pop <- edaSeed(lower, upper)
     # Set the popEval vector to the fitness of each
-    # individual in pop. Update fEvals.
+    # candidate solution in pop. Update fEvals.
     r <- edaOptimize(gen, pop, popEval, f, lower, upper)
     pop <- r$pop; popEval <- r$popEval
   } else {
@@ -56,7 +56,7 @@ while (!terminate) {
                         selectedEval, lower, upper)
       sampledPop <- edaSample(gen, model, lower, upper)
       # Set the sampledEval vector to the fitness of each
-      # individual in sampledPop. Update fEvals. 
+      # candidate solution in sampledPop. Update fEvals. 
       r <- edaOptimize(gen, sampledPop, sampledEval, 
                        f, lower, upper) 
       sampledPop <- r$pop; sampledEval <- r$popEval
