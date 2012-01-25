@@ -1,6 +1,6 @@
-# copulaedas: Estimation of Distribution Algorithms based on Copulas
-# Copyright (C) 2010, 2011 Yasser González-Fernández <ygf@icimaf.cu>
-# Copyright (C) 2010, 2011 Marta Soto <mrosa@icimaf.cu>
+# copulaedas: Estimation of Distribution Algorithms Based on Copulas
+# Copyright (C) 2010-2012 Yasser González-Fernández <ygf@icimaf.cu>
+# Copyright (C) 2010-2012 Marta Soto <mrosa@icimaf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -25,8 +25,9 @@ fnorm <- function (x, lower, upper) {
 # variables using the empirical c.d.f (modified to avoid problems in the boundary
 # of the interval). The inverse of the c.d.f is computed from the kernel-smoothed
 # c.d.f using the Newton-Raphson method with the sample quantiles as initial values. 
-# See Azzalini, A. (1981) A note on the estimation of a distribution function and 
-# quantiles by a kernel method, Biometrika, 68, 326-328.
+# See Azzalini A (1981). "A Note on the Estimation of a Distribution Function 
+# and Quantiles by a Kernel Method." Biometrika, 68(1), 326-328.
+
 
 fkernel <- function (x, lower, upper) {
     list(X = x, h = bw.nrd0(x))

@@ -1,6 +1,6 @@
-# copulaedas: Estimation of Distribution Algorithms based on Copulas
-# Copyright (C) 2010, 2011 Yasser González-Fernández <ygf@icimaf.cu>
-# Copyright (C) 2010, 2011 Marta Soto <mrosa@icimaf.cu>
+# copulaedas: Estimation of Distribution Algorithms Based on Copulas
+# Copyright (C) 2010-2012 Yasser González-Fernández <ygf@icimaf.cu>
+# Copyright (C) 2010-2012 Marta Soto <mrosa@icimaf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -61,9 +61,8 @@ tryPopSize <- function (eda, f, lower, upper, fEval, fEvalTol,
 edaCriticalPopSize <- function (eda, f, lower, upper, fEval, fEvalTol,
         totalRuns = 30, successRuns = totalRuns, lowerPop = 2, upperPop = NA,
         stopPercent = 10, verbose = FALSE) {
-    results <- NULL
     if (is.null(eda@parameters$popSize)) eda@parameters$popSize <- 100
-
+    results <- NULL
     # Determine inital bounds of the interval (if not specified).
     while (!(is.finite(lowerPop) && is.finite(upperPop))) {
         currentResults <- tryPopSize(eda, f, lower, upper,

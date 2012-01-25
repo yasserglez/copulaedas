@@ -11,8 +11,8 @@
 
 \description{
 Implementation of a group of well-known benchmark problems usually used
-to evaluate the performance of EDAs and optimization algorithms for
-unconstrained optimization in general.
+to evaluate the performance of EDAs and other optimization algorithms for
+unconstrained global optimization.
 }
 
 \usage{
@@ -48,29 +48,30 @@ The definition of the functions for a vector
 
 \deqn{\texttt{fSummationCancellation}(\boldsymbol{x})=\frac{-1}{10^{-5}+\sum_{i=1}^{n}|y_{i}|},\, y_{1}=x_{1},\, y_{i}=y_{i-1}+x_{i}}
 
-Ackley, Griewank, Rastrigin, Rosenbrock, and Sphere are minimization 
+Ackley, Griewank, Rastrigin, Rosenbrock, and Sphere are minimization
 problems. Summation Cancellation is originally a maximization problem but it
-is expressed here as a minimization problem. Ackley, Griewank, Rastrigin and 
-Sphere have their global optimum at \eqn{\boldsymbol{x}=(0,\ldots,0)} 
-with evaluation 0. Rosenbrock has its global optimum at 
-\eqn{\boldsymbol{x}=(1,\ldots,1)} with evaluation 0. Summation Cancellation 
-has its global optimum at \eqn{\boldsymbol{x}=(0,\ldots,0)} with evaluation 
-\eqn{-10^{5}}. See (Bengoetxea, et al., 2002; Bosman and Thierens, 2006)
-for a description of the functions.
+is expressed here as a minimization problem. Ackley, Griewank, Rastrigin and
+Sphere have their global optimum at \eqn{\boldsymbol{x}=(0,\ldots,0)}
+with evaluation 0. Rosenbrock has its global optimum at
+\eqn{\boldsymbol{x}=(1,\ldots,1)} with evaluation 0. Summation Cancellation
+has its global optimum at \eqn{\boldsymbol{x}=(0,\ldots,0)} with evaluation
+\eqn{-10^{5}}. See (Bengoetxea et al. 2002; Bosman and Thierens 2006; 
+Chen and Lim 2008) for a description of the functions.
 }
 
 \references{
-Bengoetxea, E. and Miquélez, T. and Lozano, J. A. and Larrañaga, P. (2002).
-Experimental Results in Function Optimization with EDAs in Continuous Domain.
-In Larrañaga, P. and Lozano, J. A., editors, \emph{Estimation of Distribution
-Algorithms. A New Tool for Evolutionary Computation}, Kluwer Academic 
-Publisher, 181--194.
+Bengoetxea E, Miquélez T, Lozano JA, Larrañaga P (2002). Experimental Results 
+in Function Optimization with EDAs in Continuous Domain. In P Larrañaga, 
+JA Lozano (eds.), \emph{Estimation of Distribution Algorithms. A New Tool 
+for Evolutionary Computation}, pp. 181--194. Kluwer Academic Publisher
 
-Bosman, P. A. N. and Thierens, D. (2006). Numerical Optimization with
-Real-Valued Estimation of Distribution Algorithms. In Pelikan, M. and
-Sastry, K. and Cantú-Paz, E., editors, \emph{Scalable Optimization via 
-Probabilistic Modeling}. From Algorithms to Applications, 
-Springer-Verlag, 91--120.
+Bosman PAN, Thierens D (2006). Numerical Optimization with Real-Valued 
+Estimation of Distribution Algorithms. In M Pelikan, K Sastry, E Cantú-Paz 
+(eds.), \emph{Scalable Optimization via Probabilistic Modeling. From Algorithms 
+to Applications}, pp. 91--120. Springer-Verlag.
+
+Chen Yp, Lim MH (eds.) (2008). Linkage in Evolutionary Computation. 
+Springer-Verlag. ISBN 978-3-540-85067-0.
 }
 
 \examples{

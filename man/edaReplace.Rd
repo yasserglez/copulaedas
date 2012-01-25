@@ -43,9 +43,7 @@ generation. The following replacement methods are implemented.
 \value{
 A \code{list} with the following components.
 
-\item{pop}{Matrix with one row for each solution in the resulting 
-  population.}
+\item{pop}{Matrix with one row for each solution in the new population.}
 
-\item{popEval}{Vector with the evaluation of each solution in the 
-  resulting population.}
+\item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 }

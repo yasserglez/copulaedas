@@ -37,6 +37,6 @@ of the population. The following selection methods are implemented.
 }
 
 \value{
-An \code{integer} vector with the indexes of the candidate solutions
-selected from \code{pop}.
+An \code{integer} vector with the indexes of the solutions selected 
+from \code{pop}.
 }

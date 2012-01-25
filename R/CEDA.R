@@ -1,6 +1,6 @@
-# copulaedas: Estimation of Distribution Algorithms based on Copulas
-# Copyright (C) 2010, 2011 Yasser González-Fernández <ygf@icimaf.cu>
-# Copyright (C) 2010, 2011 Marta Soto <mrosa@icimaf.cu>
+# copulaedas: Estimation of Distribution Algorithms Based on Copulas
+# Copyright (C) 2010-2012 Yasser González-Fernández <ygf@icimaf.cu>
+# Copyright (C) 2010-2012 Marta Soto <mrosa@icimaf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -69,7 +69,7 @@ edaSampleCEDA <- function (eda, gen, model, lower, upper) {
 
     if (is.null(popSize)) popSize <- 100
     if (is.null(margin)) margin <- "norm"
-    
+
     qmargin <- get(paste("q", margin, sep = ""))
 
     uniformPop <- rcopula(model$copula, popSize)

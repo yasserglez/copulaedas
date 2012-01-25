@@ -42,5 +42,5 @@ exportPattern("^edaOptimize[A-Z]")
 exportPattern("^edaTerminate[A-Z]")
 exportPattern("^edaReport[A-Z]")
 
-exportPattern("^f[A-Z]") # Objective functions.
+exportPattern("^f[A-Z]") # Benchmark problems.
 exportPattern("^[fpq][a-z]") # Marginal distributions.

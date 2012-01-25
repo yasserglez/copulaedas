@@ -8,7 +8,7 @@
 
 \description{
 Functions that implement the kernel-smoothed empirical marginal 
-distribution for EDAs with the \code{margin} parameter set to 
+distributions for EDAs with the \code{margin} parameter set to 
 \code{"kernel"}.
 }
 
@@ -48,10 +48,10 @@ in the boundary of the \eqn{[0,1]} interval.
 
 The \code{qkernel} function uses the Gaussian kernel density estimator
 fitted by \code{fkernel} to evaluate the inverse of the cumulative
-distribution function, following the procedure suggested in (Azzalini, 1981).
+distribution function, following the procedure suggested in (Azzalini 1981).
 }
 
 \references{
-Azzalini, A. (1981) A Note on the Estimation of a Distribution Function and 
+Azzalini, A (1981) A Note on the Estimation of a Distribution Function and 
 Quantiles by a Kernel Method, \emph{Biometrika}, \bold{68}, 326-328.
 }

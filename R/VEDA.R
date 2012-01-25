@@ -1,6 +1,6 @@
-# copulaedas: Estimation of Distribution Algorithms based on Copulas
-# Copyright (C) 2010, 2011 Yasser González-Fernández <ygf@icimaf.cu>
-# Copyright (C) 2010, 2011 Marta Soto <mrosa@icimaf.cu>
+# copulaedas: Estimation of Distribution Algorithms Based on Copulas
+# Copyright (C) 2010-2012 Yasser González-Fernández <ygf@icimaf.cu>
+# Copyright (C) 2010-2012 Marta Soto <mrosa@icimaf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -53,7 +53,7 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
             return(indepCopula())
         }
 
-        # If the Independence copula was not selected, fit each candidate
+        # If the product copula is not selected, fit each candidate
         # copula and select the one that better fits the data.
         selectedCopula <- NULL
         selectedStat <- Inf
@@ -98,7 +98,7 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
         selectedCopula
     }
 
-    # Fit marginal distributions and transform to uniform variables.
+    # Fit marginal distributions and transform the population to uniform variables.
     margins <- lapply(seq(length = n),
         function (i) fmargin(selectedPop[ , i], lower[i], upper[i]))
     uniformPop <- sapply(seq(length = n),
@@ -152,7 +152,7 @@ edaSampleVEDA <- function (eda, gen, model, lower, upper) {
             c(list(uniformPop[ , i]), model$margins[[i]])))
     pop <- matrix(pop, nrow = popSize)
 
-    # Keeping the names of the variables.
+    # Keep the names of the variables.
     if (!is.null(dimnames(model$vine))) {
         vineDimnames <- dimnames(model$vine)
         finalPopNames <- character(ncol(orderedPop))

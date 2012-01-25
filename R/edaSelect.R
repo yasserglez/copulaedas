@@ -15,38 +15,13 @@
 # You should have received a copy of the GNU General Public License along with
 # this program. If not, see <http://www.gnu.org/licenses/>.
 
-fAckley <- function (x) {
-    n <- length(x)
-    exp1 <-  exp(-0.2 * sqrt(1/n * sum(x^2)))
-    exp2 <- exp(1/n * sum(cos(2 * pi * x)))
-    -20 * exp1 - exp2 + 20 + exp(1)
+edaSelectTruncation <- function (eda, gen, pop, popEval) {
+    truncFactor <- eda@parameters$truncFactor
+
+    if (is.null(truncFactor)) truncFactor <- 0.3
+
+    popOrder <- order(popEval)
+    popOrder[seq(ceiling(truncFactor * length(popOrder)))]
 }
 
-
-fGriewank <- function (x) {
-    s <- sum(x^2) / 4000
-    p <- prod(cos(x / sqrt(seq_len(length(x)))))
-    1 + s - p
-}
-
-
-fRastrigin <- function (x) {
-    10 * length(x) + sum(x^2 - 10 * cos(2 * pi * x))
-}
-
-
-fRosenbrock <- function (x) {
-    e <- function (i) 100 * (x[i+1] - x[i]^2)^2 + (1 - x[i])^2
-    sum(sapply(seq_len(length(x) - 1), e))
-}
-
-
-fSphere <- function (x) {
-    sum(x^2)
-}
-
-
-fSummationCancellation <- function (x) {
-    s <- function (i) abs(sum(x[seq_len(i)]))
-    -1 / (10^-5 + sum(sapply(seq_len(length(x)), s)))
-}
+setMethod("edaSelect", "EDA", edaSelectTruncation)

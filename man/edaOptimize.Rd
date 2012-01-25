@@ -31,18 +31,21 @@ edaOptimizeDisabled(eda, gen, pop, popEval, f, lower, upper)
 
 \details{
 Local optimization methods improve the solutions sampled by the search 
-distribution. The following local optimization methods are implemented.
+distribution. These methods can also be used to implement repairing
+strategies for constrained problems where the simulated solutions may be 
+unfeasible and some strategy to repair these solutions is available.
+
+The following local optimization methods are implemented.
 
 \describe{
-  \item{\code{edaOptimizeDisabled}}{Disable the local optimization.}
+  \item{\code{edaOptimizeDisabled}}{Disable local optimization.}
 }
 }
 
 \value{
 A \code{list} with the following components.
 
-  \item{pop}{Matrix with one row for each solution in the optimized
-    population.}
+\item{pop}{Matrix with one row for each solution in the optimized population.}
   
-  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
+\item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 }

@@ -34,7 +34,7 @@ edaReportCombined(...)
 }
 
 \details{
-Reporting methods provide progress information during the execution of the 
+Reporting methods provide progress information during the execution of the
 EDA. The following reporting methods are implemented.
 
 \describe{

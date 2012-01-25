@@ -25,13 +25,13 @@ edaTerminateCombined(...)
   \item{eda}{\code{\linkS4class{EDA}} instance.}
 
   \item{gen}{Generation.}
-  
+
   \item{fEvals}{Evaluations of the objective function.}
 
   \item{pop}{Matrix with one row for each solution in the population.}
 
   \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
-  
+
   \item{\dots}{Functions that implement termination methods.}
 }
 

@@ -37,7 +37,9 @@ functions that implement the main parts of the EDA. It is a simplified
 version of the implementation of the \code{\link{edaRun}} function.
 
 \preformatted{
-gen <- 0; fEvals <- 0; terminate <- FALSE
+gen <- 0
+fEvals <- 0
+terminate <- FALSE
 
 while (!terminate) {
   gen <- gen + 1
@@ -45,25 +47,23 @@ while (!terminate) {
   if (gen == 1) {
     model <- NULL
     pop <- edaSeed(lower, upper)
-    # Set the popEval vector to the fitness of each
-    # candidate solution in pop. Update fEvals.
+    # Set popEval to the evaluation of each solution in pop. 
+    # Update fEvals.
     r <- edaOptimize(gen, pop, popEval, f, lower, upper)
     pop <- r$pop; popEval <- r$popEval
   } else {
-      s <- edaSelect(gen, pop, popEval)
-      selectedPop <- pop[s, ]; selectedEval <- popEval[s]
-      model <- edaLearn(gen, model, selectedPop,
-                        selectedEval, lower, upper)
-      sampledPop <- edaSample(gen, model, lower, upper)
-      # Set the sampledEval vector to the fitness of each
-      # candidate solution in sampledPop. Update fEvals. 
-      r <- edaOptimize(gen, sampledPop, sampledEval, 
-                       f, lower, upper) 
-      sampledPop <- r$pop; sampledEval <- r$popEval
-      r <- edaReplace(gen, pop, popEval, 
-                      sampledPop, sampledEval)
-      pop <- r$pop; popEval <- r$popEval
-    }
+    s <- edaSelect(gen, pop, popEval)
+    selectedPop <- pop[s, ]; selectedEval <- popEval[s]
+    model <- edaLearn(gen, model, selectedPop, selectedEval, 
+                      lower, upper)
+    sampledPop <- edaSample(gen, model, lower, upper)
+    # Set sampledEval to the evaluation of each solution 
+    # in sampledPop. Update fEvals. 
+    r <- edaOptimize(gen, sampledPop, sampledEval, f, lower, upper) 
+    sampledPop <- r$pop; sampledEval <- r$popEval
+    r <- edaReplace(gen, pop, popEval, sampledPop, sampledEval)
+    pop <- r$pop; popEval <- r$popEval
+  }
 
   edaReport(gen, fEvals, model, pop, popEval)
   terminate <- edaTerminate(gen, fEvals, pop, popEval)

@@ -36,13 +36,12 @@ Results of a run of an EDA. Objects are created by calling the
   \item{\code{bestSol}:}{Object of class \code{numeric}. Best solution.}
 
   \item{\code{cpuTime}:}{Object of class \code{numeric}. Run time of the
-    algorithms in seconds.}
+    algorithm in seconds.}
 }
 }
 \section{Methods}{
 \describe{
-  \item{show}{\code{signature(object = "EDAResult")}: Print the results 
-    of the run.}
+  \item{show}{\code{signature(object = "EDAResult")}: Prints the results.}
 }
 }
 
