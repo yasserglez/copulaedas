@@ -1,3 +1,11 @@
+Changes in version 1.1.0:
+
+   * Supported the Frank copula as a candidate copula in VEDA.
+   * Implementation of the Rastrigin function.
+   * Renamed the bestIndiv slot of the EDAResult to bestSol.
+   * Changed the way the marginal distributions are specified.
+   * The documentation was reviewed.
+
 Changes in version 1.0.3:
 
   * The file with the full text of the GNU GPL was removed from the package.
