@@ -21,20 +21,21 @@ fnorm <- function (x, lower, upper) {
     list(mean = mean(x), sd = sd(x))
 }
 
-# Kernel-smoothed empirical margins. The sample is transformed into uniform
-# variables using the empirical c.d.f (modified to avoid problems in the boundary
-# of the interval). The inverse of the c.d.f is computed from the kernel-smoothed
-# c.d.f using the Newton-Raphson method with the sample quantiles as initial values. 
-# See Azzalini A (1981). "A Note on the Estimation of a Distribution Function 
-# and Quantiles by a Kernel Method." Biometrika, 68(1), 326-328.
 
+# Truncated normal (ptruncnorm and qtruncnorm defined in the truncnorm package).
+
+ftruncnorm <- function (x, lower, upper) {
+    list(a = lower, b = upper, mean = mean(x), sd = sd(x))
+}
+
+
+# Kernel-smoothed empirical margins.
 
 fkernel <- function (x, lower, upper) {
     list(X = x, h = bw.nrd0(x))
 }
 
 pkernel <- function (q, X, h) {
-    # Empirical c.d.f.
     rank(q) / (length(q) + 1)
 }
 
@@ -62,4 +63,24 @@ qkernel <- function (p, X, h) {
             }
             x
         })
+}
+
+
+# Truncated kernel-smoothed empirical margins. 
+
+ftrunckernel <- function (x, lower, upper) {
+    c(a = lower, b = upper, fkernel(x))
+}
+
+ptrunckernel <- function (q, a, b, X, h) {
+    rank(q) / (length(q) + 1)
+}
+
+qtrunckernel <- function (p, a, b, X, h) {
+    F <- function (x) sum(pnorm((x - X) / h)) / length(X)
+    Q <- qkernel
+    Fa <- F(a)
+    Fb <- F(b)
+    r <- Q(Fa + p*(Fb - Fa), X, h)
+    pmin(pmax(r, a), b)
 }
