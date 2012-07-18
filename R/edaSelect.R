@@ -25,3 +25,38 @@ edaSelectTruncation <- function (eda, gen, pop, popEval) {
 }
 
 setMethod("edaSelect", "EDA", edaSelectTruncation)
+
+
+edaSelectTournament <- function (eda, gen, pop, popEval) {
+    tournamentSize <- eda@parameters$tournamentSize
+    replacement <- eda@parameters$replacement
+    selectionSize <- eda@parameters$selectionSize
+
+    if (is.null(tournamentSize)) tournamentSize <- 2
+    if (is.null(replacement)) replacement <- TRUE
+    if (is.null(selectionSize)) selectionSize <- nrow(pop)
+
+    n <- nrow(pop)
+    selection <- integer(0)
+
+    if (replacement) {
+        for (i in seq(length = selectionSize)) {
+            tournament <- sample(n, tournamentSize)
+            winner <- which.min(popEval[tournament])
+            selection <- c(selection, tournament[winner])
+        }
+    } else {
+        tournamentCount <- rep(0, n)
+        for (i in seq(length = selectionSize)) {
+            available <- tournamentCount < tournamentSize
+            prob <- rep(0, n)
+            prob[available] <- 1 / sum(available)
+            tournament <- sample(n, min(sum(prob > 0), tournamentSize), prob = prob)
+            tournamentCount[tournament] <- tournamentCount[tournament] + 1
+            winner <- which.min(popEval[tournament])
+            selection <- c(selection, tournament[winner])
+        }
+    }
+
+    selection
+}
