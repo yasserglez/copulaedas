@@ -43,9 +43,9 @@ implemented.
     the selected population. The parameter \code{tournamentSize} specifies
     the number of solutions randomly picked from the population (default
     value: \code{2}), \code{selectionSize} specifies the size of the selected
-    population (default value: the same as the population size), and
-    \code{replacement} specifies whether to sample with replacement or not
-    (default value: \code{TRUE}).}
+    population (default value: \code{nrow(pop)}), and \code{replacement}
+    specifies whether to sample with replacement or not (default value:
+    \code{TRUE}).}
 }
 }
 
@@ -53,3 +53,9 @@ implemented.
 An \code{integer} vector with the indexes of the solutions selected 
 from \code{pop}.
 }
+
+\references{
+Pelikan M (2005). \emph{Hierarchical Bayesian Optimization Algorithm. 
+Toward a New Generation of Evolutionary Algorithms}. Springer-Verlag.
+}
+

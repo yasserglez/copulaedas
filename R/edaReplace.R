@@ -20,3 +20,36 @@ edaReplaceComplete <- function (eda, gen, pop, popEval, sampledPop, sampledEval)
 }
 
 setMethod("edaReplace", "EDA", edaReplaceComplete)
+
+
+edaReplaceRTR <- function (eda, gen, pop, popEval, sampledPop, sampledEval) {
+    windowSize <- eda@parameters$windowSize
+    
+    if (is.null(windowSize)) windowSize <- min(ncol(pop), nrow(pop) / 2)
+    
+    newPop <- pop
+    newPopEval <- popEval
+    
+    for (i in seq(length = nrow(sampledPop))) {
+        X <- sampledPop[i, ]
+        fX <- sampledEval[i]
+        
+        bestDist <- Inf
+        W <- sample(nrow(pop), windowSize)
+        for (j in seq(length = windowSize)) {
+            d <- as.real(dist(rbind(X, pop[W[j], ])))
+            if (d < bestDist) {
+                bestDist <- d
+                Y <- pop[W[j], ]
+                jY <- j
+            }
+        }
+        
+        if (fX < popEval[W[jY]]) {
+            newPop[W[jY], ] <- X
+            newPopEval[W[jY]] <- fX
+        }
+    }
+    
+    return(list(pop = newPop, popEval = newPopEval))
+}
