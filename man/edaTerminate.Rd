@@ -22,17 +22,17 @@ edaTerminateCombined(...)
 }
 
 \arguments{
-  \item{eda}{\code{\linkS4class{EDA}} instance.}
+\item{eda}{\code{\linkS4class{EDA}} instance.}
 
-  \item{gen}{Generation.}
+\item{gen}{Generation.}
 
-  \item{fEvals}{Evaluations of the objective function.}
+\item{fEvals}{Evaluations of the objective function.}
 
-  \item{pop}{Matrix with one row for each solution in the population.}
+\item{pop}{Matrix with one row for each solution in the population.}
 
-  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
+\item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 
-  \item{\dots}{Functions that implement termination methods.}
+\item{\dots}{Functions that implement termination methods.}
 }
 
 \details{
@@ -42,7 +42,8 @@ The following termination methods are implemented.
 \describe{
   \item{\code{edaTerminateMaxGen}}{Stop when a maximum number of generations 
     has been reached. The parameter \code{maxGen} specifies the number of 
-    generations (default value: \code{100}).}
+    generations (default value: \code{100}). This is the default 
+    method of the \code{edaTerminate} generic function.}
 
   \item{\code{edaTerminateMaxEvals}}{Stop when a maximum number of evaluations 
     of the objective function has been reached. The parameter \code{maxEvals} 

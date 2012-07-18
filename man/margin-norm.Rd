@@ -14,11 +14,11 @@ fnorm(x, lower, upper)
 }
 
 \arguments{
-  \item{x}{Vector of quantiles.}
+\item{x}{Vector of quantiles.}
 
-  \item{lower}{Lower bound of the variable.}
+\item{lower}{Lower bound of the variable.}
 
-  \item{upper}{Upper bound of the variable.}
+\item{upper}{Upper bound of the variable.}
 }
 
 \details{

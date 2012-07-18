@@ -35,7 +35,8 @@ implemented.
   \item{\code{edaSelectTruncation}}{In truncation selection, the 
     \code{100 * truncFactor} percent of the solutions with the best evaluation 
     in the population are selected. The parameter \code{truncFactor} specifies 
-    the truncation factor (default value: \code{0.3}).}
+    the truncation factor (default value: \code{0.3}). This is the default 
+    method of the \code{edaSelect} generic function.}
 
   \item{\code{edaSelectTournament}}{In tournament selection, a group of
     solutions are randomly picked from the population and the best one is

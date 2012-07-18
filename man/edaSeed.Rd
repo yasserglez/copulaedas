@@ -14,11 +14,11 @@ edaSeedUniform(eda, lower, upper)
 }
 
 \arguments{
-  \item{eda}{\code{\linkS4class{EDA}} instance.}
+\item{eda}{\code{\linkS4class{EDA}} instance.}
   
-  \item{lower}{Lower bounds of the variables of the objective function.}
+\item{lower}{Lower bounds of the variables of the objective function.}
   
-  \item{upper}{Upper bounds of the variables of the objective function.}
+\item{upper}{Upper bounds of the variables of the objective function.}
 }
 
 \details{
@@ -30,7 +30,8 @@ function. The following seeding methods are implemented.
   \item{\code{edaSeedUniform}}{Sample each variable from a continuous uniform
     distribution in the interval determined by \code{lower} and \code{upper}. 
     The parameter \code{popSize} sets the number of solutions in the population 
-    (default value: \code{100}).}
+    (default value: \code{100}). This is the default method of the 
+    \code{edaSeed} generic function.}
 }
 }
 

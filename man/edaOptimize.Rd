@@ -14,19 +14,19 @@ edaOptimizeDisabled(eda, gen, pop, popEval, f, lower, upper)
 }
 
 \arguments{
-  \item{eda}{\code{\linkS4class{EDA}} instance.}
+\item{eda}{\code{\linkS4class{EDA}} instance.}
 
-  \item{gen}{Generation.}
+\item{gen}{Generation.}
 
-  \item{pop}{Matrix with one row for each solution in the population.}
+\item{pop}{Matrix with one row for each solution in the population.}
 
-  \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
+\item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 
-  \item{f}{Objective function}
+\item{f}{Objective function}
 
-  \item{lower}{Lower bounds of the variables of the objective function.}
+\item{lower}{Lower bounds of the variables of the objective function.}
   
-  \item{upper}{Upper bounds of the variables of the objective function.}
+\item{upper}{Upper bounds of the variables of the objective function.}
 }
 
 \details{
@@ -38,7 +38,8 @@ unfeasible and some strategy to repair these solutions is available.
 The following local optimization methods are implemented.
 
 \describe{
-  \item{\code{edaOptimizeDisabled}}{Disable local optimization.}
+  \item{\code{edaOptimizeDisabled}}{Disable local optimization. This is 
+  the default method of the \code{edaOptimize} generic function.}
 }
 }
 

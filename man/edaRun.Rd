@@ -15,13 +15,13 @@ edaRun(eda, f, lower, upper)
 }
 
 \arguments{
-  \item{eda}{\code{\linkS4class{EDA}} instance.}
+\item{eda}{\code{\linkS4class{EDA}} instance.}
 
-  \item{f}{Objective function.}
+\item{f}{Objective function.}
 
-  \item{lower}{Lower bounds of the variables of the objective function.}
+\item{lower}{Lower bounds of the variables of the objective function.}
   
-  \item{upper}{Upper bounds of the variables of the objective function.}
+\item{upper}{Upper bounds of the variables of the objective function.}
 }
 
 \details{

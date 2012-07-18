@@ -15,30 +15,30 @@ edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
 }
 
 \arguments{
-  \item{eda}{\code{\linkS4class{EDA}} instance.}
+\item{eda}{\code{\linkS4class{EDA}} instance.}
 
-  \item{f}{Objective function.}
+\item{f}{Objective function.}
 
-  \item{lower}{Lower bounds of the variables of the objective function.}
+\item{lower}{Lower bounds of the variables of the objective function.}
 
-  \item{upper}{Upper bounds of the variables of the objective function.}
+\item{upper}{Upper bounds of the variables of the objective function.}
 
-  \item{fEval}{Optimum value of the objective function.}
+\item{fEval}{Optimum value of the objective function.}
 
-  \item{fEvalTol}{A run is considered successful if the difference between
-    \code{fEval} and the best found solution is less than \code{fEvalTol}.}
+\item{fEvalTol}{A run is considered successful if the difference between
+  \code{fEval} and the best found solution is less than \code{fEvalTol}.}
 
-  \item{totalRuns}{Total number of runs.}
+\item{totalRuns}{Total number of runs.}
 
-  \item{successRuns}{Required number of successfully runs.}
+\item{successRuns}{Required number of successfully runs.}
 
-  \item{lowerPop}{Lower bound of the initial interval for the population.}
+\item{lowerPop}{Lower bound of the initial interval for the population.}
 
-  \item{upperPop}{Upper bound of the initial interval for the population.}
+\item{upperPop}{Upper bound of the initial interval for the population.}
 
-  \item{stopPercent}{Stop percent.}
+\item{stopPercent}{Stop percent.}
 
-  \item{verbose}{Print progress information.}
+\item{verbose}{Print progress information.}
 }
 
 \details{

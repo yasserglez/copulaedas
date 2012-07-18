@@ -19,17 +19,17 @@ qkernel(p, X, h)
 }
 
 \arguments{
-  \item{x, q}{Vector of quantiles.}
+\item{x, q}{Vector of quantiles.}
   
-  \item{lower}{Lower bound of the variable.}
+\item{lower}{Lower bound of the variable.}
   
-  \item{upper}{Upper bound of the variable.}
+\item{upper}{Upper bound of the variable.}
   
-  \item{p}{Vector of probabilities}
+\item{p}{Vector of probabilities}
   
-  \item{X}{Observations of the variable.}
+\item{X}{Observations of the variable.}
   
-  \item{h}{Bandwidth of the kernel.}
+\item{h}{Bandwidth of the kernel.}
 }
 
 \details{

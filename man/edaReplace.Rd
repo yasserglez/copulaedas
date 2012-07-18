@@ -38,7 +38,8 @@ generation. The following replacement methods are implemented.
 
 \describe{
   \item{\code{edaReplaceComplete}}{The population sampled in the current 
-    generation completely replaces the population of the previous generation.}
+    generation completely replaces the population of the previous generation.
+    This is the default method of the \code{edaReplace} generic function.}
 
   \item{\code{edaReplaceRTR}}{Restricted Tournament Replacement is a nitching
     method that can be used to promote the preservation of alternative candidate
