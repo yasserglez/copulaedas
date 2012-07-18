@@ -35,6 +35,19 @@ edaReportSimple <- function (eda, gen, fEvals, model, pop, popEval) {
 }
 
 
+edaReportDumpPop <- function (eda, gen, fEvals, model, pop, popEval) {
+    write.table(pop, file = paste("pop_", gen, ".txt", sep = ""),
+            row.names = FALSE, col.names = FALSE, quote = FALSE)
+}
+
+
+edaReportDumpSelectedPop <- function (eda, gen, fEvals, model, pop, popEval) {
+    selectedPop <- pop[edaSelect(eda, gen, pop, popEval), ]
+    write.table(selectedPop, file = paste("sel_", gen, ".txt", sep = ""),
+            row.names = FALSE, col.names = FALSE, quote = FALSE)
+}
+
+
 edaReportCombined <- function (...) {
     function (eda, gen, fEvals, model, pop, popEval) {
         methods <- list(...)
