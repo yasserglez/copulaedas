@@ -72,7 +72,7 @@ edaSampleCEDA <- function (eda, gen, model, lower, upper) {
 
     qmargin <- get(paste("q", margin, sep = ""))
 
-    uniformPop <- rcopula(model$copula, popSize)
+    uniformPop <- rCopula(popSize, model$copula)
     if (any(is.na(uniformPop))) {
         # I got numerical errors with certain matrices when using the
         # default "eigen" method to determine the matrix root of sigma.

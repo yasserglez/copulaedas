@@ -64,16 +64,16 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
                     data = data, method = "itau",
                     estimate.variance = FALSE)@copula
             } else if (identical(copula, "t")) {
-                rho <- calibKendallsTau(normalCopula(0), tau)
+                rho <- iTau(normalCopula(0), tau)
                 L <- function (df) loglikCopula(c(rho, df), data, normalCopula(0))
                 df <- optimize(L, c(1, 30), maximum = TRUE)$maximum
                 candidateCopula <- tCopula(rho, df = df, df.fixed = TRUE)
             } else if (copula %in% c("clayton", "frank", "gumbel")) {
                 # Setting bounds to Kendall's tau to avoid numerical problems.
                 theta <- switch(copula,
-                    clayton = calibKendallsTau(claytonCopula(1), max(0, min(tau, 0.95))),
-                    frank = calibKendallsTau(frankCopula(0), max(-0.95, min(tau, 0.95))),
-                    gumbel = calibKendallsTau(gumbelCopula(1), max(0, min(tau, 0.95))))
+                    clayton = iTau(claytonCopula(1), max(0, min(tau, 0.95))),
+                    frank = iTau(frankCopula(0), max(-0.95, min(tau, 0.95))),
+                    gumbel = iTau(gumbelCopula(1), max(0, min(tau, 0.95))))
                 candidateCopula <- archmCopula(copula, theta)
             } else {
                 stop("copula ", dQuote(copula), " not supported")
@@ -84,7 +84,7 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
                 as.integer(nrow(data)),
                 as.integer(ncol(data)),
                 as.double(data),
-                as.double(pcopula(candidateCopula, data)),
+                as.double(pCopula(data, candidateCopula)),
                 stat = double(1.0),
                 PACKAGE = "copula")$stat
 
