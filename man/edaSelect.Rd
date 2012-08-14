@@ -26,7 +26,7 @@ edaSelectTournament(eda, gen, pop, popEval)
 }
 
 \details{
-Selection methods determine the solutions to be modelled by the search
+Selection methods determine the solutions to be modeled by the search
 distribution (selected population). These solutions are usually the most 
 promising solutions of the population. The following selection methods are
 implemented.

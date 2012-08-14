@@ -69,7 +69,7 @@ A Cramér-von Mises statistic is used as the measure of distance
 
 The parameters of all the candidate copulas but the t copula are estimated
 using the inversion of Kendall's tau. In the case of the t copula,
-the correlation coeffcient is computed using the inversion of Kendall's tau
+the correlation coefficient is computed using the inversion of Kendall's tau
 and the degrees of freedom are estimated by maximum likelihood with the 
 correlation parameter fixed (Demarta and McNeil 2005).
 
