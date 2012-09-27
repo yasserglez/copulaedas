@@ -1,3 +1,15 @@
+Changes in version 1.2.0:
+
+   * Fix warnings because of deprecated functions from the copula package.
+   * Added a package vignette.
+   * Added the github URL.
+   * Added cec2005benchmark as a suggested package.
+   * Implemented Truncated marginal distributions.
+   * New reporting methods that save the population to a plain-text file.
+   * Implemented  Restricted Tournament Replacement.
+   * Implemented Tournament selection.
+   * Avoided numerical problems with the simulation of the normal copula.
+
 Changes in version 1.1.0:
 
    * Supported the Frank copula as a candidate copula in VEDA.
