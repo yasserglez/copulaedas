@@ -88,6 +88,10 @@ Bachelor thesis, University of Havana, Cuba.
 Demarta S, McNeil AJ (2005). The t Copula and Related Copulas. 
 \emph{International Statistical Review}, \bold{73}(1), 111--129.
 
+González-Fernández Y and Soto M (2012). copulaedas: An R Package for
+Estimation of Distribution Algorithms Based on Copulas. Preprint
+\href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
+
 Larrañaga P, Etxeberria R, Lozano JA, Peña JM (1999). Optimization by Learning 
 and Simulation of Bayesian and Gaussian Networks. Technical Report 
 EHU-KZAA-IK-4/99, University of the Basque Country.

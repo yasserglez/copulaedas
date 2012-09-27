@@ -39,3 +39,9 @@ function. The following seeding methods are implemented.
 A matrix with one column for each variable of the objective function and one
 row for each solution in the population.
 }
+
+\references{
+González-Fernández Y and Soto M (2012). copulaedas: An R Package for
+Estimation of Distribution Algorithms Based on Copulas. Preprint
+\href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
+}

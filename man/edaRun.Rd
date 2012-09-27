@@ -75,6 +75,12 @@ while (!terminate) {
 An \code{\linkS4class{EDAResult}} instance.
 }
 
+\references{
+González-Fernández Y and Soto M (2012). copulaedas: An R Package for
+Estimation of Distribution Algorithms Based on Copulas. Preprint
+\href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
+}
+
 \seealso{
 \code{\linkS4class{EDA}},
 \code{\linkS4class{EDAResult}},

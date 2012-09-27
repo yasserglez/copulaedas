@@ -94,6 +94,10 @@ illustrated in (Nadarajah and Kotz 2006).
 Azzalini, A (1981) A Note on the Estimation of a Distribution Function and 
 Quantiles by a Kernel Method, \emph{Biometrika}, \bold{68}, 326-328.
 
+González-Fernández Y and Soto M (2012). copulaedas: An R Package for
+Estimation of Distribution Algorithms Based on Copulas. Preprint
+\href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
+
 Nadarajah S, Kotz S (2006) R Programs for Computing Truncated Distributions, 
 \emph{Journal of Statistical Software}, \bold{16}, Code Snippet 2.
 }

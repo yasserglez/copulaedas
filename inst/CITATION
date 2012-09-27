@@ -10,8 +10,17 @@ citEntry(entry = "manual",
 	year = year,
 	note = paste("{R} package version", version),
 	url = "http://CRAN.R-project.org/package=copulaedas",
-	textVersion = paste("Yasser González-Fernández and Marta Soto. (", year, ") ",
+	textVersion = paste("Yasser González-Fernández and Marta Soto (", year, ") ",
         "copulaedas: Estimation of Distribution Algorithms based on Copulas. ",
         paste("R package version", version),
         ". URL http://CRAN.R-project.org/package=copulaedas",
         ".", sep = ""))
+
+citEntry(entry = "article",
+    title = "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas",
+    author = personList(person("Yasser", "González-Fernández"), person("Marta", "Soto")),
+    journal = "Preprint arXiv:1209.5429 [cs.NE]",
+    year = "2012",
+    textVersion = paste("Yasser González-Fernández and Marta Soto (2012).",
+	    "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas.",
+	    "Preprint arXiv:1209.5429 [cs.NE]."))

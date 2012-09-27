@@ -65,6 +65,10 @@ of the EDA using the critical population size.
 }
 
 \references{
+González-Fernández Y and Soto M (2012). copulaedas: An R Package for
+Estimation of Distribution Algorithms Based on Copulas. Preprint
+\href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
+
 Pelikan M (2005). \emph{Hierarchical Bayesian Optimization Algorithm. 
 Toward a New Generation of Evolutionary Algorithms}. Springer-Verlag.
 }
