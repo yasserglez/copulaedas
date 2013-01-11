@@ -37,7 +37,7 @@ edaReplaceRTR <- function (eda, gen, pop, popEval, sampledPop, sampledEval) {
         bestDist <- Inf
         W <- sample(nrow(pop), windowSize)
         for (j in seq(length = windowSize)) {
-            d <- as.real(dist(rbind(X, pop[W[j], ])))
+            d <- as.double(dist(rbind(X, pop[W[j], ])))
             if (d < bestDist) {
                 bestDist <- d
                 Y <- pop[W[j], ]
