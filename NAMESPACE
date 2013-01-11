@@ -1,11 +1,10 @@
-# Imports.
+useDynLib(copulaedas)
+
 
 import(copula)
 import(vines)
 import(mvtnorm)
 
-
-# Classes and generic functions.
 
 exportClasses(EDA)
 exportClasses(CEDA)
@@ -24,8 +23,6 @@ exportMethods(edaReport)
 
 exportMethods(show, summary)
 
-
-# Exported functions.
 
 export(CEDA)
 export(VEDA)

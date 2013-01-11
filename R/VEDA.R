@@ -86,7 +86,7 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
                 as.double(data),
                 as.double(pCopula(data, candidateCopula)),
                 stat = double(1.0),
-                PACKAGE = "copula")$stat
+                PACKAGE = "copulaedas")$stat
 
             # Select the copula with the smaller value of the statistic.
             if (candidateStat < selectedStat) {
