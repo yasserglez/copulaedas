@@ -1,6 +1,11 @@
+Changes in version 1.2.1:
+
+   * Fixed warnings caused by the use of the deprecated {as.,is.,}real functions.
+   * Fixed warnings caused by .C calls with PACKAGE argument in a different package.
+
 Changes in version 1.2.0:
 
-   * Fix warnings because of deprecated functions from the copula package.
+   * Fixed warnings because of deprecated functions from the copula package.
    * Added a package vignette.
    * Added the github URL.
    * Added cec2005benchmark as a suggested package.
