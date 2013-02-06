@@ -1,6 +1,6 @@
 # copulaedas: Estimation of Distribution Algorithms Based on Copulas
-# Copyright (C) 2010-2012 Yasser González Fernández <ygonzalezfernandez@gmail.com>
-# Copyright (C) 2010-2012 Marta Rosa Soto Ortiz <mrosa@icimaf.cu>
+# Copyright (C) 2010-2013 Yasser González Fernández <ygonzalezfernandez@gmail.com>
+# Copyright (C) 2010-2013 Marta Rosa Soto Ortiz <mrosa@icimaf.cu>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
