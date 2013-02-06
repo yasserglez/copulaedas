@@ -30,11 +30,15 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
         selectedEval, lower, upper) {
     margin <- eda@parameters$margin
     vine <- eda@parameters$vine
+    trees <- eda@parameters$trees
+    truncMethod <- eda@parameters$truncMethod
     copulas <- eda@parameters$copulas
     indepTestSigLevel <- eda@parameters$indepTestSigLevel
 
     if (is.null(margin)) margin <- "norm"
     if (is.null(vine)) vine <- "DVine"
+    if (is.null(trees)) trees <- ncol(selectedPop) - 1
+    if (is.null(truncMethod)) truncMethod <- "AIC"
     if (is.null(copulas)) copulas <- c("normal")
     if (is.null(indepTestSigLevel)) indepTestSigLevel <- 0.01
 
@@ -121,8 +125,8 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
         indepTestStat <- indepTestSim(m, 2, print.every = -1)
     }
 
-    vine <- vineFit(type = vine, data = orderedPop,
-            selectCopula = selectCopula, truncMethod = "AIC",
+    vine <- vineFit(type = vine, data = orderedPop, trees = trees,
+            truncMethod = truncMethod, selectCopula = selectCopula,
             method = "ml", optimMethod = "")@vine
 
     list(vine = vine, margins = margins, ordering = ordering,

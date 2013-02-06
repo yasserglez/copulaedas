@@ -77,6 +77,16 @@ Besides, a model selection procedure based on Akaike Information Criterion
 is used to truncate the vines if enough dependence is captured in the first 
 trees (Brechmann 2010).
 
+To simplify the construction of the vines the truncation strategy presented in
+(Brechmann 2010) is applied. If a vine is truncated at a given tree, all the
+copulas in the subsequent trees are assumed to be product copulas. By default, 
+a model selection procedure based on AIC (Akaike Information Criterion) is 
+applied to detect the required number of trees, but it is also possible to 
+base the selection on BIC (Bayesian Information Criterion) or completely 
+disable the truncation strategy. Also, a maximum number of dependence trees
+of the vine can be set, which may be helpful when dealing with high-dimensional
+problems.
+
 The following parameters are recognized by the functions that implement 
 the \code{\link{edaLearn}} and \code{\link{edaSample}} methods for the
 \code{\linkS4class{VEDA}} class.
@@ -85,6 +95,14 @@ the \code{\link{edaLearn}} and \code{\link{edaSample}} methods for the
   \item{\code{vine}}{Vine type. Supported values are: \code{"CVine"}
     (Canonical vine) and \code{"DVine"} (D-vine). Default value:
     \code{"DVine"}.}
+
+  \item{\code{trees}}{Maximum number of dependence trees of the vine. 
+    The default is to estimate a full vine.}
+
+  \item{\code{truncMethod}}{Method used to automatically truncate the vine if
+    enough dependence is captured in the first trees. Supported values
+    are: \code{"AIC"}, \code{"BIC"} and \code{""} (no truncation). Default
+    value: \code{"AIC"}.}
 
   \item{\code{copulas}}{A \code{character} vector specifying the candidate
     copulas. Supported values are: \code{"normal"} (normal copula),
