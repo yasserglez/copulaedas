@@ -122,7 +122,7 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
     # and used for the rest of the generations.
     indepTestStat <- previousModel$indepTestStat
     if (is.null(indepTestStat)) {
-        indepTestStat <- indepTestSim(m, 2, print.every = -1)
+        indepTestStat <- indepTestSim(m, 2, verbose = FALSE)
     }
 
     vine <- vineFit(type = vine, data = orderedPop, trees = trees,
