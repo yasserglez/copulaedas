@@ -35,8 +35,8 @@ Objects are created by calling the \code{VEDA} function.
 }
 
 \details{
-Vine EDAs (VEDAs) are a class of EDAs (Soto and González-Fernández 2010;
-González-Fernández 2011) that model the search distributions using vines.
+Vine EDAs (VEDAs) are a class of EDAs (Soto and Gonzalez-Fernandez 2010;
+Gonzalez-Fernandez 2011) that model the search distributions using vines.
 Vines are graphical models that represent high-dimensional distributions by
 decomposing the multivariate density into bivariate copulas and one-dimensional
 densities (Joe 1996; Bedford and Cooke 2001; Aas et al. 2009; 
@@ -49,9 +49,9 @@ instances of VEDA are implemented.
 
 \itemize{
 \item{C-vine EDA (CVEDA), that models the search distributions using C-vines
-    (Soto and González-Fernández 2010; González-Fernández 2011).}
+    (Soto and Gonzalez-Fernandez 2010; Gonzalez-Fernandez 2011).}
 \item{D-vine EDA (DVEDA), that models the search distributions using D-vines
-    (Soto and González-Fernández 2010; González-Fernández 2011).}
+    (Soto and Gonzalez-Fernandez 2010; Gonzalez-Fernandez 2011).}
 }
 
 Greedy heuristics based on the empirical Kendall's tau between each variable
@@ -150,10 +150,10 @@ Goodness-of-Fit Testing in Semiparametric Models. \emph{Annales de
 l'Institut Henri Poincaré: Probabilités et Statistiques}, \bold{44}, 
 1096--1127.
 
-González-Fernández Y (2011). Algoritmos con estimación de distribuciones 
+Gonzalez-Fernandez Y (2011). Algoritmos con estimación de distribuciones 
 basados en cópulas y vines. Bachelor thesis, University of Havana, Cuba.
 
-González-Fernández Y and Soto M (2012). copulaedas: An R Package for
+Gonzalez-Fernandez Y and Soto M (2012). copulaedas: An R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
 \href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
 
@@ -162,7 +162,7 @@ and \eqn{m(m-1)/2} Bivariate Dependence Parameters. In L Röschendorf,
 B Schweizer, MD Taylor (eds.), \emph{Distributions with fixed marginals 
 and related topics}, pp. 120--141.
 
-Soto M, González-Fernández Y (2010). Vine Estimation of Distribution Algorithms.
+Soto M, Gonzalez-Fernandez Y (2010). Vine Estimation of Distribution Algorithms.
 Technical Report ICIMAF 2010-561, Institute of Cybernetics, Mathematics and
 Physics, Cuba. ISSN 0138-8916.
 }
