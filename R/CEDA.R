@@ -74,8 +74,8 @@ edaSampleCEDA <- function (eda, gen, model, lower, upper) {
 
     uniformPop <- rCopula(popSize, model$copula)
     if (any(is.na(uniformPop))) {
-        # I got numerical errors with certain matrices when using the
-        # default "eigen" method to determine the matrix root of sigma.
+        # Avoid numerical errors with certain matrices using the default
+        # "eigen" method to determine the matrix root of sigma.
         dim <- model$copula@dimension
         rho <- model$copula@getRho(model$copula)
         sigma <- diag(dim)

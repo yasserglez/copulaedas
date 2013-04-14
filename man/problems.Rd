@@ -1,3 +1,5 @@
+\encoding{UTF-8}
+
 \name{problems}
 
 \alias{fAckley}
@@ -60,20 +62,20 @@ Chen and Lim 2008) for a description of the functions.
 }
 
 \references{
-Bengoetxea E, Miquélez T, Lozano JA, Larrañaga P (2002). Experimental Results 
-in Function Optimization with EDAs in Continuous Domain. In P Larrañaga, 
+Bengoetxea E, MiquÃ©lez T, Lozano JA, LarraÃ±aga P (2002). Experimental Results 
+in Function Optimization with EDAs in Continuous Domain. In P LarraÃ±aga, 
 JA Lozano (eds.), \emph{Estimation of Distribution Algorithms. A New Tool 
 for Evolutionary Computation}, pp. 181--194. Kluwer Academic Publisher
 
 Bosman PAN, Thierens D (2006). Numerical Optimization with Real-Valued 
-Estimation of Distribution Algorithms. In M Pelikan, K Sastry, E Cantú-Paz 
+Estimation of Distribution Algorithms. In M Pelikan, K Sastry, E CantÃº-Paz 
 (eds.), \emph{Scalable Optimization via Probabilistic Modeling. From Algorithms 
 to Applications}, pp. 91--120. Springer-Verlag.
 
 Chen Yp, Lim MH (eds.) (2008). Linkage in Evolutionary Computation. 
 Springer-Verlag. ISBN 978-3-540-85067-0.
 
-Gonzalez-Fernandez Y and Soto M (2012). copulaedas: An R Package for
+Gonzalez-Fernandez Y and Soto M (2013). copulaedas: An \R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
 \href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
 }

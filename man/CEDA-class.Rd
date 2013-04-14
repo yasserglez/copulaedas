@@ -1,3 +1,5 @@
+\encoding{UTF-8}
+
 \name{CEDA-class}
 
 \docType{class}
@@ -48,12 +50,12 @@ multivariate copula. The following instances of CEDA are implemented.
   \item{If the dependence structure is modeled using a product copula,
     the resulting algorithm corresponds to the Univariate Marginal
     Distribution Algorithm (UMDA) for the continuous domain
-    (Larrañaga et al. 1999, 2000).}
+    (LarraÃ±aga et al. 1999, 2000).}
 
   \item{If the dependence structure is modeled using a normal copula, the
     resulting algorithm corresponds to the Gaussian Copula Estimation of
-    Distribution Algorithm (GCEDA) (Soto et al. 2007; Arderí 2007).
-    If the marginal distributions are other than normal, the correlation
+    Distribution Algorithm (GCEDA) (Soto et al. 2007; ArderÃ­ 2007).
+    If the marginal distributions are not normal, the correlation
     matrix is calculated using the inversion of Kendall's tau for each pair
     of variables (Demarta and McNeil 2005). If the resulting correlation
     matrix is not positive-definite, the correction proposed in
@@ -82,21 +84,21 @@ The following parameters are recognized by the functions that implement the
 }
 
 \references{
-Arderí RJ (2007). Algoritmo con estimación de distribuciones con cópula gaussiana. 
-Bachelor thesis, University of Havana, Cuba.
+ArderÃ­ RJ (2007). Algoritmo con estimaciÃ³n de distribuciones con cÃ³pula gaussiana. 
+BSc thesis, University of Havana, Cuba.
 
 Demarta S, McNeil AJ (2005). The t Copula and Related Copulas. 
 \emph{International Statistical Review}, \bold{73}(1), 111--129.
 
-Gonzalez-Fernandez Y and Soto M (2012). copulaedas: An R Package for
+Gonzalez-Fernandez Y and Soto M (2013). copulaedas: An \R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
 \href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
 
-Larrañaga P, Etxeberria R, Lozano JA, Peña JM (1999). Optimization by Learning 
+LarraÃ±aga P, Etxeberria R, Lozano JA, PeÃ±a JM (1999). Optimization by Learning 
 and Simulation of Bayesian and Gaussian Networks. Technical Report 
 EHU-KZAA-IK-4/99, University of the Basque Country.
 
-Larrañaga P, Etxeberria R, Lozano JA, Peña JM (2000). Optimization in 
+LarraÃ±aga P, Etxeberria R, Lozano JA, PeÃ±a JM (2000). Optimization in 
 Continuous Domains by Learning and Simulation of Gaussian Networks.
 In \emph{Proceedings of the Workshop in Optimization by Building and Using 
 Probabilistic Models in the Genetic and Evolutionary Computation 
@@ -106,7 +108,7 @@ Rousseeuw P, Molenberghs G (1993). Transformation of Nonpositive Semidefinite
 Correlation Matrices. \emph{Communications in Statistics: Theory and Methods}, 
 \bold{22}, 965--984.
 
-Soto M, Ochoa A, Arderí RJ (2007). Gaussian Copula Estimation of Distribution
+Soto M, Ochoa A, ArderÃ­ RJ (2007). Gaussian Copula Estimation of Distribution
 Algorithm. Technical Report ICIMAF 2007-406, Institute of Cybernetics,
 Mathematics and Physics, Cuba. ISSN 0138-8916.
 }

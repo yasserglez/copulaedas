@@ -1,3 +1,5 @@
+\encoding{UTF-8}
+
 \name{VEDA-class}
 
 \docType{class}
@@ -59,13 +61,13 @@ in the selected population are used to determine the structure of the C-vines
 and D-vines in CVEDA and DVEDA, respectively (Brechmann 2010).
 
 The selection of each bivariate copula in both decompositions starts with 
-an independence test (Genest and Rémillard 2004; Genest et al. 2007). 
+an independence test (Genest and RÃ©millard 2004; Genest et al. 2007). 
 The independence copula is selected if there is not enough evidence against 
 the null hypothesis of independence at a given significance level. In the 
 other case, the parameters of a group of candidate copulas are estimated 
 and the one that minimizes a distance to the empirical copula is selected.
-A Cramér-von Mises statistic is used as the measure of distance
-(Genest and Rémillard 2008).
+A CramÃ©r-von Mises statistic is used as the measure of distance
+(Genest and RÃ©millard 2008).
 
 The parameters of all the candidate copulas but the t copula are estimated
 using the inversion of Kendall's tau. In the case of the t copula,
@@ -138,27 +140,27 @@ Applications. Diploma thesis, University of Technology, Munich, Germany.
 Demarta S, McNeil AJ (2005). The t Copula and Related Copulas. 
 \emph{International Statistical Review}, \bold{73}(1), 111--129.
 
-Genest C, Rémillard B (2004). Tests of Independence or Randomness Based 
+Genest C, RÃ©millard B (2004). Tests of Independence or Randomness Based 
 on the Empirical Copula Process. \emph{Test}, \bold{13}(2), 335--369.
 
-Genest C, Quessy JF, Rémillard B (2007). Asymptotic Local Efficiency of 
-Cramér-von mises Tests for Multivariate Independence. \emph{The Annals 
+Genest C, Quessy JF, RÃ©millard B (2007). Asymptotic Local Efficiency of 
+CramÃ©r-von mises Tests for Multivariate Independence. \emph{The Annals 
 of Statistics}, \bold{35}, 166--191.
 
-Genest C, Rémillard B (2008). Validity of the Parametric Bootstrap for 
+Genest C, RÃ©millard B (2008). Validity of the Parametric Bootstrap for 
 Goodness-of-Fit Testing in Semiparametric Models. \emph{Annales de 
-l'Institut Henri Poincaré: Probabilités et Statistiques}, \bold{44}, 
+l'Institut Henri PoincarÃ©: ProbabilitÃ©s et Statistiques}, \bold{44}, 
 1096--1127.
 
-Gonzalez-Fernandez Y (2011). Algoritmos con estimación de distribuciones 
-basados en cópulas y vines. Bachelor thesis, University of Havana, Cuba.
+Gonzalez-Fernandez Y (2011). Algoritmos con estimaciÃ³n de distribuciones 
+basados en cÃ³pulas y vines. Bachelor thesis, University of Havana, Cuba.
 
-Gonzalez-Fernandez Y and Soto M (2012). copulaedas: An R Package for
+Gonzalez-Fernandez Y and Soto M (2013). copulaedas: An \R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
 \href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
 
 Joe H (1996). Families of \eqn{m}-variate Distributions with Given Margins 
-and \eqn{m(m-1)/2} Bivariate Dependence Parameters. In L Röschendorf, 
+and \eqn{m(m-1)/2} Bivariate Dependence Parameters. In L RÃ¶schendorf, 
 B Schweizer, MD Taylor (eds.), \emph{Distributions with fixed marginals 
 and related topics}, pp. 120--141.
 
