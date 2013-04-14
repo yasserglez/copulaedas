@@ -24,7 +24,7 @@ edaOptimizeDisabled(eda, gen, pop, popEval, f, lower, upper)
 
 \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 
-\item{f}{Objective function}
+\item{f}{Objective function.}
 
 \item{lower}{Lower bounds of the variables of the objective function.}
   

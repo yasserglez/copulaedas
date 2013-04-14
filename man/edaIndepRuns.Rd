@@ -17,7 +17,7 @@ edaIndepRuns(eda, f, lower, upper, runs, verbose = FALSE)
 \arguments{
 \item{eda}{\code{\linkS4class{EDA}} instance.}
 
-\item{f}{Objective function}
+\item{f}{Objective function.}
 
 \item{lower}{Lower bounds of the variables of the objective function.}
 

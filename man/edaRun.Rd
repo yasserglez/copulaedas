@@ -32,11 +32,9 @@ parts: seeding (\code{\link{edaSeed}}), selection (\code{\link{edaSelect}}),
 learning (\code{edaLearn}), sampling (\code{edaSample}), replacement 
 (\code{\link{edaReplace}}), local optimization (\code{\link{edaOptimize}}), 
 termination (\code{\link{edaTerminate}}), and reporting 
-(\code{\link{edaReport}}). 
-
-The following pseudocode illustrates the interactions between all the generic 
-functions that implement the main parts of the EDA. It is a simplified 
-version of the implementation of the \code{\link{edaRun}} function.
+(\code{\link{edaReport}}). The following pseudocode illustrates the interactions 
+between all the generic functions. It is a simplified version of the 
+implementation of the \code{\link{edaRun}} function.
 
 \preformatted{
 gen <- 0

@@ -12,9 +12,9 @@
 \title{Benchmark Problems}
 
 \description{
-Implementation of a group of well-known benchmark problems usually used
-to evaluate the performance of EDAs and other optimization algorithms for
-unconstrained global optimization.
+Implementation of a group of well-known benchmark problems typically used
+to evaluate the performance of EDAs and other numerical optimization 
+algorithms for unconstrained global optimization.
 }
 
 \usage{

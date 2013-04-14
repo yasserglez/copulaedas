@@ -46,8 +46,8 @@ edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
 \details{
 This function determines the minimum population size required by the EDA to 
 reach the value \code{fEval} of the objective function in \code{successRuns} 
-runs of a total of \code{totalRuns} independent runs (critical population 
-size).
+runs out of a total of \code{totalRuns} independent runs (critical 
+population size).
 
 The population size is determined using a bisection method starting with the
 interval delimited by \code{lowerPop} and \code{upperPop}. The bisection 

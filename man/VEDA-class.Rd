@@ -40,14 +40,16 @@ Objects are created by calling the \code{VEDA} function.
 Vine EDAs (VEDAs) are a class of EDAs (Soto and Gonzalez-Fernandez 2010;
 Gonzalez-Fernandez 2011) that model the search distributions using vines.
 Vines are graphical models that represent high-dimensional distributions by
-decomposing the multivariate density into bivariate copulas and one-dimensional
-densities (Joe 1996; Bedford and Cooke 2001; Aas et al. 2009; 
-Kurowicka and Cooke 2006). Similarly to Copula EDAs, these algorithms estimate
-separately the univariate marginal distributions and the dependence structure
-from the selected population. Instead of representing the dependence structure
-using a single multivariate copula, VEDAs can model a rich variety of dependencies
-by combining bivariate copulas that belong to different families. The following
-instances of VEDA are implemented.
+decomposing the multivariate density into conditional bivariate copulas,
+unconditional bivariate copulas, and one-dimensional densities 
+(Joe 1996; Bedford and Cooke 2001; Aas et al. 2009; Kurowicka and Cooke 2006).
+In particular, VEDAs are based on the simplified pair-copula construction
+(Hobaek Haff et al. 2010). Similarly to Copula EDAs, these algorithms estimate 
+separately the univariate marginal distributions and the dependence structure 
+from the selected population. Instead of representing the dependence structure 
+using a single multivariate copula, VEDAs can model a rich variety of
+dependencies by combining bivariate copulas that belong to different families. 
+The following instances of VEDA are implemented.
 
 \itemize{
 \item{C-vine EDA (CVEDA), that models the search distributions using C-vines
@@ -74,10 +76,6 @@ using the inversion of Kendall's tau. In the case of the t copula,
 the correlation coefficient is computed using the inversion of Kendall's tau
 and the degrees of freedom are estimated by maximum likelihood with the 
 correlation parameter fixed (Demarta and McNeil 2005).
-
-Besides, a model selection procedure based on Akaike Information Criterion 
-is used to truncate the vines if enough dependence is captured in the first 
-trees (Brechmann 2010).
 
 To simplify the construction of the vines the truncation strategy presented in
 (Brechmann 2010) is applied. If a vine is truncated at a given tree, all the
@@ -158,6 +156,10 @@ basados en cópulas y vines. Bachelor thesis, University of Havana, Cuba.
 Gonzalez-Fernandez Y and Soto M (2013). copulaedas: An \R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
 \href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
+
+Hobaek Haff I, Aas K, Frigessi A (2010). On the Simplified Pair-Copula
+Construction --- Simply Useful or Too Simplistic? Journal of Multivarite
+Analysis, \bold{101}, 1145--1152.
 
 Joe H (1996). Families of \eqn{m}-variate Distributions with Given Margins 
 and \eqn{m(m-1)/2} Bivariate Dependence Parameters. In L Röschendorf, 
