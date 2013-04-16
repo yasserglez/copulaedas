@@ -10,5 +10,5 @@ License: GPL (>= 3)
 LazyLoad: yes
 URL: https://github.com/ygf/copulaedas
 Depends: methods, copula, vines, mvtnorm, truncnorm
-Suggests: cec2005benchmark
+Suggests: cec2005benchmark, cec2013
 Collate: EDA.R edaSeed.R edaSelect.R edaOptimize.R edaReport.R edaReplace.R edaTerminate.R edaRun.R margins.R problems.R edaIndepRuns.R edaCriticalPopSize.R CEDA.R VEDA.R
