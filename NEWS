@@ -1,3 +1,11 @@
+Changes in version 1.3.0:
+
+   * The package vignette was updated.
+   * New options 'trees' and 'truncMethod' for VEDA.
+   * Using 'verbose' instead of the deprecated option 'print.every' in indepTestSim.
+   * Corrected minor errors in the documentation.
+   * Added cec2013 as a suggested package.
+
 Changes in version 1.2.1:
 
    * Fixed warnings caused by the use of the deprecated {as.,is.,}real functions.
