@@ -75,7 +75,7 @@ to Applications}, pp. 91--120. Springer-Verlag.
 Chen Yp, Lim MH (eds.) (2008). Linkage in Evolutionary Computation. 
 Springer-Verlag. ISBN 978-3-540-85067-0.
 
-Gonzalez-Fernandez Y and Soto M (2013). copulaedas: An \R Package for
+Gonzalez-Fernandez Y and Soto M (2013). \pkg{copulaedas}: An \R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
 \href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
 }

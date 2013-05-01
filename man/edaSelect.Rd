@@ -58,7 +58,7 @@ from \code{pop}.
 }
 
 \references{
-Gonzalez-Fernandez Y and Soto M (2013). copulaedas: An \R Package for
+Gonzalez-Fernandez Y and Soto M (2013). \pkg{copulaedas}: An \R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
 \href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
 
