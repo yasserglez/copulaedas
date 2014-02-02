@@ -1,21 +1,5 @@
 citHeader("To cite package 'copulaedas' in publications use:")
 
-desc <- packageDescription("copulaedas")
-year <- sub("^([[:digit:]]{4})-[[:digit:]]{2}-[[:digit:]]{2}$", "\\1", desc$Date)
-version <- desc$Version
-
-citEntry(entry = "manual",
-	title = "copulaedas: Estimation of Distribution Algorithms based on Copulas",
-	author = personList(person("Yasser", "Gonzalez-Fernandez"), person("Marta", "Soto")),
-	year = year,
-	note = paste("{R} package version", version),
-	url = "http://CRAN.R-project.org/package=copulaedas",
-	textVersion = paste("Yasser Gonzalez-Fernandez and Marta Soto (", year, ") ",
-        "copulaedas: Estimation of Distribution Algorithms based on Copulas. ",
-        paste("R package version", version),
-        ". URL http://CRAN.R-project.org/package=copulaedas",
-        ".", sep = ""))
-
 citEntry(entry = "article",
     title = "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas",
     author = personList(person("Yasser", "Gonzalez-Fernandez"), person("Marta", "Soto")),
