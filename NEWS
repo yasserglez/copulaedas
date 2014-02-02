@@ -6,7 +6,7 @@ Changes in version 1.3.0 (May 1, 2013):
    * Corrected minor errors in the documentation.
    * Added cec2013 as a suggested package.
 
-Changes in version 1.2.1 9 (January 11, 2013):
+Changes in version 1.2.1 (January 11, 2013):
 
    * Fixed warnings caused by the use of the deprecated {as.,is.,}real functions.
    * Fixed warnings caused by .C calls with PACKAGE argument in a different package.
@@ -19,7 +19,7 @@ Changes in version 1.2.0 (September 27, 2012):
    * Added cec2005benchmark as a suggested package.
    * Implemented Truncated marginal distributions.
    * New reporting methods that save the population to a plain-text file.
-   * Implemented  Restricted Tournament Replacement.
+   * Implemented Restricted Tournament Replacement.
    * Implemented Tournament selection.
    * Avoided numerical problems with the simulation of the normal copula.
 
