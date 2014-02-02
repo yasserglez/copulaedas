@@ -1,9 +1,12 @@
 useDynLib(copulaedas)
 
-
-import(copula)
-import(vines)
-import(mvtnorm)
+import(methods)
+importFrom(copula, indepCopula, normalCopula, tCopula, claytonCopula,
+           frankCopula, gumbelCopula, archmCopula, indepTest, indepTestSim,
+           iTau, loglikCopula, fitCopula, rCopula, pCopula)
+importFrom(vines, vineOrder, vineFit, rvine)
+importFrom(mvtnorm, rmvnorm)
+importFrom(truncnorm, ptruncnorm, qtruncnorm)
 
 
 exportClasses(EDA)
