@@ -34,7 +34,7 @@ edaOptimizeDisabled(eda, gen, pop, popEval, f, lower, upper)
 \details{
 Local optimization methods improve the solutions sampled by the search 
 distribution. These methods can also be used to implement repairing
-strategies for constrained problems where the simulated solutions may be 
+strategies for constrained problems in which the simulated solutions may be 
 unfeasible and some strategy to repair these solutions is available.
 
 The following local optimization methods are implemented.
