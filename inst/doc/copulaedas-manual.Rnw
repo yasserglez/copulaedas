@@ -1,4 +1,0 @@
-%\VignetteIndexEntry{copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas}
-\documentclass{article}
-\begin{document}
-\end{document}
