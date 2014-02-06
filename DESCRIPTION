@@ -9,6 +9,6 @@ Description: This package provides a platform where Estimation of Distribution A
 License: GPL (>= 3)
 URL: https://github.com/ygf/copulaedas
 Depends: methods
-Imports: copula, vines, mvtnorm, truncnorm
+Imports: copula, vines (>= 1.0.10), mvtnorm, truncnorm
 Suggests: cec2005benchmark, cec2013
 Collate: EDA.R edaSeed.R edaSelect.R edaOptimize.R edaReport.R edaReplace.R edaTerminate.R edaRun.R margins.R problems.R edaIndepRuns.R edaCriticalPopSize.R CEDA.R VEDA.R
