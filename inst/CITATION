@@ -1,10 +1,15 @@
 citHeader("To cite package 'copulaedas' in publications use:")
 
-citEntry(entry = "article",
-    title = "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas",
+citEntry(entry = "Article",
+    title = "{copulaedas}: An {R} Package for Estimation of Distribution Algorithms Based on Copulas",
     author = personList(person("Yasser", "Gonzalez-Fernandez"), person("Marta", "Soto")),
     journal = "Preprint arXiv:1209.5429 [cs.NE]",
-    year = "2012",
-    textVersion = paste("Yasser Gonzalez-Fernandez and Marta Soto (2012).",
-	    "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas.",
-	    "Preprint arXiv:1209.5429 [cs.NE]."))
+    year = "2013",
+    url = "http://arxiv.org/abs/1209.5429",
+
+    textVersion  =
+    paste("Yasser Gonzalez-Fernandez and Marta Soto (2013).",
+        "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas.",
+        "Preprint arXiv:1209.5429 [cs.NE].",
+        "URL http://arxiv.org/abs/1209.5429."))
+
