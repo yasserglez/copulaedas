@@ -151,7 +151,7 @@ l'Institut Henri Poincaré: Probabilités et Statistiques}, \bold{44},
 1096--1127.
 
 Gonzalez-Fernandez Y (2011). Algoritmos con estimación de distribuciones 
-basados en cópulas y vines. Bachelor thesis, University of Havana, Cuba.
+basados en cópulas y vines. Bachelor's thesis, University of Havana, Cuba.
 
 Gonzalez-Fernandez Y and Soto M (2013). \pkg{copulaedas}: An \R Package for
 Estimation of Distribution Algorithms Based on Copulas. Preprint
