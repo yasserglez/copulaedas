@@ -6,10 +6,8 @@ citEntry(entry = "Article",
     journal = "Preprint arXiv:1209.5429 [cs.NE]",
     year = "2013",
     url = "http://arxiv.org/abs/1209.5429",
-
     textVersion  =
-    paste("Yasser Gonzalez-Fernandez and Marta Soto (2013).",
-        "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas.",
-        "Preprint arXiv:1209.5429 [cs.NE].",
-        "URL http://arxiv.org/abs/1209.5429."))
-
+	    paste("Yasser Gonzalez-Fernandez and Marta Soto (2013).",
+	        "copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas.",
+	        "Preprint arXiv:1209.5429 [cs.NE].",
+	        "URL http://arxiv.org/abs/1209.5429."))
