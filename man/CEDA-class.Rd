@@ -55,13 +55,13 @@ multivariate copula. The following instances of CEDA are implemented.
   \item{If the dependence structure is modeled using a normal copula, the
     resulting algorithm corresponds to the Gaussian Copula Estimation of
     Distribution Algorithm (GCEDA) (Soto et al. 2007; Arderí 2007).
-    If the marginal distributions are not normal, the correlation
+    If non-normal marginal distributions are used, the correlation
     matrix is calculated using the inversion of Kendall's tau for each pair
-    of variables (Demarta and McNeil 2005). If the resulting correlation
-    matrix is not positive-definite, the correction proposed in
-    (Rousseeuw and Molenberghs 1993) is applied. If normal marginal
-    distributions are used, the correlation matrix is estimated directly
-    from the selected population using the \code{\link{cor}} function.}
+    of variables (Demarta and McNeil 2005). The correction proposed in
+    (Rousseeuw and Molenberghs 1993) is applied if the resulting correlation
+    matrix is not positive-definite. If normal marginal distributions are 
+    used, the correlation matrix is estimated directly from the 
+    selected population using the \code{\link{cor}} function.}
 }
 
 The following parameters are recognized by the functions that implement the
@@ -85,7 +85,7 @@ The following parameters are recognized by the functions that implement the
 
 \references{
 Arderí RJ (2007). Algoritmo con estimación de distribuciones con cópula gaussiana. 
-BSc thesis, University of Havana, Cuba.
+Bachelor's thesis, University of Havana, Cuba.
 
 Demarta S, McNeil AJ (2005). The t Copula and Related Copulas. 
 \emph{International Statistical Review}, \bold{73}(1), 111--129.

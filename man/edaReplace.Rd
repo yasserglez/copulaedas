@@ -43,7 +43,7 @@ generation. The following replacement methods are implemented.
     generation completely replaces the population of the previous generation.
     This is the default method of the \code{edaReplace} generic function.}
 
-  \item{\code{edaReplaceRTR}}{Restricted Tournament Replacement is a nitching
+  \item{\code{edaReplaceRTR}}{Restricted Tournament Replacement is a niching
     method that can be used to promote the preservation of alternative candidate
     solutions. See (Pelikan 2005) for a pseudocode of the algorithm implemented
     here. The parameter \code{windowSize} specifies the window size (default
