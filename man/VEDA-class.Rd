@@ -153,9 +153,10 @@ l'Institut Henri Poincaré: Probabilités et Statistiques}, \bold{44},
 Gonzalez-Fernandez Y (2011). Algoritmos con estimación de distribuciones 
 basados en cópulas y vines. Bachelor's thesis, University of Havana, Cuba.
 
-Gonzalez-Fernandez Y and Soto M (2013). \pkg{copulaedas}: An \R Package for
-Estimation of Distribution Algorithms Based on Copulas. Preprint
-\href{http://arxiv.org/abs/1209.5429}{arXiv:1209.5429 [cs.NE]}.
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
+Package for Estimation of Distribution Algorithms Based on Copulas. 
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+\url{http://www.jstatsoft.org/v58/i09/}.
 
 Hobaek Haff I, Aas K, Frigessi A (2010). On the Simplified Pair-Copula
 Construction --- Simply Useful or Too Simplistic? Journal of Multivarite
