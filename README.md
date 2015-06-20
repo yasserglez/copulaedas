@@ -1,5 +1,5 @@
-Estimation of Distribution Algorithms Based on Copulas
-------------------------------------------------------
+EDAs Based on Copulas
+---------------------
 
 Platform for implementing and studying estimation of distribution
 algorithms (EDAs) based on copulas. This package contains complete
