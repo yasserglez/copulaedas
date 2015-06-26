@@ -31,18 +31,18 @@ function.
 
 \section{Methods}{
 \describe{
-  \item{edaLearn}{\code{signature(eda = "CEDA")}: The \code{edaLearnCEDA} 
+  \item{edaLearn}{\code{signature(eda = "CEDA")}: The \code{edaLearnCEDA}
     function.}
 
-  \item{edaSample}{\code{signature(eda = "CEDA")}: The \code{edaSampleCEDA} 
+  \item{edaSample}{\code{signature(eda = "CEDA")}: The \code{edaSampleCEDA}
     function.}
 }
 }
 
 \details{
-Copula EDAs (CEDA) are a class of EDAs that model the search distributions 
-using a multivariate copula. These algorithms estimate separately the 
-univariate marginal distributions and the dependence structure from the 
+Copula EDAs (CEDA) are a class of EDAs that model the search distributions
+using a multivariate copula. These algorithms estimate separately the
+univariate marginal distributions and the dependence structure from the
 selected population. The dependence structure is represented through a
 multivariate copula. The following instances of CEDA are implemented.
 
@@ -59,8 +59,8 @@ multivariate copula. The following instances of CEDA are implemented.
     matrix is calculated using the inversion of Kendall's tau for each pair
     of variables (Demarta and McNeil 2005). The correction proposed in
     (Rousseeuw and Molenberghs 1993) is applied if the resulting correlation
-    matrix is not positive-definite. If normal marginal distributions are 
-    used, the correlation matrix is estimated directly from the 
+    matrix is not positive-definite. If normal marginal distributions are
+    used, the correlation matrix is estimated directly from the
     selected population using the \code{\link{cor}} function.}
 }
 
@@ -69,8 +69,8 @@ The following parameters are recognized by the functions that implement the
 \code{\linkS4class{CEDA}} class.
 
 \describe{
-  \item{\code{copula}}{Multivariate copula. Supported values are: 
-    \code{"indep"} (independence or product copula) and \code{"normal"} 
+  \item{\code{copula}}{Multivariate copula. Supported values are:
+    \code{"indep"} (independence or product copula) and \code{"normal"}
     (normal copula). Default value: \code{"normal"}.}
 
   \item{\code{margin}}{Marginal distributions. If this argument is \code{"xxx"},
@@ -84,29 +84,29 @@ The following parameters are recognized by the functions that implement the
 }
 
 \references{
-Arderí RJ (2007). Algoritmo con estimación de distribuciones con cópula gaussiana. 
+Arderí RJ (2007). Algoritmo con estimación de distribuciones con cópula gaussiana.
 Bachelor's thesis, University of Havana, Cuba.
 
-Demarta S, McNeil AJ (2005). The t Copula and Related Copulas. 
+Demarta S, McNeil AJ (2005). The t Copula and Related Copulas.
 \emph{International Statistical Review}, \bold{73}(1), 111--129.
 
-Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
-Package for Estimation of Distribution Algorithms Based on Copulas. 
-\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R
+Package for Estimation of Distribution Algorithms Based on Copulas.
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34.
 \url{http://www.jstatsoft.org/v58/i09/}.
 
-Larrañaga P, Etxeberria R, Lozano JA, Peña JM (1999). Optimization by Learning 
-and Simulation of Bayesian and Gaussian Networks. Technical Report 
+Larrañaga P, Etxeberria R, Lozano JA, Peña JM (1999). Optimization by Learning
+and Simulation of Bayesian and Gaussian Networks. Technical Report
 EHU-KZAA-IK-4/99, University of the Basque Country.
 
-Larrañaga P, Etxeberria R, Lozano JA, Peña JM (2000). Optimization in 
+Larrañaga P, Etxeberria R, Lozano JA, Peña JM (2000). Optimization in
 Continuous Domains by Learning and Simulation of Gaussian Networks.
-In \emph{Proceedings of the Workshop in Optimization by Building and Using 
-Probabilistic Models in the Genetic and Evolutionary Computation 
+In \emph{Proceedings of the Workshop in Optimization by Building and Using
+Probabilistic Models in the Genetic and Evolutionary Computation
 Conference (GECCO 2000)}, pp. 201--204.
 
-Rousseeuw P, Molenberghs G (1993). Transformation of Nonpositive Semidefinite 
-Correlation Matrices. \emph{Communications in Statistics: Theory and Methods}, 
+Rousseeuw P, Molenberghs G (1993). Transformation of Nonpositive Semidefinite
+Correlation Matrices. \emph{Communications in Statistics: Theory and Methods},
 \bold{22}, 965--984.
 
 Soto M, Ochoa A, Arderí RJ (2007). Gaussian Copula Estimation of Distribution

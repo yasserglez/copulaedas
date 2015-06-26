@@ -44,21 +44,21 @@ Reporting methods provide progress information during the execution of the
 EDA. The following reporting methods are implemented.
 
 \describe{
-  \item{\code{edaReportDisabled}}{Disable reporting progress. This is the 
+  \item{\code{edaReportDisabled}}{Disable reporting progress. This is the
     default method of the \code{edaReport} generic function.}
 
   \item{\code{edaReportSimple}}{Print one line at each generation with the
     number of generations, and the minimum, mean and standard deviation of
     the evaluation of the candidate solutions in the population.}
 
-  \item{\code{edaReportDumpPop}}{Save the population at each generation 
-    in a different plain-text file in the current working directory. 
-    The names of the files are \code{pop_1.txt}, \code{pop_2.txt}, 
+  \item{\code{edaReportDumpPop}}{Save the population at each generation
+    in a different plain-text file in the current working directory.
+    The names of the files are \code{pop_1.txt}, \code{pop_2.txt},
     and so on.}
 
-  \item{\code{edaReportDumpSelectedPop}}{Save the selected population at 
-    each generation in a different plain-text file in the current working 
-    directory. The names of the files are \code{sel_1.txt}, \code{sel_2.txt}, 
+  \item{\code{edaReportDumpSelectedPop}}{Save the selected population at
+    each generation in a different plain-text file in the current working
+    directory. The names of the files are \code{sel_1.txt}, \code{sel_2.txt},
     and so on.}
 
   \item{\code{edaReportCombined}}{Execute all the reporting methods specified
@@ -67,8 +67,8 @@ EDA. The following reporting methods are implemented.
 }
 
 \references{
-Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
-Package for Estimation of Distribution Algorithms Based on Copulas. 
-\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R
+Package for Estimation of Distribution Algorithms Based on Copulas.
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34.
 \url{http://www.jstatsoft.org/v58/i09/}.
 }

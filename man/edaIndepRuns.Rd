@@ -33,9 +33,9 @@ An \code{\linkS4class{EDAResults}} instance.
 }
 
 \references{
-Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
-Package for Estimation of Distribution Algorithms Based on Copulas. 
-\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R
+Package for Estimation of Distribution Algorithms Based on Copulas.
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34.
 \url{http://www.jstatsoft.org/v58/i09/}.
 }
 

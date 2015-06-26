@@ -12,7 +12,7 @@ Determine the critical population size using a bisection method.
 
 \usage{
 edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
-    totalRuns = 30, successRuns = totalRuns, lowerPop = 2, 
+    totalRuns = 30, successRuns = totalRuns, lowerPop = 2,
     upperPop = NA, stopPercent = 10, verbose = FALSE)
 }
 
@@ -44,14 +44,14 @@ edaCriticalPopSize(eda, f, lower, upper, fEval, fEvalTol,
 }
 
 \details{
-This function determines the minimum population size required by the EDA to 
-reach the value \code{fEval} of the objective function in \code{successRuns} 
-runs out of a total of \code{totalRuns} independent runs (critical 
+This function determines the minimum population size required by the EDA to
+reach the value \code{fEval} of the objective function in \code{successRuns}
+runs out of a total of \code{totalRuns} independent runs (critical
 population size).
 
 The population size is determined using a bisection method starting with the
-interval delimited by \code{lowerPop} and \code{upperPop}. The bisection 
-procedure stops when the estimated population size is less than 
+interval delimited by \code{lowerPop} and \code{upperPop}. The bisection
+procedure stops when the estimated population size is less than
 \code{stopPercent} percent away from the critical population size. If either
 \code{lowerPop} or \code{upperPop} is not specified, the algorithm will
 determine an initial interval based on the value of the \code{popSize}
@@ -62,17 +62,17 @@ See (Pelikan 2005) for a pseudocode of a similar algorithm.
 
 \value{
 Either \code{NULL} if the critical population size was not determined or
-an \code{\linkS4class{EDAResults}} instance with the results of the runs 
+an \code{\linkS4class{EDAResults}} instance with the results of the runs
 of the EDA using the critical population size.
 }
 
 \references{
-Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
-Package for Estimation of Distribution Algorithms Based on Copulas. 
-\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R
+Package for Estimation of Distribution Algorithms Based on Copulas.
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34.
 \url{http://www.jstatsoft.org/v58/i09/}.
 
-Pelikan M (2005). \emph{Hierarchical Bayesian Optimization Algorithm. 
+Pelikan M (2005). \emph{Hierarchical Bayesian Optimization Algorithm.
 Toward a New Generation of Evolutionary Algorithms}. Springer-Verlag.
 }
 
@@ -83,7 +83,7 @@ Toward a New Generation of Evolutionary Algorithms}. Springer-Verlag.
 
 \examples{
 setMethod("edaReport", "EDA", edaReportDisabled)
-setMethod("edaTerminate", "EDA", 
+setMethod("edaTerminate", "EDA",
     edaTerminateCombined(edaTerminateEval,
         edaTerminateMaxEvals))
 

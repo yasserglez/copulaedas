@@ -34,12 +34,12 @@ edaReplaceRTR(eda, gen, pop, popEval, sampledPop, sampledEval)
 }
 
 \details{
-Replacement methods combine the candidate solutions sampled in the current 
-generation with the candidate solutions from the population of the previous 
+Replacement methods combine the candidate solutions sampled in the current
+generation with the candidate solutions from the population of the previous
 generation. The following replacement methods are implemented.
 
 \describe{
-  \item{\code{edaReplaceComplete}}{The population sampled in the current 
+  \item{\code{edaReplaceComplete}}{The population sampled in the current
     generation completely replaces the population of the previous generation.
     This is the default method of the \code{edaReplace} generic function.}
 
@@ -60,8 +60,8 @@ A \code{list} with the following components.
 }
 
 \references{
-Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
-Package for Estimation of Distribution Algorithms Based on Copulas. 
-\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R
+Package for Estimation of Distribution Algorithms Based on Copulas.
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34.
 \url{http://www.jstatsoft.org/v58/i09/}.
 }

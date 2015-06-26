@@ -2,7 +2,6 @@ Type: Package
 Package: copulaedas
 Title: Estimation of Distribution Algorithms Based on Copulas
 Version: 1.4.1
-Date: 2014-06-20
 Authors@R: c(person("Yasser", "Gonzalez-Fernandez",
 	            role = c("aut", "cre"),
 		    email = "ygonzalezfernandez@gmail.com"),
@@ -11,17 +10,17 @@ Authors@R: c(person("Yasser", "Gonzalez-Fernandez",
 		    email = "mrosa@icimaf.cu"))
 Description: Platform for implementing and studying estimation of
     distribution algorithms (EDAs) based on copulas. This package
-    contains complete implementations of various EDAs based on copulas
-    and vines, and it also offers the possibility of creating new
-    algorithms. EDAs are implemented using S4 classes with generic
-    functions for its main parts: seeding, selection, learning, sampling,
-    replacement, local optimization, termination, and reporting. This
-    package also includes a group of well-known benchmark problems and
-    utility functions to study the behavior of EDAs.
+    contains various EDAs based on copulas and vines, and it also
+    offers the possibility of creating new algorithms. EDAs are
+    implemented using S4 classes with generic functions for its main
+    parts: seeding, selection, learning, sampling, replacement, local
+    optimization, termination, and reporting. This package also
+    includes a group of well-known benchmark problems and utility
+    functions to study the behavior of EDAs.
 License: GPL (>= 2)
 URL: https://github.com/yasserglez/copulaedas
 Depends: methods
-Imports: copula, vines (>= 1.1.0), mvtnorm, truncnorm
+Imports: copula, vines, mvtnorm, truncnorm
 Suggests: cec2005benchmark, cec2013
 Collate: EDA.R edaSeed.R edaSelect.R edaOptimize.R edaReport.R
     edaReplace.R edaTerminate.R edaRun.R margins.R problems.R

@@ -13,7 +13,7 @@
 
 \description{
 Implementation of a group of well-known benchmark problems typically used
-to evaluate the performance of EDAs and other numerical optimization 
+to evaluate the performance of EDAs and other numerical optimization
 algorithms for unconstrained global optimization.
 }
 
@@ -35,7 +35,7 @@ The value of the function for the vector \code{x}.
 }
 
 \details{
-The definition of the functions for a vector 
+The definition of the functions for a vector
 \eqn{\boldsymbol{x}=(x_{1},\ldots,x_{n})} is given below.
 
 \deqn{\texttt{fAckley}(\boldsymbol{x})=-20\exp\left(-0.2\sqrt{\frac{1}{n}\sum_{i=1}^{n}x^{2}}\right)-\exp\left(\frac{1}{n}\sum_{i=1}^{n}\cos\left(2\pi x_{i}\right)\right)+20+\exp\left(1\right)}
@@ -57,27 +57,27 @@ Sphere have their global optimum at \eqn{\boldsymbol{x}=(0,\ldots,0)}
 with evaluation 0. Rosenbrock has its global optimum at
 \eqn{\boldsymbol{x}=(1,\ldots,1)} with evaluation 0. Summation Cancellation
 has its global optimum at \eqn{\boldsymbol{x}=(0,\ldots,0)} with evaluation
-\eqn{-10^{5}}. See (Bengoetxea et al. 2002; Bosman and Thierens 2006; 
+\eqn{-10^{5}}. See (Bengoetxea et al. 2002; Bosman and Thierens 2006;
 Chen and Lim 2008) for a description of the functions.
 }
 
 \references{
-Bengoetxea E, Miquélez T, Lozano JA, Larrañaga P (2002). Experimental Results 
-in Function Optimization with EDAs in Continuous Domain. In P Larrañaga, 
-JA Lozano (eds.), \emph{Estimation of Distribution Algorithms. A New Tool 
+Bengoetxea E, Miquélez T, Lozano JA, Larrañaga P (2002). Experimental Results
+in Function Optimization with EDAs in Continuous Domain. In P Larrañaga,
+JA Lozano (eds.), \emph{Estimation of Distribution Algorithms. A New Tool
 for Evolutionary Computation}, pp. 181--194. Kluwer Academic Publisher
 
-Bosman PAN, Thierens D (2006). Numerical Optimization with Real-Valued 
-Estimation of Distribution Algorithms. In M Pelikan, K Sastry, E Cantú-Paz 
-(eds.), \emph{Scalable Optimization via Probabilistic Modeling. From Algorithms 
+Bosman PAN, Thierens D (2006). Numerical Optimization with Real-Valued
+Estimation of Distribution Algorithms. In M Pelikan, K Sastry, E Cantú-Paz
+(eds.), \emph{Scalable Optimization via Probabilistic Modeling. From Algorithms
 to Applications}, pp. 91--120. Springer-Verlag.
 
-Chen Yp, Lim MH (eds.) (2008). Linkage in Evolutionary Computation. 
+Chen Yp, Lim MH (eds.) (2008). Linkage in Evolutionary Computation.
 Springer-Verlag. ISBN 978-3-540-85067-0.
 
-Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
-Package for Estimation of Distribution Algorithms Based on Copulas. 
-\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R
+Package for Estimation of Distribution Algorithms Based on Copulas.
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34.
 \url{http://www.jstatsoft.org/v58/i09/}.
 }
 
@@ -89,4 +89,3 @@ all.equal(fRosenbrock(rep(1, 10)), 0)
 all.equal(fSphere(rep(0, 10)), 0)
 all.equal(fSummationCancellation(rep(0, 10)), -1e+05)
 }
-

@@ -27,20 +27,20 @@ edaOptimizeDisabled(eda, gen, pop, popEval, f, lower, upper)
 \item{f}{Objective function.}
 
 \item{lower}{Lower bounds of the variables of the objective function.}
-  
+
 \item{upper}{Upper bounds of the variables of the objective function.}
 }
 
 \details{
-Local optimization methods improve the solutions sampled by the search 
+Local optimization methods improve the solutions sampled by the search
 distribution. These methods can also be used to implement repairing
-strategies for constrained problems in which the simulated solutions may be 
+strategies for constrained problems in which the simulated solutions may be
 unfeasible and some strategy to repair these solutions is available.
 
 The following local optimization methods are implemented.
 
 \describe{
-  \item{\code{edaOptimizeDisabled}}{Disable local optimization. This is 
+  \item{\code{edaOptimizeDisabled}}{Disable local optimization. This is
   the default method of the \code{edaOptimize} generic function.}
 }
 }
@@ -49,13 +49,13 @@ The following local optimization methods are implemented.
 A \code{list} with the following components.
 
 \item{pop}{Matrix with one row for each solution in the optimized population.}
-  
+
 \item{popEval}{Vector with the evaluation of each solution in \code{pop}.}
 }
 
 \references{
-Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R 
-Package for Estimation of Distribution Algorithms Based on Copulas. 
-\emph{Journal of Statistical Software}, \bold{58}(9), 1-34. 
+Gonzalez-Fernandez Y, Soto M (2014). \pkg{copulaedas}: An \R
+Package for Estimation of Distribution Algorithms Based on Copulas.
+\emph{Journal of Statistical Software}, \bold{58}(9), 1-34.
 \url{http://www.jstatsoft.org/v58/i09/}.
 }
