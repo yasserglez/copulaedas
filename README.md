@@ -11,5 +11,11 @@ based on copulas and vines, and it also offers the possibility of
 creating new algorithms. EDAs are implemented using S4 classes with
 generic functions for its main parts: seeding, selection, learning,
 sampling, replacement, local optimization, termination, and reporting.
-This package also includes a group of well-known benchmark problems
-and utility functions to study the behavior of EDAs.
+The package also includes a group of well-known benchmark problems and
+utility functions to study the behavior of EDAs.
+
+For a detailed introduction, please refer to the following publication:
+
+Yasser Gonzalez-Fernandez, Marta Soto (2014).
+[copulaedas: An R Package for Estimation of Distribution Algorithms Based on Copulas](http://www.jstatsoft.org/v58/i09/).
+Journal of Statistical Software, 58(9), 1-34.
