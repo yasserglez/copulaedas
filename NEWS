@@ -1,3 +1,9 @@
+Changes in version 1.4.2 (October 22, 2015):
+
+  * Fix warnings caused by missing imports in NAMESPACE.
+  * Update the package description to comply with CRAN requirements.
+  * Drop C code for cramer_vonMises in favour of copula::gofTstat.
+
 Changes in version 1.4.1 (June 20, 2014):
 
   * Add a reference to the package review published in the Journal of
@@ -11,8 +17,8 @@ Changes in version 1.4.0 (May 12, 2014):
 Changes in version 1.3.1 (February 6, 2014):
 
   * Removed the package vignette (still available on arXiv).
-  * Updated the use of the Archimedean copula functions from the copula package
-    (new use.indepC argument).
+  * Updated the use of the Archimedean copula functions from the
+    copula package (new use.indepC argument).
 
 Changes in version 1.3.0 (May 1, 2013):
 
@@ -27,8 +33,8 @@ Changes in version 1.2.1 (January 11, 2013):
 
   * Fixed warnings caused by the use of the deprecated {as.,is.,}real
     functions.
-  * Fixed warnings caused by .C calls with PACKAGE argument in a different
-    package.
+  * Fixed warnings caused by .C calls with PACKAGE argument in a
+    different package.
 
 Changes in version 1.2.0 (September 27, 2012):
 
