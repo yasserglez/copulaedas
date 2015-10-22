@@ -84,13 +84,7 @@ edaLearnVEDA <- function (eda, gen, previousModel, selectedPop,
             }
 
             # Compute the value of the goodness-of-fit test statistic.
-            candidateStat <- .C("cramer_vonMises",
-                as.integer(nrow(data)),
-                as.integer(ncol(data)),
-                as.double(data),
-                as.double(pCopula(data, candidateCopula)),
-                stat = double(1.0),
-                PACKAGE = "copulaedas")$stat
+            candidateStat <- gofTstat(data, method = "Sn", copula = candidateCopula)
 
             # Select the copula with the smaller value of the statistic.
             if (candidateStat < selectedStat) {
