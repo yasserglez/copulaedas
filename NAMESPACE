@@ -7,6 +7,9 @@ importFrom(copula, indepCopula, normalCopula, tCopula, claytonCopula,
 importFrom(vines, vineOrder, vineFit, rvine)
 importFrom(mvtnorm, rmvnorm)
 importFrom(truncnorm, ptruncnorm, qtruncnorm)
+importFrom(stats, bw.nrd0, cor, dist, dnorm, median, optimize, pnorm,
+           quantile, runif, sd)
+importFrom(utils, write.table)
 
 
 exportClasses(EDA)
