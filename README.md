@@ -5,14 +5,16 @@ EDAs Based on Copulas
 [![CRAN Version](http://www.r-pkg.org/badges/version/copulaedas)](http://cran.r-project.org/package=copulaedas)
 [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/copulaedas?color=brightgreen)](http://cran.r-project.org/package=copulaedas)
 
-Platform for implementing and studying estimation of distribution
-algorithms (EDAs) based on copulas. This package contains various EDAs
-based on copulas and vines, and it also offers the possibility of
-creating new algorithms. EDAs are implemented using S4 classes with
-generic functions for its main parts: seeding, selection, learning,
-sampling, replacement, local optimization, termination, and reporting.
-The package also includes a group of well-known benchmark problems and
-utility functions to study the behavior of EDAs.
+[copulaedas](http://cran.r-project.org/package=copulaedas) provides a platform where
+[EDAs](https://en.wikipedia.org/wiki/Estimation_of_distribution_algorithm)
+(estimation of distribution algorithms) based on
+[copulas](https://en.wikipedia.org/wiki/Copula_(probability_theory))
+can be implemented and studied. The package offers complete
+implementations of various EDAs based on copulas and vines, a group of
+well-known optimization problems, and utility functions to study the
+performance of the algorithms. Newly developed EDAs can be easily
+integrated into the package by extending an S4 class with generic
+functions for their main components.
 
 For a detailed introduction, please refer to the following publication:
 
