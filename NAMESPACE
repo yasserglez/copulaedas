@@ -1,5 +1,3 @@
-useDynLib(copulaedas)
-
 import(methods)
 importFrom(copula, indepCopula, normalCopula, tCopula, claytonCopula,
            frankCopula, gumbelCopula, archmCopula, indepTest, indepTestSim,
