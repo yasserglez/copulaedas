@@ -1,8 +1,11 @@
-language: r
-sudo: required
-warnings_are_errors: true
-apt_packages:
- - libgsl0-dev
+language: R
+cache: packages
+sudo: true
+dist: trusty
+addons:
+  apt:
+    packages:
+      - libgsl0-dev
 env:
   global:
     - _R_CHECK_CRAN_INCOMING_=false
