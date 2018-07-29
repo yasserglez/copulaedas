@@ -47,7 +47,7 @@ edaLearnCEDA <- function(eda, gen, previousModel, selectedPop,
         function (i) do.call(pmargin,
                 c(list(selectedPop[ , i]), margins[[i]])))
 
-    if (length(copula@parameters) > 0) {
+    if (.hasSlot(copula,"parameters") && length(copula@parameters) > 0) {
         if (is(copula, "normalCopula") && identical(margin, "norm")) {
             R <- cor(selectedPop)
             copula <- normalCopula(R[lower.tri(R)], dim = n, dispstr = "un")
