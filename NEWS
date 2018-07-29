@@ -1,3 +1,7 @@
+Changes in version 1.4.3 (July 29, 2018):
+
+  * Support new indepCopula() objects without a "parameters" slot.
+
 Changes in version 1.4.2 (October 22, 2015):
 
   * Fix warnings caused by missing imports in NAMESPACE.
